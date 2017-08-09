@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" id="ng-app" ng-app="app">
+<head>
+    <base href="/"/>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title ng-bind="pageTitle">翼分期商城-广东电信官方唯一指定分期商城</title>
+    <meta name="keywords" content="{{pageKeywords}}">
+    <meta name="description"
+          content="传飞翼分期商城是中国电信唯一指定分期平台，提供手机、平板、笔记本、数码相机等3C类产品分期购物服务，分期购机价和手续费都是全网最低，上线至今赢得客户的一致好评与信赖！产品都是正品国行，分期手续便捷，还款方式灵活。咨询热线：020-85599918。"
+          ng-if="!pageDescription">
+    <meta name="description" content="{{pageDescription}}" ng-if="pageDescription">
+
+    <script src="//cdn.bootcss.com/modernizr/2.8.3/modernizr.min.js"></script>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?bf6b21f0333ca2693c4bc666d044360e";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+
+    </script>
+</head>
+<body>
+<iframe src="http://mall.yfq.cn/phone/A/index" id="iframepage" scrolling="no" marginheight="0" marginwidth="0"
+        onload="IFrameReSize('iframepage')" height="4950px" frameborder="0" width="100%"></iframe>
+
+<script>
+    (function () {
+        document.getElementById("iframepage").src = document.getElementById("iframepage").src + window.location.search;
+    })();
+</script>
+</body>
+</html>

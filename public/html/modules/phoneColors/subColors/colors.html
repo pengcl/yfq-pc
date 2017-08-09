@@ -1,0 +1,18 @@
+<dl class="i-color clearfix">
+    <input type="hidden" name="subColor" id="subColor" ng-model="subColor.name" value="{{subColor.name}}" required>
+    <dt>
+        <ins></ins>
+        <span class="title" ng-bind="subColorTitle"></span>：
+    </dt>
+    <dd class="color-list">
+        <ul class="color-sub item-list">
+            <li ng-repeat="color in phone.phoneTypes[1].mediaProductList" class="color-list-item list-item" ng-class="{true:'curr',false:''}[color.name == subColor.name]" ng-click="setSubPhoneColor($event,color)">
+                <div class="img-box">
+                    <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{color.mediaUrl}}" alt="{{color.name}}" title="{{color.name}}">
+                    <span ng-bind="color.name"></span>
+                </div>
+                <ins></ins>
+            </li>
+        </ul>
+    </dd>
+</dl>

@@ -1,0 +1,1144 @@
+fieldset {
+    border: none;
+}
+
+body {
+    font-size: 14px;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin: 0;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+strong {
+    font-weight: bold;
+}
+
+.clearfix::before, .clearfix::after {
+    content: "";
+    display: table;
+}
+
+.clearfix::after {
+    clear: both;
+}
+
+.clearfix {
+}
+
+.clearfix::after, .feed::after, .feed-content .headline::after, .comment::after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+.clearfix::after {
+    clear: both;
+    content: " ";
+    display: block;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.clearfix {
+    display: inline-block;
+}
+
+/* Hides from IE-mac \*/
+* html .clearfix {
+    height: 1%;
+}
+
+.clearfix {
+    display: block;
+}
+
+/* End hide from IE-mac */
+
+.w-980 {
+    margin: 0 auto;
+    width: 980px;
+}
+
+.fl {
+    display: inline;
+    float: left;
+}
+
+.fr {
+    display: inline;
+    float: right;
+}
+
+.top-menu {
+    line-height: 40px;
+}
+
+.top-menu a {
+    color: #262626;
+    font-size: 12px;
+}
+
+.content {
+    background-color: #ff6334;
+    width: 100%;
+}
+
+.content-head {
+    background: transparent url("/images/flow/head-bg1.jpg") no-repeat scroll top center;
+    min-height: 840px;
+    width: 100%;
+}
+
+.content-head .content-main {
+    position: relative;
+}
+
+.animated-1 {
+    animation-delay: 1s;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+.animated-2 {
+    animation-delay: 2s;
+    animation-duration: 3s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(1);
+    }
+    10% {
+        transform: scale(1.1);
+    }
+    20% {
+        transform: scale(1);
+    }
+    30% {
+        transform: scale(1.1);
+    }
+    40% {
+        transform: scale(1);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(1);
+    }
+    10% {
+        transform: scale(1.1);
+    }
+    20% {
+        transform: scale(1);
+    }
+    30% {
+        transform: scale(1.1);
+    }
+    40% {
+        transform: scale(1);
+    }
+}
+
+.bounceIn {
+    animation-name: bounceIn;
+}
+
+@keyframes bounceIn2 {
+    0% {
+        opacity: 0;
+        transform: scale(1.8);
+    }
+    75% {
+        transform: scale(1.5);
+    }
+    85% {
+        transform: scale(1);
+    }
+    95% {
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes bounceIn2 {
+    0% {
+        opacity: 0;
+        transform: scale(1.8);
+    }
+    75% {
+        transform: scale(1.5);
+    }
+    85% {
+        transform: scale(1);
+    }
+    95% {
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.bounceIn2 {
+    animation-name: bounceIn2;
+}
+
+.move-big {
+    background: transparent url("/images/flow/move-big.png") no-repeat scroll center center;
+    height: 214px;
+    left: 340px;
+    position: absolute;
+    top: 12px;
+    width: 176px;
+    z-index: 100;
+}
+
+.move-little {
+    background: transparent url("/images/flow/move-little.jpg") no-repeat scroll center center;
+    height: 50px;
+    left: 512px;
+    position: absolute;
+    top: 21px;
+    width: 50px;
+}
+
+.content-body {
+    background: transparent url("/images/flow/mid-bg1.jpg?22") no-repeat scroll center center;
+    height: 431px;
+    width: 100%;
+}
+
+.content-foot {
+    background: transparent url("/images/flow/foot-bg1.jpg?123") no-repeat scroll center top;
+    height: 1135px;
+    width: 100%;
+}
+
+.content-main, .footer-message {
+    margin: 0 auto;
+    width: 920px;
+    overflow: hidden;
+}
+
+.attent-num {
+    background-color: #feffcc;
+    color: #f14948;
+    display: inline-block;
+    font-family: "MicroSoft Yahei";
+    font-size: 16px;
+    font-weight: bold;
+    height: 28px;
+    letter-spacing: 2px;
+    line-height: 28px;
+    margin-right: -7px;
+    padding: 0 10px;
+    position: absolute;
+    right: 8px;
+    text-align: right;
+    top: 257px;
+    width: 107px;
+}
+
+.charging-box {
+    margin-left: 92px;
+    margin-top: 375px;
+}
+
+input.mobile-number {
+    border: 2px solid #fd8391;
+    color: #333;
+    font-family: "MicroSoft Yahei";
+    font-size: 16px;
+    font-weight: bold;
+    height: 34px;
+    line-height: 34px;
+    outline: medium none;
+    padding: 0 20px;
+    width: 240px;
+}
+
+.mobile-number-box input.border-dark {
+    border-color: #f3384e;
+}
+
+.mobile-price-list {
+    margin: 18px 0 20px;
+    z-index: 1;
+}
+
+.price-item {
+    background-color: #fff1bd;
+    border: 2px solid #f7e099;
+    cursor: pointer;
+    display: block;
+    float: left;
+    font-family: "MicroSoft Yahei";
+    font-size: 12px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    width: 170px;
+    z-index: 1;
+}
+
+.tip-little {
+    background: transparent url("/images/flow/tip.png") no-repeat scroll 0 0;
+    display: none !important;
+    height: 38px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 38px;
+}
+
+.active .tip-little {
+    display: block;
+}
+
+.true .tip-little {
+    display: block;
+}
+
+.price-item p {
+    padding-left: 10px;
+}
+
+.mobile-price-list .active {
+    border-color: #f3384e;
+}
+
+.mobile-price-list .true {
+    border-color: #f3384e;
+}
+
+.mobile-price-list .hover {
+    border-color: #f3384e;
+}
+
+.price-before {
+    background-color: #ffeaaa;
+    color: #8e4f21;
+    height: 36px;
+    line-height: 36px;
+}
+
+.price-now {
+    background-color: #fff1bd;
+    color: #ff6934;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.active .price-before, .active .price-now {
+}
+
+.price-before span {
+    font-family: "arial";
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.price-now span {
+    font-family: "arial";
+    font-size: 34px;
+    font-weight: bold;
+}
+
+.active .price-now span {
+    color: #f14627;
+}
+
+.true .price-now span {
+    color: #f14627;
+}
+
+.foot-main {
+    color: #4768c7;
+    font-family: "MicroSoft Yahei";
+    width: 780px;
+}
+
+.rule-left, .notice-right {
+    padding-left: 26px;
+    width: 360px;
+}
+
+.rule-left {
+    padding-left: 60px;
+    width: 700px;
+}
+
+.foot-main h2 {
+    font-size: 20px;
+    font-weight: bold;
+    height: 40px;
+    line-height: 40px;
+    margin-bottom: 20px;
+}
+
+.foot-main p {
+    line-height: 22px;
+}
+
+.foot-num {
+    float: left;
+    font-weight: bold;
+}
+
+/*.foot-text {
+    float: left;
+}*/
+
+.footer-message {
+    margin-top: 365px;
+    text-align: center;
+}
+
+.footer-message li {
+    display: inline;
+    line-height: 36px;
+}
+
+.footer-message, .footer-message a {
+    color: #4a403d;
+    font-size: 12px;
+}
+
+span.charging-btn {
+    background: transparent url("/images/flow/charging-btn1.jpg") no-repeat scroll 0 0;
+    display: block;
+    height: 44px;
+    width: 240px;
+    cursor: pointer;
+}
+
+span.charging-btn.disabled {
+    opacity: 0.5;
+}
+
+span.charging-btn:hover {
+    background-position: 0 -44px;
+}
+
+.form-content {
+    position: relative;
+    z-index: 100;
+}
+
+.form-content .title {
+    font-size: 20px;
+}
+
+#mobile-confirm {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #fff;
+    border-color: currentcolor #a1a1a1 #a1a1a1;
+    border-image: none;
+    border-style: none solid solid;
+    border-width: medium 1px 1px;
+    color: #f3384e;
+    font-family: "MicroSoft Yahei";
+    font-size: 20px;
+    font-weight: bold;
+    height: 32px;
+    left: 0;
+    line-height: 32px;
+    padding: 4px 20px;
+    position: absolute;
+    top: 38px;
+    width: 242px;
+}
+
+.plachholder-span {
+    color: #919191;
+    font-family: "MicroSoft Yahei";
+    font-size: 16px;
+    font-weight: bold;
+    left: 22px;
+    line-height: 34px;
+    position: absolute;
+    top: 2px;
+}
+
+#phone-address {
+    display: inline-block;
+    font-family: "MicroSoft Yahei";
+    height: 34px;
+    line-height: 34px;
+    margin-left: 18px;
+    padding-left: 20px;
+}
+
+.mobile-error {
+    background: rgba(0, 0, 0, 0) url("/images/flow/tip-icon_605c01d.png") no-repeat scroll 0 10px;
+    color: #f7524e;
+}
+
+.mobile-success {
+    background: rgba(0, 0, 0, 0) url("/images/flow/tip-icon_605c01d.png") no-repeat scroll 0 -90px;
+    color: #1cb36e;
+}
+
+#user_info span {
+    font-size: 12px;
+}
+
+.dialog {
+    background: rgba(0, 0, 0, 0) url("/images/flow/sure-pop1.jpg") no-repeat scroll 0 0;
+    height: 300px;
+    width: 600px;
+}
+
+.xiaxian {
+    background: rgba(0, 0, 0, 0) url("/images/flow/img.png") no-repeat scroll 0 0;
+    height: 300px;
+    width: 600px;
+}
+
+.xiaxian .dialog-button0 {
+    bottom: 45px;
+    right: 225px;
+}
+
+.dialog-overlay {
+    background: #131824 none repeat scroll 0 0;
+    opacity: 0.9;
+}
+
+.dialog-content, .dialog-buttons01 {
+    height: 140px;
+    position: relative;
+}
+
+.iclose, .dialog-button0, .dialog-button1 {
+    display: block;
+    position: absolute;
+}
+
+.iclose {
+    background: #fffeec none repeat scroll 0 0;
+    height: 25px;
+    right: 30px;
+    top: 28px;
+    width: 25px;
+}
+
+.dialog-button0, .dialog-button1 {
+    bottom: 55px;
+    height: 45px;
+    width: 150px;
+}
+
+.dialog-button0 {
+    left: 225px;
+}
+
+.dialog-button1 {
+    right: 130px;
+}
+
+/*.disabled {
+    opacity: 0.5;
+}*/
+
+.ng-comments {
+    position: fixed;
+    top: 30%;
+    right: 15px;
+    width: 69px;
+}
+
+.ng-comments .img-box {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.ng-comments .img-box img {
+    display: block;
+}
+
+.ng-comments .comments-tips {
+    position: absolute;
+    right: 70px;
+    top: -50px;
+}
+
+.ng-comments .qrcode-tips {
+    position: absolute;
+    right: 70px;
+    top: -100px;
+}
+
+.bottom-right {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    background: #003b4d none repeat scroll 0 0;
+    border-radius: 5px 0px 0px 5px;
+    box-shadow: 0 0 10px 4px rgba(50, 75, 92, 0.15);
+    padding: 0;
+    z-index: 999;
+}
+
+.bottom-right .close {
+    display: block;
+    right: 0;
+    top: -31px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    text-align: center;
+    background: #fff;
+    position: absolute;
+}
+
+.bottom-right a {
+    display: block;
+    float: left;
+    text-align: center;
+    color: #003b4d;
+    width: 300px;
+}
+
+.bottom-right a img {
+    display: block;
+    float: left;
+    text-align: center;
+    font-size: 24px;
+    color: #003b4d;
+    display: block;
+    width: 100%;
+}
+
+.bottom-right a:hover {
+    background: #003b4d;
+    color: #fff;
+}
+
+.box-left-ad {
+    top: 300px;
+    left: 50%;
+    margin-left: -620px;
+    position: fixed;
+}
+
+.box-left-ad a {
+    width: 130px;
+    display: block;
+    margin-top: 10px;
+}
+
+.box-left-ad a img {
+    display: block;
+    width: 100%;
+}
+
+.flow .container {
+    padding: 0;
+}
+
+.flow .flow-content {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.flow .ctr-panel h1 {
+    font-size: 20px;
+    color: #ff6700;
+    margin: 0;
+    padding: 0;
+}
+
+.flow .ctr-panel .ctr-box {
+    padding: 25px 50px;
+    background: #fff;
+}
+
+.flow .ctr-panel .ctr-box .cznav {
+    border-bottom: 1px solid #d0d0d0;
+    font-family: "Microsoft YaHei";
+    font-size: 20px;
+    height: 47px;
+    line-height: 47px;
+}
+
+.flow .ctr-panel .ctr-box .cznav .renzheng {
+    background: rgba(0, 0, 0, 0) url("http://mall.yfq.cn/images/flow/clock.png") no-repeat;
+    display: inline-block;
+    height: 26px;
+    margin-right: 10px;
+    vertical-align: middle;
+    width: 20px;
+}
+
+.flow .ctr-panel .ctr-box .cznav .desc {
+    color: #ff6700
+}
+
+.flow .ctr-panel .ctr-box .cznav .cztype li {
+    cursor: pointer;
+    float: left;
+    margin-right: 38px;
+    padding: 0;
+    position: relative;
+}
+
+.flow .flow-content .ctr-container {
+    border: 1px solid #ccc;
+    background: #fff6f0;
+}
+
+#chongzhi {
+    font-family: "Microsoft YaHei";
+    padding-top: 47px;
+}
+
+#chongzhi .item {
+    margin-bottom: 37px;
+    overflow: hidden;
+}
+
+#chongzhi .item span.itemName {
+    display: inline-block;
+    float: left;
+    font-size: 14px;
+    height: 36px;
+    line-height: 36px;
+    width: 83px;
+}
+
+#chongzhi .priceItem {
+    margin-bottom: 3px;
+    overflow: visible;
+}
+
+#chongzhi .salePrice {
+    color: #e4393c;
+    font-size: 25px;
+    height: 36px;
+    line-height: 36px;
+}
+
+#chongzhi .priceItem .salePrice {
+    font-size: 12px;
+    height: auto;
+    margin-left: 83px;
+    overflow: hidden;
+    width: 584px;
+}
+
+#chongzhi .priceItem .salePrice li {
+    border: 1px solid #ddd;
+    color: #666;
+    line-height: 36px;
+    margin-bottom: 10px;
+    padding-left: 6px;
+    position: relative;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+#chongzhi .priceItem .salePrice li .flowArea, #chongzhi .priceItem .salePrice li .flowDesc, #chongzhi .priceItem .salePrice li .flowPrice, #chongzhi .priceItem .salePrice li .delPrice, #chongzhi .priceItem .salePrice li .flowSaleDesc, #chongzhi .priceItem .salePrice li .flowSalePic {
+    display: inline-block;
+    height: 24px;
+    line-height: 24px;
+}
+
+#chongzhi .priceItem .salePrice li .flowSaleDesc, #chongzhi .priceItem .salePrice li .flowSalePic {
+    background-color: #ffe8e8;
+    color: #e4393c;
+    text-align: center;
+}
+
+#chongzhi .priceItem .salePrice li .flowSalePic {
+    width: 25px;
+}
+
+#chongzhi .priceItem .salePrice li .flowSaleDesc {
+    margin-left: -6px;
+    padding-right: 10px;
+}
+
+#chongzhi .priceItem .salePrice li .flowArea {
+    color: #333;
+    font-weight: 700;
+    margin-left: 6px;
+}
+
+#chongzhi .priceItem .salePrice li .marginleft0 {
+    margin-left: 0;
+}
+
+#chongzhi .priceItem .salePrice li .flowPrice {
+    color: #c81623;
+    float: right;
+    font-weight: 700;
+    margin: 6px 10px 0 0;
+}
+
+#chongzhi .priceItem .salePrice li .delPrice {
+    color: #999;
+    float: right;
+    font-weight: 700;
+    margin: 6px 10px 0 0;
+}
+
+#chongzhi .priceItem .salePrice li s {
+    background: rgba(0, 0, 0, 0) url("//misc.360buyimg.com/virtuals/chongzhi/css/i/recharge.png") no-repeat scroll 0 -151px;
+    bottom: 0;
+    display: none;
+    height: 12px;
+    position: absolute;
+    right: 0;
+    width: 12px;
+}
+
+#chongzhi .priceItem .salePrice li:hover {
+    cursor: pointer;
+}
+
+#chongzhi .priceItem .salePrice li.curr {
+    border: 2px solid #e4393c;
+}
+
+#chongzhi .priceItem .salePrice li.curr .flowSaleDesc, #chongzhi .priceItem .salePrice li.curr .flowSalePic {
+    background-color: #c81623;
+    color: #fff;
+}
+
+#chongzhi .priceItem .salePrice li.curr s {
+    display: inline-block;
+}
+
+#chongzhi .submitItem {
+    margin-bottom: 0;
+    margin-top: 20px;
+}
+
+#chongzhi .submitItem .disc {
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #c81623;
+
+}
+
+#chongzhi .submitItem .disc em {
+    font-size: 18px;
+    font-style: normal;
+}
+
+#chongzhi .phoneitem {
+    height: 60px;
+    margin-bottom: 18px;
+    overflow: visible;
+}
+
+#chongzhi #areaItem {
+    margin-bottom: 18px;
+}
+
+#chongzhi #flowDesc {
+    margin-top: -30px;
+}
+
+#chongzhi .phoneContainer {
+    height: 60px;
+    position: relative;
+}
+
+#chongzhi .phoneContainer input {
+    border: 1px solid #ddd;
+    font-size: 26px;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 10px;
+    width: 418px;
+}
+
+#chongzhi .phoneContainer .gray {
+    color: #ccc;
+    font-size: 14px;
+}
+
+#chongzhi .phoneContainer .area {
+    color: #999;
+    position: absolute;
+    right: 10px;
+    top: 9px;
+}
+
+#chongzhi .phoneContainer .icon-right {
+    background: rgba(0, 0, 0, 0) url("//misc.360buyimg.com/virtuals/chongzhi/css/i/recharge.png?__sprite") no-repeat scroll 0 0;
+    display: inline-block;
+    height: 16px;
+    vertical-align: middle;
+    width: 16px;
+}
+
+#chongzhi .phoneContainer .errorTip {
+    color: #e4393c;
+    display: none;
+    padding-top: 4px;
+}
+
+#chongzhi .phoneContainer .errorTip .icon-error {
+    background: rgba(0, 0, 0, 0) url("//misc.360buyimg.com/virtuals/chongzhi/css/i/recharge.png?__sprite") no-repeat scroll 0 -78px;
+    display: inline-block;
+    height: 16px;
+    vertical-align: middle;
+    width: 16px;
+}
+
+#chongzhi .phoneContainer.numright input {
+    border: 1px solid #7abd54;
+}
+
+#chongzhi .phoneContainer.numright .area {
+    display: inline-block;
+}
+
+#chongzhi .phoneContainer.numerror input {
+    border: 1px solid #e4393c;
+}
+
+#chongzhi .phoneContainer.numerror .errorTip {
+    display: inline-block;
+}
+
+#chongzhi .rechargeItem {
+    margin-bottom: 17px;
+}
+
+#chongzhi .productList ul {
+    color: #333;
+    font-family: "Microsoft YaHei";
+    font-size: 18px;
+    overflow: hidden;
+    width: 600px;
+}
+
+#chongzhi .productList ul li {
+    border: 2px solid #ddd;
+    cursor: pointer;
+    float: left;
+    margin: 0 20px 20px 0;
+    position: relative;
+    text-align: center;
+    width: 93px;
+}
+
+#chongzhi .productList ul li .salePic{
+    background: rgba(0, 0, 0, 0) url("http://mall.yfq.cn/images/flow/hui.png") no-repeat;
+    height: 38px;
+    position: absolute;
+    right: -2px;
+    top: -2px;
+    width: 37px;
+}
+
+#chongzhi .productList ul li .item-box {
+    padding: 5px 0px
+}
+
+#chongzhi .productList ul li .item-box .title {
+    font-size: 18px;
+    line-height: 24px;
+}
+
+#chongzhi .productList ul li .item-box .disc {
+    font-size: 12px;
+    line-height: 16px;
+}
+
+#chongzhi .productList ul li .item-box.disabled {
+    opacity: 1;
+}
+
+#chongzhi .productList ul li .item-box.disabled .title {
+    line-height: 40px;
+}
+
+#chongzhi .productList ul li .item-box.disabled .disc {
+    display: none;
+}
+
+#chongzhi .productList ul li .item-box.more .title {
+    line-height: 40px
+}
+
+#chongzhi .productList ul li s {
+    background: rgba(0, 0, 0, 0) url("//misc.360buyimg.com/virtuals/chongzhi/css/i/recharge.png?__sprite") no-repeat scroll 0 -151px;
+    bottom: 0;
+    display: none;
+    height: 12px;
+    position: absolute;
+    right: 0;
+    width: 12px;
+}
+
+#chongzhi .productList ul .curr {
+    border: 2px solid #e4393c;
+}
+
+#chongzhi .productList ul .curr s {
+    display: inline-block;
+}
+
+#chongzhi .productList ul .nomr {
+    margin-right: 0;
+}
+
+#chongzhi .productList ul .nomb {
+    margin-bottom: 0;
+}
+
+.nav-panel .leftMenu {
+    height: 100%;
+    width: 100%;
+}
+
+.nav-panel .leftMenu ul {
+    font-family: "Microsoft YaHei";
+}
+
+.nav-panel .leftMenu ul li {
+    border-bottom: 1px solid #fee4d2;
+    cursor: pointer;
+    font-size: 16px;
+    height: 105px;
+    line-height: 105px;
+    padding-left: 54px;
+    position: relative;
+}
+
+.nav-panel .leftMenu ul li s {
+    left: 20px;
+    position: absolute;
+    top: 44px;
+}
+
+.nav-panel .leftMenu ul .fore4 s {
+    background: rgba(0, 0, 0, 0) url("//misc.360buyimg.com/virtuals/chongzhi/css/i/index.png") no-repeat scroll 0 0;
+    height: 16px;
+    width: 20px;
+}
+
+.nav-panel .leftMenu ul li:last-child {
+    border-bottom: medium none;
+}
+
+.nav-panel .leftMenu ul li.active {
+    background: #fff none repeat scroll 0 0;
+}
+
+.nav-panel .leftMenu ul .fore4.active {
+    border-bottom: 1px solid #d1e1f0;
+}
+
+.nav-panel .leftMenu ul .fore1 s {
+    background: rgba(0, 0, 0, 0) url("http://mall.yfq.cn/images/flow/fee.png") no-repeat;
+    height: 25px;
+    top: 40px;
+    width: 22px;
+}
+
+.nav-panel .leftMenu ul .fore2 s {
+    background: rgba(0, 0, 0, 0) url("http://mall.yfq.cn/images/flow/flow.png") no-repeat;
+    height: 25px;
+    top: 40px;
+    width: 22px;
+}
+
+#chongzhi .submit {
+    background: #e54043 none repeat scroll 0 0;
+    border: 0 none;
+    border-radius: 3px;
+    color: #fff;
+    font-family: "Microsoft YaHei";
+    font-size: 18px;
+    font-weight: 700;
+    height: 36px;
+    margin-right: 8px;
+    text-align: center;
+    vertical-align: middle;
+    width: 136px;
+}
+
+/*#chongzhi .disabled {
+    background: #ededed none repeat scroll 0 0;
+    border: 1px solid #ddd;
+    color: #9a9a9a;
+}*/
+
+#chongzhi .price-desc-tip {
+    background: rgba(0, 0, 0, 0) url("//misc.360buyimg.com/user/purchase/2.0.0/css/i/presale-icon.png") no-repeat scroll 0 0;
+    color: #005ea7;
+    display: inline-block;
+    font-size: 12px;
+    height: 20px;
+    line-height: 20px;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+#chongzhi .price-desc-tip i {
+    display: inline-block;
+    height: 20px;
+    margin-right: 5px;
+    text-decoration: none;
+    vertical-align: middle;
+    width: 20px;
+}
+
+#chongzhi .price-desc-tip:hover {
+    color: #005ea7;
+}
+
+.flow .position {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #666
+}
+
+.flow .position a {
+    color: #ff6700
+}

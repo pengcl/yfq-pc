@@ -1,0 +1,901 @@
+@import "compass/css3";
+@import "Variable";
+@import "utils/miniTab";
+@import "utils/position";
+@import "utils/header";
+@import "pages/index";
+@import "pages/flow";
+@import "pages/list";
+@import "pages/payState";
+@import "pages/details";
+
+.container {
+  width: 1220px !important;
+}
+
+.main {
+  .container {
+    width: 1220px !important;
+  }
+}
+
+.img-box {
+  img {
+    display: block;
+    width: 100%;
+  }
+}
+
+.stars .stars-content i {
+  font-size: 15px;
+  color: #999;
+  margin-right: 2px;
+  &.on {
+    color: #d83e14;
+  }
+}
+
+.owl-carousel {
+  .owl-controls {
+    position: absolute;
+    width: 100%;
+    margin-top: 0;
+    left: 0;
+    bottom: 10px;
+    .owl-page {
+      &.active {
+        span {
+          @include opacity(0.8);
+        }
+      }
+    }
+  }
+  .owl-buttons {
+    display: none;
+  }
+  .carousel-item {
+    width: 100%;
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+}
+
+.carousel {
+  .carousel-item {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+    display: block;
+    img {
+      position: absolute;
+      left: 50%;
+      margin-left: -960px;
+    }
+  }
+}
+
+.list-banner {
+  margin-bottom: 5px !important;
+  border: 0 !important;
+  @include box-shadow(0 0 3px #bbb);
+}
+
+.product-list {
+  border: 0 !important;
+  margin-left: -5px;
+  margin-right: -5px;
+  .item-box {
+    margin: 5px !important;
+    border: 0 !important;
+    @include box-shadow(0 0 3px #ddd);
+    &:hover {
+      @include box-shadow(0 0 10px #ccc);
+    }
+    .img {
+      img {
+        padding-top: 50px;
+        padding-bottom: 15px;
+      }
+    }
+  }
+  .txt {
+    text-align: center;
+    .title {
+      font-size: 14px !important;
+      font-weight: normal;
+    }
+    del {
+      color: #999;
+    }
+    .price {
+      border-bottom: 0 !important;
+      margin-top: 7px;
+      padding-bottom: 40px !important;
+      em {
+        color: #ff6700;
+        font-size: 16px;
+        font-style: normal;
+      }
+    }
+  }
+}
+
+.floor-brand {
+  display: none !important;
+}
+
+#fullDescription {
+  p {
+    max-resolution: 0;
+    padding: 0;
+    img {
+      width: 100% !important;
+      height: auto !important;
+    }
+  }
+}
+
+.footer {
+  .container {
+    width: 1220px;
+  }
+  .foot-link {
+    margin-top: 40px;
+    padding-bottom: 15px;
+    .foot-link-box {
+      text-align: left;
+      margin-left: 40px;
+      .menu-label {
+        font-size: 16px;
+      }
+      .menu-list {
+        font-size: 12px;
+        color: #999;
+        margin-top: 6px;
+        li {
+          padding-top: 3px;
+          padding-bottom: 3px;
+          a {
+            color: #999;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+    .hot-line {
+      margin-left: 60px;
+      margin-right: 60px;
+    }
+    .hot-phone {
+      position: relative;
+      ins {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        height: 100%;
+        width: 1px;
+        border-left: 1px solid #dedede;
+      }
+    }
+  }
+  .copy-right {
+    padding-top: 15px;
+    padding-bottom: 30px;
+    background: #f5f5f5;
+    .logo-ft, .friend-link {
+      @include inline-block;
+    }
+    .logo-ft {
+      width: 50px;
+      margin-right: 15px;
+    }
+    .friend-link {
+      color: #999;
+      line-height: 1.8;
+      a {
+        color: #999;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.footer-ft {
+  position: fixed;
+  width: 100%;
+  height: 265px;
+  bottom: 0;
+  left: 0;
+  background-image: url("/images/index/ft.jpg");
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  z-index: 10;
+  .ft-paopao {
+    position: absolute;
+    left: 50%;
+    margin-left: -500px;
+  }
+  .close {
+    position: absolute;
+    top: 100px;
+    right: 5px;
+    margin-left: 550px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 100;
+  }
+}
+
+.footer {
+  margin-top: 0 !important;
+  background: #fff;
+}
+
+.item-list {
+  &.paytype {
+    li {
+      @include border-bottom-left-radius(4px);
+      @include border-bottom-right-radius(4px);
+    }
+    span {
+      display: block;
+      margin-left: -12px;
+      margin-right: -12px;
+      background: #ddd;
+      text-align: center;
+      color: #fff;
+      font-size: 12px;
+      padding-left: 10px;
+      padding-right: 10px;
+      line-height: 20px;
+    }
+    .curr {
+      color: #cf0000;
+      span {
+        background: #cf0000;
+        color: #fff;
+      }
+    }
+  }
+}
+
+.ng-comments {
+  position: fixed;
+  top: 30%;
+  right: 15px;
+  width: 69px;
+  .img-box {
+    display: block;
+    margin-bottom: 5px;
+    img {
+      display: block;
+    }
+  }
+  .comments-tips {
+    position: absolute;
+    right: 70px;
+    top: -50px;
+  }
+  .qrcode-tips {
+    position: absolute;
+    right: 70px;
+    top: -100px;
+  }
+}
+
+.query-item {
+  .item-box {
+    padding-left: 10px;
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    position: relative;
+    .bl, .bb {
+      display: none;
+      z-index: 2;
+    }
+    ins {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 16px;
+      height: 13px;
+      display: none;
+      img {
+        display: block;
+      }
+    }
+    .bl {
+      position: absolute;
+      left: -1px;
+      top: -1px;
+      bottom: -1px;
+      right: auto;
+      width: 1px;
+      border-left: 1px solid #cf0000;
+    }
+    .bb {
+      position: absolute;
+      left: -1px;
+      right: -1px;
+      bottom: -1px;
+      top: auto;
+      height: 1px;
+      border-bottom: 1px solid #cf0000;
+    }
+    &.curr {
+      border-top: 1px solid #cf0000;
+      border-right: 1px solid #cf0000;
+      .bl, .bb {
+        display: block;
+      }
+      ins {
+        display: block !important;
+      }
+    }
+    &.item-2, &.item-5, &.item-8, &.item-11 {
+      border-right: 0;
+    }
+  }
+}
+
+.i-number {
+  .tooltip {
+    &.bottom {
+      &.l3 {
+        .tooltip-arrow {
+          &.tooltip-arrow-n {
+            margin-left: -118px;
+          }
+        }
+      }
+      &.l4 {
+        .tooltip-arrow {
+          &.tooltip-arrow-n {
+            margin-left: -78px;
+          }
+        }
+      }
+      &.l5 {
+        .tooltip-arrow {
+          &.tooltip-arrow-n {
+            margin-left: -40px;
+          }
+        }
+      }
+      &.l6 {
+        .tooltip-arrow {
+          &.tooltip-arrow-n {
+            margin-left: 2px;
+          }
+        }
+      }
+      &.l7 {
+        .tooltip-arrow {
+          &.tooltip-arrow-n {
+            margin-left: 44px;
+          }
+        }
+      }
+      &.l8 {
+        .tooltip-arrow {
+          &.tooltip-arrow-n {
+            margin-left: 80px;
+          }
+        }
+      }
+      &.l9 {
+        .tooltip-arrow {
+          &.tooltip-arrow-n {
+            margin-left: 120px;
+          }
+        }
+      }
+      &.l10 {
+        .tooltip-arrow {
+          &.tooltip-arrow-n {
+            margin-left: 160px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.product-txt {
+  .title-box {
+    h1 {
+      em {
+        font-style: normal;
+        color: #cf0000;
+      }
+    }
+  }
+  .choose-box {
+    dl.i-package-info {
+      .package-3 {
+        .tooltip-inner-n {
+          margin-left: 40px;
+        }
+      }
+      .package-4 {
+        .tooltip-inner-n {
+          margin-left: 120px;
+        }
+      }
+    }
+  }
+  .ng-timer {
+    clear: both;
+    margin-top: 15px;
+    .start-time {
+      display: none;
+    }
+    ins {
+      display: none;
+    }
+  }
+  .end-time {
+    height: 22px;
+    font-size: 14px;
+    .ng-scope {
+      vertical-align: sub;
+      margin-left: 5px;
+    }
+    .ng-binding {
+      float: left;
+    }
+    i, sub {
+      @include inline-block;
+    }
+    sub {
+      margin-left: 3px;
+      margin-right: 3px;
+      position: static;
+      font-size: 14px;
+    }
+    i {
+      background-image: url("/images/time-bg.png");
+      width: 33px;
+      height: 22px;
+      color: #fff;
+      text-align: center;
+      line-height: 22px;
+      font-style: normal;
+    }
+  }
+}
+
+.ng-phone-query {
+  .list-item {
+    float: none !important;
+    position: static !important;
+    &.curr {
+      padding: 0 !important;
+      &.s {
+        .img-box {
+          i {
+            display: block;
+          }
+        }
+      }
+    }
+    &.s {
+      padding: 0;
+      .img-box {
+        padding: 0 12px;
+        position: relative;
+        z-index: 4;
+        i {
+          position: absolute;
+          border-bottom: 1px solid #fff;
+          width: 100%;
+          bottom: -1px;
+          left: 0;
+          height: 5px;
+          display: none;
+          background: #fff;
+        }
+      }
+    }
+    .item-box {
+      del {
+        margin-left: 5px;
+        color: #999;
+      }
+      em {
+        font-size: 14px;
+      }
+      .picked {
+        position: absolute;
+        right: 2px;
+        top: 2px;
+        font-size: 12px;
+        color: #ccc;
+        line-height: 1;
+      }
+      ins {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 16px;
+        height: 13px;
+        img {
+          display: block;
+        }
+      }
+    }
+  }
+  .search-group {
+    padding: 10px;
+    position: relative;
+    span {
+      @include inline-block;
+      &.input-search {
+        border: 1px solid #ccc;
+        padding-left: 5px;
+      }
+      &.search {
+        border: 1px solid #ccc;
+        background: #eee;
+        margin: 0;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-left: 0;
+      }
+      &.next {
+        border: 1px solid #ccc;
+        background: #eee;
+        margin: 0;
+        padding-left: 10px;
+        padding-right: 10px;
+        position: absolute;
+        right: 10px;
+        &.disabled {
+          @include opacity(0.6);
+        }
+      }
+      &.previous {
+        border: 1px solid #ccc;
+        background: #eee;
+        margin: 0;
+        padding-left: 10px;
+        padding-right: 10px;
+        position: absolute;
+        right: 100px;
+        &.disabled {
+          @include opacity(0.6);
+        }
+      }
+      input {
+        border: none;
+        width: 200px;
+      }
+    }
+  }
+}
+
+#container {
+  .footer {
+    &.footer-tw {
+      .tw {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #eee;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+.aboutYfq {
+  .container {
+    background: #fff;
+    padding: 30px;
+    padding-bottom: 120px;
+    margin-bottom: 30px;
+    position: relative;
+    .weixin {
+      position: absolute;
+      bottom: 80px;
+      right: 30px;
+    }
+    p {
+      font-size: 16px;
+      line-height: 30px;
+    }
+    p.about-1 {
+      text-indent: 30px;
+    }
+    h1 {
+      padding-left: 20px;
+      position: relative;
+      ins {
+        position: absolute;
+        left: 0;
+        top: 7px;
+        width: 12px;
+        height: 25px;
+        background: #f00;
+      }
+    }
+  }
+}
+
+.footer-choose {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  a {
+    color: #666;
+  }
+  div {
+    padding: 5px 0;
+  }
+}
+
+.ng-rush {
+  .product-tab {
+    padding-bottom: 30px;
+    background: #fff;
+    padding-top: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
+    position: relative;
+    ins {
+      position: absolute;
+      top: 50%;
+      width: 18px;
+      height: 33px;
+      margin-top: -16px;
+      &.prev {
+        left: 20px;
+      }
+      &.next {
+        right: 20px;
+      }
+    }
+    .time-box {
+      border: 2px solid #dcdcdc;
+      padding: 10px;
+      margin-left: 7px;
+      margin-right: 7px;
+      text-align: center;
+      position: relative;
+      background: #dcdcdc;
+      color: #999;
+      cursor: pointer;
+      .start-time {
+        @include inline-block;
+        margin: 0 auto;
+        padding-left: 15px;
+        padding-right: 15px;
+        font-size: 24px;
+        border-bottom: 2px solid #bcbcbc;
+        em {
+          font-style: normal;
+          font-weight: 600;
+        }
+        sub {
+          bottom: 0;
+          margin-left: 5px;
+          font-size: 60%;
+        }
+      }
+      .end-time {
+        font-size: 20px;
+        i {
+          font-style: normal;
+        }
+        sub {
+          color: #999 !important;
+          bottom: 0;
+        }
+      }
+      ins {
+        position: absolute;
+        width: 24px;
+        height: 16px;
+        bottom: -16px;
+        z-index: 1;
+        top: auto;
+        left: 50%;
+        margin-left: -12px;
+        display: none;
+        img {
+          display: block;
+        }
+      }
+      &.curr {
+        border: 2px solid #f06;
+        background: #fff;
+        color: #333;
+        .start-time {
+          border-bottom: 2px solid #f06;
+        }
+        em {
+          color: #f06;
+        }
+        sub {
+          color: #f06;
+        }
+        ins {
+          display: block;
+        }
+        .end-time {
+          sub {
+            color: #333 !important;
+          }
+        }
+      }
+    }
+  }
+  .product-list {
+    margin: 0;
+    padding-bottom: 50px;
+    background: #fff;
+    .item-box {
+      margin: 0 !important;
+      @include box-shadow(none);
+      &.box1, &.box2, &.box3 {
+        border-right: 1px solid #ccc !important;
+      }
+      .flag-bao {
+        background: none !important;
+        padding: 0 !important;
+      }
+      .price {
+        border-bottom: 0 !important;
+        padding-bottom: 0 !important;
+        h3 {
+          font-size: 14px !important;
+          min-height: 48px;
+        }
+      }
+    }
+  }
+  .flag-bao {
+    display: none !important;
+  }
+}
+
+.flag-0 {
+  background: #388ee9 none repeat scroll 0 0;
+  color: #fff;
+  display: block;
+  position: absolute;
+  right: 20px;
+  text-align: center;
+  text-decoration: none;
+  top: 20px;
+  z-index: 9;
+  span {
+    padding: 5px 10px;
+    @include inline-block;
+    &.flag-a {
+      background: #cf0000;
+    }
+    &.flag-b {
+      background: #388ee9;
+    }
+  }
+}
+
+#productBuyNow {
+  &.disabled {
+    background: #ccc;
+  }
+}
+
+.disabled {
+  @include opacity(0.5);
+}
+
+.rush-buy {
+  height: 40px;
+  line-height: 40px;
+  color: #fff;
+  margin-top: 5px;
+  .rush-price {
+    line-height: 40px;
+    background: #ff4f73;
+  }
+  .rush-down {
+    line-height: 40px;
+    background-image: url("/images/index/rushBtBg.png");
+    background-repeat: no-repeat;
+    background-color: #ff0066;
+    text-align: right;
+  }
+  em {
+    color: #fff !important;
+    font-size: 16px !important;
+  }
+  .rush-box {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+.index-nav-sort {
+  position: absolute;
+  width: auto;
+  left: 50%;
+  margin-left: -620px;
+  top: 720px;
+  width: 60px;
+  a {
+    display: block;
+    padding: 5px;
+    span {
+      display: block;
+      width: 50px;
+      height: 50px;
+    }
+  }
+  .line {
+    height: 1px;
+    background: #ccc;
+  }
+  .index-nav-sort-0 {
+    span {
+      background-image: url("/images/index/index-nav-sort-1.png");
+    }
+    &:hover, &.curr {
+      span {
+        background-image: url("/images/index/index-nav-sort-1-on.png");
+      }
+    }
+  }
+  .index-nav-sort-1 {
+    span {
+      background-image: url("/images/index/index-nav-sort-2.png");
+    }
+    &:hover, &.curr {
+      span {
+        background-image: url("/images/index/index-nav-sort-2-on.png");
+      }
+    }
+  }
+  .index-nav-sort-2 {
+    span {
+      background-image: url("/images/index/index-nav-sort-3.png");
+    }
+    &:hover, &.curr {
+      span {
+        background-image: url("/images/index/index-nav-sort-3-on.png");
+      }
+    }
+  }
+  .index-nav-sort-3 {
+    span {
+      background-image: url("/images/index/index-nav-sort-4.png");
+    }
+    &:hover, &.curr {
+      span {
+        background-image: url("/images/index/index-nav-sort-4-on.png");
+      }
+    }
+  }
+}
+
+.is-lift-nav-fixed {
+  position: fixed;
+  top: 112px;
+}
+
+.product-txt .choose-box dl.i-package-info .paytype-2 {
+  display: block;
+  .tooltip-arrow {
+    left: 175px;
+  }
+}
+
+.product-txt .choose-box dl.i-package-info .tooltip .tooltip-arrow, .product-txt .choose-box dl.i-paytype-info .tooltip .tooltip-arrow {
+  left: 175px;
+}

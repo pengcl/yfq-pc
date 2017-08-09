@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="pure-g">
+        <div class="logo pure-u-1-4">
+            <a href="http://mall.yfq.cn/phone/A/index?gh={{gh}}&activity={{activity}}"><img src="http://mall.yfq.cn/images/logo-new.png"></a>
+        </div>
+        <div class="search pure-u-3-4" style="position:relative;">
+            <ul class="main-menu">
+                <li>
+                    <a ng-class="{true:'curr',false:''}[pageName == 'index']" href="http://mall.yfq.cn/phone/A/index?gh={{gh}}&activity={{activity}}">首页<ins></ins></a>
+                </li>
+                <li>
+                    <a ng-class="{true:'curr',false:''}[filterBrand == '华为' && pageName == 'list']" href="http://etc.yfq.cn">流量/话费充值<ins></ins></a>
+                </li>
+                <li>
+                    <a ng-class="{true:'curr',false:''}[filterBrand == '华为' && pageName == 'list']" href="http://mall.yfq.cn/phone/A/list?gh={{gh}}&activity={{activity}}&brand=华为">华为手机<ins></ins></a>
+                </li>
+                <li>
+                    <a ng-class="{true:'curr',false:''}[filterBrand == 'OPPO' && pageName == 'list']" href="http://mall.yfq.cn/phone/A/list?gh={{gh}}&activity={{activity}}&brand=OPPO">OPPO手机<ins></ins></a>
+                </li>
+                <li>
+                    <a ng-class="{true:'curr',false:''}[filterBrand == 'vivo' && pageName == 'list']" href="http://mall.yfq.cn/phone/A/list?gh={{gh}}&activity={{activity}}&brand=vivo">vivo手机<ins></ins></a>
+                </li>
+                <li>
+                    <a ng-class="{true:'curr',false:''}[filterBrand == '小米' && pageName == 'list']" href="http://mall.yfq.cn/phone/A/list?gh={{gh}}&activity={{activity}}&brand=小米">小米手机<ins></ins></a>
+                </li>
+                <li>
+                    <a ng-class="{true:'curr',false:''}[filterBrand == 'all' && filterPrice == 'all' && pageName == 'list']" href="http://mall.yfq.cn/phone/A/list?gh={{gh}}&activity={{activity}}">查看所有机型<ins></ins></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

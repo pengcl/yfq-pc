@@ -1,0 +1,18 @@
+<script>
+    console.log(null != null);
+    function bouncer(arr) {
+        // Don't show a false ID to this bouncer.
+        var fakeArr = [false,null,0,"",undefined,NaN];
+
+        function isBool(element) {
+            for(var i =0;i<fakeArr.length;i++){
+                //console.log(element != fakeArr[i]);
+                return element != fakeArr[i];
+            }
+        }
+
+        return arr.filter(isBool);
+    }
+
+    bouncer([false, null, 0, NaN, undefined, ""]);
+</script>

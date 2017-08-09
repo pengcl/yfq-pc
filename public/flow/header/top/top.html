@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="pure-g">
+        <div class="favorite pure-u-1-2">
+            <ul>
+                <li>
+                    <a href="#" onclick="addFavorite();">
+                        收藏翼分期
+                    </a>
+                </li>
+                <li class="spr"><a href="javascript:;">|</a></li>
+                <li id="header-qrcode">
+                    <a>
+                        关注翼分期
+                    </a>
+                    <div class="qrcode-img" id="qrcodeImg" style="display:none; z-index:9999">
+                        <img src="http://www.yfq.cn/templates/default/pages/active/fanghao/images/qrcode.jpg">
+                    </div>
+                </li>
+                <li class="spr"><a href="javascript:;">|</a></li>
+                <!--  <li><a href="#"><i class="fa fa-phone"></i> 020-8559 9918</a>
+                 </li> -->
+                <li>
+                    <a href="/yfq/A/abs?gh={{gh}}&activity={{activity}}">
+                        帮助中心
+                    </a>
+                </li>
+                <!--<li class="spr"><a href="javascript:;">|</a></li>
+                <li>
+                    <a href="javascript:;">
+                        分期介绍
+                    </a>
+                </li>
+                <li class="spr"><a href="javascript:;">|</a></li>
+                <li>
+                    <a href="javascript:;">
+                        问题反馈
+                    </a>
+                </li>-->
+            </ul>
+        </div>
+        <div class="userarea pure-u-1-2">
+            <ul class="pull-right">
+                <!--<li><a href="http://www.yfq.cn/ordersearch/orderState.html" class="cooperation" id="orderQuery"><i
+                        class="fa fa-search"></i> 查询订单</a>
+                    <div class="paopao-nor"></div>
+                    <div class="paopao-cur animated flipInY"></div>
+                </li>-->
+                <!--<li><a href="javascript:;">登录</a></li>
+                <li class="spr"><a href="javascript:;">|</a></li>
+                <li><a href="javascript:;">注册</a></li>
+                <li class="spr"><a href="javascript:;">|</a></li>-->
+                <li><a href="javascript:;" class="hello">咨询热线：020-85599918</a></li>
+            </ul>
+            <script>
+                var dom_cooperation = $(".pull-right .cooperation");
+                var nor = $(".paopao-nor");
+                var cur = $(".paopao-cur");
+                dom_cooperation.mouseout(function () {
+                    nor.css("display", "block");
+                    cur.removeClass("animated flipInY");
+                });
+                dom_cooperation.mouseover(function () {
+                    nor.css("display", "none");
+                    cur.addClass("animated flipInY");
+                });
+            </script>
+        </div>
+    </div>
+</div>

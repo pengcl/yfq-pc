@@ -1,0 +1,21 @@
+<div class="comments">
+    <a href="javascript:;" ng-click="getComments($event);" class="img-box" ng-mouseover="showComments($event);" ng-mouseout="hideComments($event);">
+        <img src="/images/index/comments.png">
+    </a>
+    <!--<span class="img-box" ng-mouseover="showQrCode($event);" ng-mouseout="hideQrCode($event);">
+        <img src="/images/index/qrcode.png">
+    </span>-->
+    <a href="javascript:;" class="img-box" ng-click="scrollTo($event,3,'.header-top')">
+        <img src="/images/index/index-nav-sort-4.png">
+    </a>
+    <div class="comments-tips" style="display: none;" ng-mouseout="hideComments($event);" ng-mouseover="showComments($event);">
+        <a href="javascript:;" ng-click="getComments($event);">
+            <img src="/images/index/comments-tips.png">
+        </a>
+    </div>
+    <div class="qrcode-tips" style="display: none;" ng-mouseout="hideQrCode($event);" ng-mouseover="showQrCode($event);">
+        <a href="javascript:;">
+            <img src="/images/index/qrcode-panel.png">
+        </a>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<dl class="i-color clearfix">
+    <input type="hidden" name="mainColor" id="mainColor" ng-model="mainColor.name" value="{{mainColor.name}}" required>
+    <dt><span class="title" ng-bind="mainColorTitle"></span></dt>
+    <dd class="color-list">
+        <ul class="color item-list">
+            <li ng-repeat="color in phone.phoneTypes[0].mediaProductList | orderBy : 'sortOrder'" class="color-list-item list-item" ng-class="{'curr':color.name == mainColor.name && color.stock != 0,'disabled':color.stock == 0}" ng-click="setMainPhoneColor(color,color.stock == 0)">
+                <div class="img-box">
+                    <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{color.mediaUrl}}" alt="{{color.name}}" title="{{color.name}}">
+                    <span ng-bind="color.name"></span>
+                </div>
+                <ins></ins>
+            </li>
+        </ul>
+    </dd>
+</dl>

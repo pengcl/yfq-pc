@@ -1,0 +1,224 @@
+.product-phone {
+  .fw {
+    background: #fff;
+    padding-top: 15px;
+    padding-bottom: 30px;
+  }
+
+  .list-box {
+    margin-bottom: 0 !important;
+    & > h3.title {
+      margin-top: 40px;
+      font-size: 24px;
+      color: #333;
+      font-weight: normal;
+      .more {
+        float: right;
+        font-size: 18px;
+        font-weight: normal;
+        a {
+          color: #333;
+          margin-left: 1rem;
+          @include inline-block;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+        & > span {
+          @include inline-block;
+        }
+      }
+    }
+
+    .hot-list {
+      border: 1px solid #d8d8d8;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      .item-box {
+        @include box-shadow(none);
+      }
+      .product-list {
+        margin-left: 0;
+        margin-right: 0;
+        .item-box {
+          margin: 0 !important;
+          position: relative;
+          .img {
+            a {
+              img {
+                padding-top: 20px !important;
+              }
+            }
+          }
+          .txt {
+            .price {
+              padding-bottom: 10px !important;
+            }
+          }
+          .line-right {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 1px;
+            border-right: 1px solid #d8d8d8;
+          }
+        }
+      }
+    }
+
+  }
+
+  .single-phone {
+    .list-banner-box {
+      .banner-box-content {
+        height: 292px;
+      }
+    }
+    .product-list {
+      .item-box {
+        .img {
+          img {
+            padding-top: 30px;
+            padding-bottom: 0;
+          }
+        }
+        .txt {
+          .sub-title {
+            font-size: 12px;
+            line-height: 20px;
+            color: #999;
+          }
+          .price {
+            padding-bottom: 10px !important;
+            em {
+              line-height: 21px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .brand-phones {
+    margin-left: -5px;
+    margin-right: -5px;
+    .list-banner-box {
+      margin: 5px;
+      position: relative;
+      height: 292px;
+      .banner-box-content {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 5px;
+        bottom: 5px;
+        background: #fff;
+        overflow: hidden;
+        .img-box {
+          width: 100%;
+          img {
+            display: block;
+            width: 100%;
+          }
+        }
+        .list-banner-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+        }
+        .list-banner-frt {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          .price-filter {
+            position: absolute;
+            top: 35%;
+            width: 100%;
+            left: 0;
+            .price-filter-content {
+              margin-left: 20px;
+              margin-right: 20px;
+              .label {
+                color: #fff;
+                font-size: 14px;
+              }
+              .price-filter-list {
+                margin-left: -3px;
+                margin-right: -3px;
+                margin-top: 20px;
+                .price-filter-box {
+                  display: block;
+                  margin: 8px 3px;
+                  border: 1px solid #fff;
+                  text-align: center;
+                  padding: 5px 0;
+                  color: #fff;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .list-phone-box {
+      margin: 5px;
+    }
+  }
+}
+
+.ad-list {
+  height: 168px;
+  overflow: hidden;
+  margin-right: -20px;
+  .ad-item {
+    float: left;
+    margin-right: 20px;
+    .img-box {
+      display: block;
+    }
+  }
+}
+
+.brand-list {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding-left: 50px;
+  padding-right: 50px;
+  background: #f3f8fc;
+  .brand-box {
+    margin: 5px;
+    padding: 20px;
+  }
+  .owl-carousel {
+    .owl-wrapper-outer {
+      z-index: 1;
+    }
+    .owl-controls {
+      top: 0;
+      bottom: auto;
+      height: 100%;
+    }
+    .owl-buttons {
+      display: block !important;
+      & > div {
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+        padding: 5px;
+        top: 50%;
+        margin-top: -15px;
+      }
+      .owl-prev {
+        position: absolute;
+        left: -40px;
+      }
+      .owl-next {
+        position: absolute;
+        right: -40px;
+      }
+    }
+  }
+}

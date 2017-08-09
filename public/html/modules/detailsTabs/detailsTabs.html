@@ -1,0 +1,123 @@
+<div id="productDetailTabs" class="cf-tab">
+    <div class="cf-tab-nav">
+        <ul class="clearfix" style="padding-left:15px;">
+            <li class="tab-nav active" ng-click="getContent(0)"><a href="#">商品详情</a>
+            </li>
+            <li class="tab-nav" ng-click="getContent(1)"><a href="#">规格参数</a>
+            </li>
+            <li class="tab-nav" ng-click="getContent(2)"><a href="#">商品评价</a>
+            </li>
+            <li class="tab-nav" ng-click="getContent(3)"><a href="#">售后保障</a>
+            </li>
+        </ul>
+    </div>
+    <div class="cf-tab-container">
+        <ul class="cf-content">
+            <li id="fullDescription" role="tabpanel" style="display: block;" class="tab-content"
+                ng-bind-html="fullDescription">
+                <!-- 商品详情广告-->
+            </li>
+            <li role="tabpanel" style="display: none;" class="tab-content"
+                ng-bind-html="phone.phoneTypes[0].comboParam">
+            </li>
+            <li role="tabpanel" style="display: none;" class="tab-content">
+                <div class="comment">
+                    <div class="comment-info J-comment-info">
+                        <div class="comment-percent">
+                            <strong class="percent-tit">好评度</strong>
+                            <span class="percent-con"><span ng-bind="feedbacks.result2.praise"></span></span>
+                        </div>
+                        <div class="percent-info" style="display: none">
+                            <div class="tag-list">
+                                <span>外观漂亮(1167)</span><span>支持国产(1123)</span><span>系统流畅(1007)</span><span>性价比高(918)</span><span>功能齐全(831)</span><span>后盖很漂亮(817)</span><span>反应快(810)</span><span>指纹识别(780)</span><span>分辨率高(701)</span><span>照相不错(688)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="J-comments-list comments-list ETab">
+                        <div class="tab-con">
+                            <div class="comment-item" ng-if="feedbacks.success" ng-repeat="feedback in typeFeedbacks | limitTo : limitNo">
+                                <div class="user-column">
+                                    <div class="user-info"><span style="font-size: 20px" ng-bind="feedback.memberPhone | phoneFilter"></span>
+                                    </div>
+                                    <div class="user-level"><span style="color:#666666"></span></div>
+                                </div>
+                                <div class="comment-column J-comment-column">
+                                    <div id="stars" class="ng-star" ratting="[feedback.starRating1,feedback.starRating2,feedback.starRating3]"></div>
+                                    <!--<div class="comment-star star5"></div>-->
+                                    <p class="comment-con" ng-bind="feedback.message" style="font-size: 16px"></p>
+                                    <div class="J-pic-view-wrap clearfix"></div>
+                                    <div class="comment-message" style="font-size: 16px">
+                                        <div class="order-info"><span ng-bind="feedback.productName"></span> <span ng-bind="feedback.createDate | date:'yyyy-MM-dd h:mm'"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="com-table-footer">
+                                <div class="ui-page-wrap clearfix" ng-if="!(typeFeedbacks.length <= 5 || limitNo == 100)">
+                                    <div class="ui-page">
+                                        <a rel="1" class="ui-page-curr" href="javascript:void(0)">1</a>
+                                        <a rel="2" href="#comment">2</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li role="tabpanel" style="display: none;" class="tab-content">
+
+                <div class="item-detail item-detail-copyright">
+                    <div class="serve-agree-bd">
+                        <dl>
+                            <dt>
+                                <i class="goods">
+                                    <img src="http://app.yfq.cn/images/phones/dj/detail/serviceIcon-1.png">
+                                </i>
+                                <strong>厂家服务</strong>
+                            </dt>
+                            <dd>
+                                本产品全国联保，享受三包服务，质保期为：一年质保<br>
+                                如因质量问题或故障，凭厂商维修中心或特约维修点的质量检测证明，享受7日内退货，15日内换货，15日以上在质保期内享受免费保修等三包服务！<br>(注:如厂家在商品介绍中有售后保障的说明,则此商品按照厂家说明执行售后保障服务。)
+                            <dt>
+                                <i class="goods">
+                                    <img src="http://app.yfq.cn/images/phones/dj/detail/serviceIcon-2.png">
+                                </i>
+                                <strong>翼分期承诺</strong>
+                            </dt>
+                            <dd>
+                                翼分期商城卖家销售并发货的商品，由商城卖家提供发票和相应的售后服务。请您放心购买！<br>
+                                注：因厂家会在没有任何提前通知的情况下更改产品包装、产地或者一些附件，本司不能确保客户收到的货物与商城图片、产地、附件说明完全一致。只能确保为原厂正货！并且保证与当时市场上同样主流新品一致。若本商城没有及时更新，请大家谅解！
+                            </dd>
+
+                            <dt>
+                                <i class="goods">
+                                    <img src="http://app.yfq.cn/images/phones/dj/detail/serviceIcon-3.png">
+                                </i>
+                                <strong>正品行货</strong>
+                            </dt>
+                            <dd>翼分期商城向您保证所售商品均为正品行货，商品开具电子发票。</dd>
+                            <dt>
+                                <i class="unprofor">
+                                    <img src="http://app.yfq.cn/images/phones/dj/detail/serviceIcon-4.png">
+                                </i>
+                                <strong>全国联保</strong></dt>
+                            <dd>
+                                凭质保证书及翼分期商城发票，可享受全国联保服务，与您亲临商场选购的商品享受相同的质量保证。翼分期商城还为您提供具有竞争力的商品价格和运费政策，请您放心购买！
+                                <br><br>注：因厂家会在没有任何提前通知的情况下更改产品包装、产地或者一些附件，本司不能确保客户收到的货物与商城图片、产地、附件说明完全一致。只能确保为原厂正货！并且保证与当时市场上同样主流新品一致。若本商城没有及时更新，请大家谅解！
+                            </dd>
+                            <dt>
+                                <i class="unprofor">
+                                    <img src="http://app.yfq.cn/images/phones/dj/detail/serviceIcon-5.png">
+                                </i>
+                                <strong>无忧退换货</strong></dt>
+                            <dd>
+                                客户购买翼分期商品7日内（不包括话费套餐以及话费套餐卡，含7日，自客户收到商品之日起计算），在保证商品完好的前提下，可无理由退货，但翼分期商城不承担退换货的物流费用。
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

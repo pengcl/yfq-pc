@@ -1,0 +1,569 @@
+<div class="main-index">
+    <div class="ng-gh"></div>
+    <div class="ng-activity"></div>
+    <div id="banner" class="owl-carousel">
+        <a href="/phs/sg/{{pageType}}/456?gh={{gh}}&activity={{activity}}" ng-click="writeSelectFoods(this,456,'MYSY');"
+           class="carousel-item item"><img src="/images/index/banner-1.jpg"></a>
+        <a href="/phs/sg/{{pageType}}/458?gh={{gh}}&activity={{activity}}" ng-click="writeSelectFoods(this,458,'MYSY');" has-hash="false"
+           class="carousel-item item"><img
+                src="/images/index/banner-2.jpg"></a>
+        <!--<a href="/phs/sg/{{pageType}}/258?gh={{gh}}&activity={{activity}}" has-hash="false"
+           class="carousel-item item"><img
+                src="/images/index/banner-3.jpg"></a>-->
+    </div>
+    <div class="product-phone">
+
+        <div class="fw">
+            <div class="container">
+                <div class="ad-list">
+                    <div class="ad-1 ad-item">
+                        <div class="img-box">
+                            <img src="/images/index/ad-1-1.jpg">
+                        </div>
+                    </div>
+                    <div class="ad-2 ad-item">
+                        <a href="#" class="img-box">
+                            <img src="/images/index/ad-1-2.jpg">
+                        </a>
+                    </div>
+                    <div class="ad-3 ad-item">
+                        <a href="http://etc.yfq.cn?gh=mall" class="img-box" target="_blank">
+                            <img src="/images/index/ad-1-3.jpg">
+                        </a>
+                    </div>
+                    <div class="ad-4 ad-item">
+                        <a href="#" class="img-box">
+                            <img src="/images/index/ad-1-4.jpg">
+                        </a>
+                    </div>
+                </div>
+                <!--<h2 class="title" title="0利息0手续费机型供你任性选择"><span class="span-title">0利息0手续费机型供你任性选择</span></h2>-->
+            </div>
+            <div class="container">
+                <!-- 热门推荐 -->
+                <div class="list-box">
+                    <h3 class="title">热门推荐</h3>
+                    <div class="hot-list">
+                        <ul class="product-list pure-g" style="margin-top: 5px">
+                            <!--<li ng-repeat="singlePhone in singlePhones | orderBy: sortOrder" ng-if="singlePhone.salePrice >= 1500" data-order="{{singlePhone.sortOrder}}" class="pure-u-1-3" class="phone-listing" on-finish>-->
+                            <li ng-repeat="singlePhone in singlePhones | filter:{ifRecommend: 2}" class="pure-u-1-5"
+                                class="phone-listing">
+                                <div class="box{{$index + 1}} item-box">
+                                    <div class="img overlay-container">
+                                        <a href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}?gh={{gh}}&activity={{activity}}"
+                                           ng-click="writeSelectFoods(this,singlePhone.activityproductId,'BKDJ');">
+                                            <img alt="{{singlePhone.productName}}" style="height:180px" class="lazy"
+                                                 data-original="http://www.yfq.cn:8899/fileserver/medias/{{singlePhone.mainImageUrl}}">
+                                        </a>
+                                    </div>
+                                    <div class="txt">
+                                        <h3 class="title"><a
+                                                href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}?gh={{gh}}&activity={{activity}}"
+                                                ng-click="writeSelectFoods(this,singlePhone.activityproductId,'BKDJ');">{{singlePhone.productName}}</a><span>已售：{{phone.sold}}</span>
+                                        </h3>
+                                        <!--<p class="sub-title">
+                                            <del>原价：￥<span ng-bind="singlePhone.salePrice"></span></del>
+                                        </p>-->
+                                        <div class="price">
+                                            <em>￥</em><em ng-bind="singlePhone.salePrice * 0.95 | numberUp"></em>
+                                        </div>
+                                    </div>
+                                    <span class="line-right"></span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="brand-list">
+                    <div id="brand" class="owl-carousel">
+                        <div class="carousel-item item">
+                            <div class="brand-box">
+                                <a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand=iPhone" class="img-box"><img src="/images/brands/1.jpg"></a>
+                            </div>
+                        </div>
+                        <div class="carousel-item item">
+                            <div class="brand-box">
+                                <a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand=华为" class="img-box"><img src="/images/brands/2.jpg"></a>
+                            </div>
+                        </div>
+                        <div class="carousel-item item">
+                            <div class="brand-box">
+                                <a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand=小米" class="img-box"><img src="/images/brands/3.jpg"></a>
+                            </div>
+                        </div>
+                        <div class="carousel-item item">
+                            <div class="brand-box">
+                                <a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand=vivo" class="img-box"><img src="/images/brands/4.jpg"></a>
+                            </div>
+                        </div>
+                        <div class="carousel-item item">
+                            <div class="brand-box">
+                                <a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand=魅族" class="img-box"><img src="/images/brands/5.jpg"></a>
+                            </div>
+                        </div>
+                        <div class="carousel-item item">
+                            <div class="brand-box">
+                                <a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand=华为" class="img-box"><img src="/images/brands/6.jpg"></a>
+                            </div>
+                        </div>
+                        <div class="carousel-item item">
+                            <div class="brand-box">
+                                <a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand=OPPO" class="img-box"><img src="/images/brands/7.jpg"></a>
+                            </div>
+                        </div>
+                        <div class="carousel-item item">
+                            <div class="brand-box">
+                                <a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand=美图" class="img-box"><img src="/images/brands/8.jpg"></a>
+                            </div>
+                        </div>
+                        <div class="carousel-item item">
+                            <div class="brand-box">
+                                <a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand=小辣椒" class="img-box"><img src="/images/brands/9.jpg"></a>
+                            </div>
+                        </div>
+                        <div class="carousel-item item">
+                            <div class="brand-box">
+                                <a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand=360" class="img-box"><img src="/images/brands/10.jpg"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container">
+
+            <!--<div class="ng-rush" style="display: none"></div>-->
+
+            <div class="single-phone list-box">
+                <h3 class="title">高性价比 <!--<span class="more"><a
+                        href="/phone/A/list?gh={{gh}}&activity={{activity}}&price=[2500,3500]">更多</a> <span
+                        class="fa fa-angle-right"></span></span>--></h3>
+
+                <div class="brand-phones pure-g">
+                    <div class="pure-u-1-5" style="position: relative">
+                        <div class="list-banner-box" style="height: 594px">
+                            <div class="banner-box-content" style="height: 594px">
+                                <div class="list-banner-bg">
+                                    <div class="img-box">
+                                        <img class="lazy" data-original="/images/index/list-banner-1.png">
+                                    </div>
+                                </div>
+                                <div class="list-banner-frt">
+                                    <div class="img-box">
+                                        <img src="/images/index/list-baner-bg.png">
+                                    </div>
+                                    <div class="price-filter">
+                                        <div class="price-filter-content">
+                                            <span class="label">您的购买手机预算：</span>
+                                            <ul class="price-filter-list pure-g">
+                                                <li class="pure-u-1-2">
+                                                    <a class="price-filter-box" href="/phone/A/list?gh=&activity=&brand=all&spec=all&price=[0,1500]">
+                                                        0-￥1500
+                                                    </a>
+                                                </li>
+                                                <li class="pure-u-1-2">
+                                                    <a class="price-filter-box" href="/phone/A/list?gh=&activity=&brand=all&spec=all&price=[1500,2500]">
+                                                        ￥1500-￥2500
+                                                    </a>
+                                                </li>
+                                                <li class="pure-u-1-2">
+                                                    <a class="price-filter-box" href="/phone/A/list?gh=&activity=&brand=all&spec=all&price=[2500,3500]">
+                                                        ￥2500-￥3500
+                                                    </a>
+                                                </li>
+                                                <li class="pure-u-1-2">
+                                                    <a class="price-filter-box" href="/phone/A/list?gh=&activity=&brand=all&spec=all&price=[3500,15000]">
+                                                        ￥3500以上
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pure-u-4-5">
+                        <div class="list-phone-box">
+                            <ul class="product-list pure-g">
+                                <!-- 单机循环开始 -->
+                                <li ng-repeat="singlePhone in singlePhones | priceQuery : priceArea | limitTo:8"
+                                    class="pure-u-1-4"
+                                    class="phone-listing">
+                                    <div class="box{{$index + 1}} item-box">
+                                        <div class="img overlay-container">
+                                            <a href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}?gh={{gh}}&activity={{activity}}"
+                                               ng-click="writeSelectFoods(this,singlePhone.activityproductId,'BKDJ');">
+                                                <img alt="{{singlePhone.productName}}" style="height:160px" class="lazy"
+                                                     ng-src="http://www.yfq.cn:8899/fileserver/medias/{{singlePhone.mainImageUrl}}">
+                                            </a>
+                                        </div>
+                                        <div class="txt">
+                                            <h3 class="title"><a
+                                                    href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}?gh={{gh}}&activity={{activity}}"
+                                                    ng-click="writeSelectFoods(this,singlePhone.activityproductId,'BKDJ');">{{singlePhone.productName}}</a><span>已售：{{phone.sold}}</span>
+                                            </h3>
+                                            <p class="sub-title">
+                                                <del>原价：￥<span ng-bind="singlePhone.salePrice"></span></del>
+                                            </p>
+                                            <div class="price">
+                                                <em>￥</em><em
+                                                    ng-bind="singlePhone.salePrice * 0.95 | numberUp | number : 0"></em>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- 单机循环结束 -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 单机结束 -->
+
+            <!-- iPhone - 苹果手机 start -->
+            <div class="single-phone list-box">
+                <h3 class="title">iPhone - 苹果手机 <span class="more"><a
+                        href="/phone/A/list?gh={{gh}}&activity={{activity}}&brand=iPhone">更多</a> <span
+                        class="fa fa-angle-right"></span></span></h3>
+
+                <div class="brand-phones pure-g">
+                    <div class="pure-u-1-5" style="position: relative">
+                        <div class="list-banner-box">
+                            <div class="banner-box-content">
+                                <div class="list-banner-bg">
+                                    <div class="img-box">
+                                        <a href="/phs/sg/{{pageType}}/272?gh={{gh}}&activity={{activity}}&colorTag=红色"><img
+                                                class="lazy" data-original="/images/index/list-banner-2.jpg"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pure-u-4-5">
+                        <div class="list-phone-box">
+                            <ul class="product-list pure-g">
+                                <!-- 单机循环开始 -->
+                                <li ng-repeat="singlePhone in singlePhones | filter:{brandName: 'iPhone'} | limitTo:4"
+                                    class="pure-u-1-4"
+                                    class="phone-listing" on-finish>
+                                    <div class="box{{$index + 1}} item-box">
+                                        <div class="img overlay-container">
+                                            <a href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}?gh={{gh}}&activity={{activity}}"
+                                               ng-click="writeSelectFoods(this,singlePhone.activityproductId,'BKDJ');">
+                                                <img alt="{{singlePhone.productName}}" style="height:160px" class="lazy"
+                                                     data-original="http://www.yfq.cn:8899/fileserver/medias/{{singlePhone.mainImageUrl}}">
+                                            </a>
+                                        </div>
+                                        <div class="txt">
+                                            <h3 class="title"><a
+                                                    href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}?gh={{gh}}&activity={{activity}}"
+                                                    ng-click="writeSelectFoods(this,singlePhone.activityproductId,'BKDJ');">{{singlePhone.productName}}</a><span>已售：{{phone.sold}}</span>
+                                            </h3>
+                                            <p class="sub-title">
+                                                全场限时特惠9.5折
+                                            </p>
+                                            <div class="price">
+                                                <em>￥</em><em
+                                                    ng-bind="singlePhone.salePrice * 0.95 | numberUp | number : 0"></em>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- 单机循环结束 -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- iPhone - 苹果手机 end -->
+
+            <!-- HUAWEI - 华为手机 start -->
+            <div class="single-phone list-box">
+                <h3 class="title">HUAWEI - 华为手机 <span class="more"><a
+                        href="/phone/A/list?gh={{gh}}&activity={{activity}}&brand=华为">更多</a> <span
+                        class="fa fa-angle-right"></span></span></h3>
+
+                <div class="brand-phones pure-g">
+                    <div class="pure-u-1-5" style="position: relative">
+                        <div class="list-banner-box">
+                            <div class="banner-box-content">
+                                <div class="list-banner-bg">
+                                    <div class="img-box">
+                                        <a href="/phs/sg/{{pageType}}/383?gh={{gh}}&activity={{activity}}"><img
+                                                class="lazy" data-original="/images/index/list-banner-3.jpg"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pure-u-4-5">
+                        <div class="list-phone-box">
+                            <ul class="product-list pure-g">
+                                <!-- 单机循环开始 -->
+                                <li ng-repeat="singlePhone in singlePhones | filter:{brandName: '华为'} | limitTo:4"
+                                    class="pure-u-1-4"
+                                    class="phone-listing" on-finish>
+                                    <div class="box{{$index + 1}} item-box">
+                                        <div class="img overlay-container">
+                                            <a href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}?gh={{gh}}&activity={{activity}}"
+                                               ng-click="writeSelectFoods(this,singlePhone.activityproductId,'BKDJ');">
+                                                <img alt="{{singlePhone.productName}}" style="height:160px" class="lazy"
+                                                     data-original="http://www.yfq.cn:8899/fileserver/medias/{{singlePhone.mainImageUrl}}">
+                                            </a>
+                                        </div>
+                                        <div class="txt">
+                                            <h3 class="title"><a
+                                                    href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}?gh={{gh}}&activity={{activity}}"
+                                                    ng-click="writeSelectFoods(this,singlePhone.activityproductId,'BKDJ');">{{singlePhone.productName}}</a><span>已售：{{phone.sold}}</span>
+                                            </h3>
+                                            <p class="sub-title">
+                                                全场限时特惠9.5折
+                                            </p>
+                                            <div class="price">
+                                                <em>￥</em><em
+                                                    ng-bind="singlePhone.salePrice * 0.95 | numberUp | number : 0"></em>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- 单机循环结束 -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- HUAWEI - 华为手机 end -->
+
+            <!-- OPPO start -->
+            <div class="single-phone list-box">
+                <h3 class="title">OPPO手机 <span class="more"><a
+                        href="/phone/A/list?gh={{gh}}&activity={{activity}}&brand=OPPO">更多</a> <span
+                        class="fa fa-angle-right"></span></span></h3>
+
+                <div class="brand-phones pure-g">
+                    <div class="pure-u-1-5" style="position: relative">
+                        <div class="list-banner-box">
+                            <div class="banner-box-content">
+                                <div class="list-banner-bg">
+                                    <div class="img-box">
+                                        <a href="/phs/sg/{{pageType}}/342?gh={{gh}}&activity={{activity}}"><img
+                                                class="lazy" data-original="/images/index/list-banner-4.jpg"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pure-u-4-5">
+                        <div class="list-phone-box">
+                            <ul class="product-list pure-g">
+                                <!-- 单机循环开始 -->
+                                <li ng-repeat="singlePhone in singlePhones | filter:{brandName: 'OPPO'} | limitTo:4"
+                                    class="pure-u-1-4"
+                                    class="phone-listing" on-finish>
+                                    <div class="box{{$index + 1}} item-box">
+                                        <div class="img overlay-container">
+                                            <a href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}?gh={{gh}}&activity={{activity}}"
+                                               ng-click="writeSelectFoods(this,singlePhone.activityproductId,'BKDJ');">
+                                                <img alt="{{singlePhone.productName}}" style="height:160px" class="lazy"
+                                                     data-original="http://www.yfq.cn:8899/fileserver/medias/{{singlePhone.mainImageUrl}}">
+                                            </a>
+                                        </div>
+                                        <div class="txt">
+                                            <h3 class="title"><a
+                                                    href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}?gh={{gh}}&activity={{activity}}"
+                                                    ng-click="writeSelectFoods(this,singlePhone.activityproductId,'BKDJ');">{{singlePhone.productName}}</a><span>已售：{{phone.sold}}</span>
+                                            </h3>
+                                            <p class="sub-title">
+                                                全场限时特惠9.5折
+                                            </p>
+                                            <div class="price">
+                                                <em>￥</em><em
+                                                    ng-bind="singlePhone.salePrice * 0.95 | numberUp | number : 0"></em>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- 单机循环结束 -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- OPPO end -->
+
+            <!-- vivo start -->
+            <div class="single-phone list-box">
+                <h3 class="title">vivo手机 <span class="more"><a
+                        href="/phone/A/list?gh={{gh}}&activity={{activity}}&brand=vivo">更多</a> <span
+                        class="fa fa-angle-right"></span></span></h3>
+
+                <div class="brand-phones pure-g">
+                    <div class="pure-u-1-5" style="position: relative">
+                        <div class="list-banner-box">
+                            <div class="banner-box-content">
+                                <div class="list-banner-bg">
+                                    <div class="img-box">
+                                        <a href="/phs/sg/{{pageType}}/335?gh={{gh}}&activity={{activity}}"><img
+                                                class="lazy" data-original="/images/index/list-banner-5.jpg"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pure-u-4-5">
+                        <div class="list-phone-box">
+                            <ul class="product-list pure-g">
+                                <!-- 单机循环开始 -->
+                                <li ng-repeat="singlePhone in singlePhones | filter:{brandName: 'vivo'} | limitTo:4"
+                                    class="pure-u-1-4"
+                                    class="phone-listing" on-finish>
+                                    <div class="box{{$index + 1}} item-box">
+                                        <div class="img overlay-container">
+                                            <a href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}?gh={{gh}}&activity={{activity}}"
+                                               ng-click="writeSelectFoods(this,singlePhone.activityproductId,'BKDJ');">
+                                                <img alt="{{singlePhone.productName}}" style="height:160px" class="lazy"
+                                                     data-original="http://www.yfq.cn:8899/fileserver/medias/{{singlePhone.mainImageUrl}}">
+                                            </a>
+                                        </div>
+                                        <div class="txt">
+                                            <h3 class="title"><a
+                                                    href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}?gh={{gh}}&activity={{activity}}"
+                                                    ng-click="writeSelectFoods(this,singlePhone.activityproductId,'BKDJ');">{{singlePhone.productName}}</a><span>已售：{{phone.sold}}</span>
+                                            </h3>
+                                            <p class="sub-title">
+                                                全场限时特惠9.5折
+                                            </p>
+                                            <div class="price">
+                                                <em>￥</em><em
+                                                    ng-bind="singlePhone.salePrice * 0.95 | numberUp | number : 0"></em>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- 单机循环结束 -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- vivo end -->
+
+            <!-- 其它 start -->
+            <div class="single-phone list-box">
+                <h3 class="title">其它手机品牌 <span class="more"><a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand=小米">小米</a> <a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand=魅族">魅族</a> <a
+                        href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand=360">360手机</a> <a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand=乐视">乐视手机</a> <a
+                        href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand=美图">美图</a> <span
+                        class="fa fa-angle-right"></span></span></h3>
+
+                <div class="brand-phones pure-g">
+                    <div class="pure-u-1-5" style="position: relative">
+                        <div class="list-banner-box">
+                            <div class="banner-box-content">
+                                <div class="list-banner-bg">
+                                    <div class="img-box">
+                                        <a href="/phs/sg/{{pageType}}/392?gh={{gh}}&activity={{activity}}"><img
+                                                class="lazy" data-original="/images/index/list-banner-6.jpg"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pure-u-4-5">
+                        <div class="list-phone-box">
+                            <ul class="product-list pure-g">
+                                <!-- 单机循环开始 -->
+                                <li ng-repeat="singlePhone in singlePhones | other | limitTo:4" class="pure-u-1-4"
+                                    class="phone-listing" on-finish>
+                                    <div class="box{{$index + 1}} item-box">
+                                        <div class="img overlay-container">
+                                            <a href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}?gh={{gh}}&activity={{activity}}"
+                                               ng-click="writeSelectFoods(this,singlePhone.activityproductId,'BKDJ');">
+                                                <img alt="{{singlePhone.productName}}" style="height:160px" class="lazy"
+                                                     data-original="http://www.yfq.cn:8899/fileserver/medias/{{singlePhone.mainImageUrl}}">
+                                            </a>
+                                        </div>
+                                        <div class="txt">
+                                            <h3 class="title"><a
+                                                    href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}?gh={{gh}}&activity={{activity}}"
+                                                    ng-click="writeSelectFoods(this,singlePhone.activityproductId,'BKDJ');">{{singlePhone.productName}}</a><span>已售：{{phone.sold}}</span>
+                                            </h3>
+                                            <p class="sub-title">
+                                                全场限时特惠9.5折
+                                            </p>
+                                            <div class="price">
+                                                <em>￥</em><em
+                                                    ng-bind="singlePhone.salePrice * 0.95 | numberUp | number : 0"></em>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- 单机循环结束 -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 其它 end -->
+
+        </div>
+    </div>
+    <div class="fqa-bottom fqa" style="display:none">
+        <div class="container">
+            <div class="fqa-box">
+                <h2 class="title"><span>0手续费分期必看</span><a target="_blank" href="/pcardn/explain.html">什么是信用卡分期？</a></h2>
+                <div class="title-info">本商城是广东电信唯一指定分期商城，更携手中行、工行、广发等6大银行，为您提供安全<br>
+                    可靠的0息0手续费分期购机优惠。<br>
+                    本店承诺：所售产品均为国行正品、套餐内容真实，如有不符，两倍赔付。
+                </div>
+                <ul class="fqa-list pure-g">
+                    <li ng-repeat="phoneFqa in fqas.phone.fqa" class="pure-u-1-4 li-box-{{$index + 1}}">
+                        <div class="img-box img-{{$index + 1}}"></div>
+                        <div ng-bind-html="phoneFqa | trustHtml" class="fqa-txt"></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="quality-box pure-g">
+                <div class="title pure-u-1-5">－品质承诺－
+                    <ins></ins>
+                </div>
+                <div class="txt pure-u-4-5">
+                    <p>本商城是广东电信唯一指定分期商城，更携手中行、工行、广发等6大银行，为您提供安全可靠的0息0手续费分期购机优惠。</p>
+                    <p>本商城承诺：所售产品均为国行正品、套餐内容真实，如有不符，两倍赔付。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--<div class="footer-ft" style="display:none">
+        <div class="ft-paopao">
+            <img src="/images/index/ft-paopao.png">
+        </div>
+        <div class="close"><i style="display: inline-block" class="close-icon" ng-click="ftClose();"><img width="30"
+                                                                                                          src="images/index/close.png"></i>
+        </div>
+    </div>-->
+
+    <!--<div class="index-nav-sort">
+        <a class="index-nav-sort-0" ng-class="{true:'curr',false:''}[navSortIndex==0]" href="javascript:void(0)" ng-click="scrollTo($event,0,'.ng-rush')">
+            <span></span>
+        </a>
+        <div class="line"></div>
+        <a class="index-nav-sort-1" ng-class="{true:'curr',false:''}[navSortIndex==1]" href="javascript:void(0)"
+           ng-click="scrollTo($event,1,'.single-phone')">
+            <span></span>
+        </a>
+        <div class="line"></div>
+        <a class="index-nav-sort-2" ng-class="{true:'curr',false:''}[navSortIndex==2]" href="javascript:void(0)" ng-click="scrollTo($event,2,'.double-phone')">
+            <span></span>
+        </a>
+        <div class="line"></div>
+        <a class="index-nav-sort-3" ng-class="{true:'curr',false:''}[navSortIndex==3]" href="javascript:void(0)"
+           ng-click="scrollTo($event,3,'.header-top')">
+            <span></span>
+        </a>
+    </div>-->
+</div>

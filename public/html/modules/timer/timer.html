@@ -1,0 +1,14 @@
+<div class="start-time">
+    <sub ng-if="dateTag == 'before'">昨天</sub>
+    <sub ng-if="dateTag == 'after'">明天</sub>
+    <em ng-bind="startTitle"></em>
+    <sub ng-if="nowT > startT && nowT < endT">抢购中</sub>
+    <sub ng-if="nowT < startT">即将开始</sub>
+    <sub ng-if="nowT > endT">已结束</sub>
+</div>
+<div class="end-time">
+    <span ng-if="nowT > startT && nowT < endT">距离活动结束 <span ng-bind-html="timerE"></span></span>
+    <span ng-if="nowT < startT">距离活动开始 <span ng-bind-html="timerS"></span></span>
+    <span ng-if="nowT > endT">活动已经结束</span>
+</div>
+<ins><img src="/images/index/time-arrow.png"></ins>

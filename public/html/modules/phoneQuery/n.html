@@ -1,0 +1,103 @@
+<dl class="i-number clearfix">
+    <input id="mainNumber" name="mainNumber" ng-model="mainNumber" type="hidden" required value="{{mainNumber}}">
+    <input id="subNumber" name="subNumber" ng-model="subNumber" type="hidden" required value="{{subNumber}}">
+    <dt>选择4G卡优惠套餐靓号：</dt>
+    <dd>
+        <ul class="item-list">
+            <li class="list-item s" ng-class="{true:'curr',false:''}[mainNumberShow]" ng-click="showMNumberPn($event)">
+                <div class="img-box">
+                    <span>主机号码 {{mainNumber}}</span>
+                    <i></i>
+                </div>
+                <div class="mini-tab" ng-class="{true:'hover',false:''}[mainNumberShow]">
+                    <div class="content">
+                        <div class="m">
+                            <div class="mc">
+                                <ul class="tab-content">
+                                    <li class="curr">
+                                        <div class="search-group">
+                                            <span class="input-search"><input ng-change="phoneMainFilter(mainQuery)" ng-blur="inputNumber(mainQuery,'main')" class="weui-input" pattern="[0-9]*" ng-model="mainQuery" placeholder="请输入2 ~ 5位您想要的数字">
+                                            </span><span class="search">搜索</span>
+                                            <span class="previous" ng-click="Previous('main')" ng-class="{true:'disabled',false:''}[selPage == 1]">上一页</span>
+                                            <span class="next" ng-click="Next('main')">下一页</span>
+                                        </div>
+                                        <div class="query-panel">
+                                            <ul class="query-lists item-lists pure-g">
+                                                <li class="query-item list-item pure-u-1-3" ng-repeat="numberItem in mainItems">
+                                                    <div class="item-box item-{{$index}}" ng-class="{true:'curr',false:''}[mainNumber == numberItem.n || subNumber == numberItem.n]" ng-click="setMainNumber($event,numberItem)">
+                                                        <p class="phone-number" >
+                                                            <span class="picked">
+                                                                <span ng-if="mainNumber == numberItem.n">主卡</span>
+                                                                <span ng-if="subNumber == numberItem.n">副卡</span>
+                                                            </span>
+                                                            <span ng-bind-html="numberItem.n | replaceInput : mainQuery | trustHtml"></span>
+                                                            <em ng-if="numberItem.s > 0">￥0</em>
+                                                            <del ng-bind="'￥' + numberItem.s" ng-if="numberItem.s > 0"></del>
+                                                        </p>
+                                                        <ins class="icon-check">
+                                                            <img src="/images/item-arrow.png">
+                                                        </ins>
+                                                        <i class="bl"></i>
+                                                        <i class="bb"></i>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <span class="clr"></span>
+                    </div>
+                    <div class="close" style="" ng-click="miniTabClose($event)"></div>
+                </div>
+            </li>
+            <li class="list-item s" ng-class="{true:'curr',false:''}[subNumberShow]" ng-click="showSNumberPn($event)" ng-if="hasSubNumber == 'true'">
+                <div class="img-box">
+                    <span>副机号码 {{subNumber}}</span>
+                    <i></i>
+                </div>
+                <div class="mini-tab" ng-class="{true:'hover',false:''}[subNumberShow]">
+                    <div class="content">
+                        <div class="m">
+                            <div class="mc">
+                                <ul class="tab-content">
+                                    <li class="curr">
+                                        <div class="search-group">
+                                            <span class="input-search"><input ng-change="phoneSubFilter(subQuery)" ng-blur="inputNumber(subQuery,'sub')" class="weui-input" pattern="[0-9]*" ng-model="subQuery" placeholder="请输入2 ~ 5位您想要的数字">
+                                            </span><span class="search">搜索</span>
+                                            <span class="previous" ng-click="Previous('sub')" ng-class="{true:'disabled',false:''}[selSubPage == 1]">上一页</span>
+                                            <span class="next" ng-click="Next('sub')">下一页</span>
+                                        </div>
+                                        <div class="query-panel">
+                                            <ul class="query-lists item-lists pure-g">
+                                                <li class="query-item list-item pure-u-1-3" ng-repeat="numberItem in subItems  | orderBy: -s">
+                                                    <div class="item-box item-{{$index}}" ng-class="{true:'curr',false:''}[mainNumber == numberItem.n || subNumber == numberItem.n]" ng-click="setSubNumber($event,numberItem)">
+                                                        <p class="phone-number" >
+                                                            <span class="picked">
+                                                                <span ng-if="mainNumber == numberItem.n">主卡</span>
+                                                                <span ng-if="subNumber == numberItem.n">副卡</span>
+                                                            </span>
+                                                            <span ng-bind-html="numberItem.n | replaceInput : subQuery | trustHtml"></span>
+                                                        </p>
+                                                        <ins class="icon-check">
+                                                            <img src="/images/item-arrow.png">
+                                                        </ins>
+                                                        <i class="bl"></i>
+                                                        <i class="bb"></i>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <span class="clr"></span>
+                    </div>
+                    <div class="close" style="" ng-click="miniTabClose($event)"></div>
+                </div>
+            </li>
+        </ul>
+    </dd>
+</dl>

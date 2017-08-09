@@ -1,0 +1,270 @@
+<div class="main-list">
+    <div class="ng-gh"></div>
+    <div class="ng-activity"></div>
+    <div class="fw">
+        <div class="container">
+            <div class="position"><a href="javascript:;">首页</a> > 所有手机机型</div>
+            <div class="filter">
+                <ul class="filter-list border pure-g">
+                    <li class="label filter-item pure-u-1-8">
+                        <div class="filter-item-box">
+                            品牌
+                        </div>
+                    </li>
+                    <li class="filter-item pure-u-1-8">
+                        <a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand=all&spec={{filterSpec}}&price={{filterPrice}}" class="filter-item-box" ng-class="{true:'curr',false:''}[filterObj.brand == 'all']"
+                             ng-click="setFilterBrand('all')">
+                            全部
+                            <ins></ins>
+                        </a>
+                    </li>
+                    <li class="filter-item pure-u-1-8">
+                        <a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand=iPhone&spec={{filterSpec}}&price={{filterPrice}}" class="filter-item-box" ng-class="{true:'curr',false:''}[filterObj.brand == 'iPhone']"
+                             ng-click="setFilterBrand('iPhone')">
+                            iPhone
+                            <ins></ins>
+                        </a>
+                    </li>
+                    <li class="filter-item pure-u-1-8">
+                        <a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand=华为&spec={{filterSpec}}&price={{filterPrice}}" class="filter-item-box" ng-class="{true:'curr',false:''}[filterObj.brand == '华为']"
+                             ng-click="setFilterBrand('华为')">
+                            华为
+                            <ins></ins>
+                        </a>
+                    </li>
+                    <li class="filter-item pure-u-1-8">
+                        <a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand=OPPO&spec={{filterSpec}}&price={{filterPrice}}" class="filter-item-box" ng-class="{true:'curr',false:''}[filterObj.brand == 'OPPO']"
+                             ng-click="setFilterBrand('OPPO')">
+                            OPPO
+                            <ins></ins>
+                        </a>
+                    </li>
+                    <li class="filter-item pure-u-1-8">
+                        <a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand=vivo&spec={{filterSpec}}&price={{filterPrice}}" class="filter-item-box" ng-class="{true:'curr',false:''}[filterObj.brand == 'vivo']"
+                             ng-click="setFilterBrand('vivo')">
+                            vivo
+                            <ins></ins>
+                        </a>
+                    </li>
+                    <li class="filter-item pure-u-1-8">
+                        <a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand=小米&spec={{filterSpec}}&price={{filterPrice}}" class="filter-item-box" ng-class="{true:'curr',false:''}[filterObj.brand == '小米']"
+                             ng-click="setFilterBrand('小米')">
+                            小米
+                            <ins></ins>
+                        </a>
+                    </li>
+                    <li class="filter-item last pure-u-1-8" ng-click="showBrandMore(true)">
+                        <a href="javascript:;" class="filter-item-box">
+                            <span>其它</span> <i class="fa fa-angle-down fa-2x" aria-hidden="true"></i>
+                            <ins></ins>
+                        </a>
+                    </li>
+                    <li ng-show="brandMore || filterObj.brand == '魅族' || filterObj.brand == '美图' || filterObj.brand == '乐视' || filterObj.brand == '小辣椒' || filterObj.brand == '360'" class="filter-item pure-u-1-8"></li>
+                    <li ng-show="brandMore || filterObj.brand == '魅族' || filterObj.brand == '美图' || filterObj.brand == '乐视' || filterObj.brand == '小辣椒' || filterObj.brand == '360'" class="filter-item pure-u-1-8"></li>
+                    <li class="filter-item pure-u-1-8" ng-show="brandMore || filterObj.brand == '魅族' || filterObj.brand == '美图' || filterObj.brand == '乐视' || filterObj.brand == '小辣椒' || filterObj.brand == '360'">
+                        <a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand=魅族&spec={{filterSpec}}&price={{filterPrice}}" class="filter-item-box" ng-class="{true:'curr',false:''}[filterObj.brand == '魅族']"
+                           ng-click="setFilterBrand('魅族')">
+                            魅族
+                            <ins></ins>
+                        </a>
+                    </li>
+                    <li class="filter-item pure-u-1-8" ng-show="brandMore || filterObj.brand == '魅族' || filterObj.brand == '美图' || filterObj.brand == '乐视' || filterObj.brand == '小辣椒' || filterObj.brand == '360'">
+                        <a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand=美图&spec={{filterSpec}}&price={{filterPrice}}" class="filter-item-box" ng-class="{true:'curr',false:''}[filterObj.brand == '美图']"
+                           ng-click="setFilterBrand('美图')">
+                            美图
+                            <ins></ins>
+                        </a>
+                    </li>
+                    <li class="filter-item pure-u-1-8" ng-show="brandMore || filterObj.brand == '魅族' || filterObj.brand == '美图' || filterObj.brand == '乐视' || filterObj.brand == '小辣椒' || filterObj.brand == '360'">
+                        <a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand=乐视&spec={{filterSpec}}&price={{filterPrice}}" class="filter-item-box" ng-class="{true:'curr',false:''}[filterObj.brand == '乐视']"
+                           ng-click="setFilterBrand('乐视')">
+                            乐视手机
+                            <ins></ins>
+                        </a>
+                    </li>
+                    <li class="filter-item pure-u-1-8" ng-show="brandMore || filterObj.brand == '魅族' || filterObj.brand == '美图' || filterObj.brand == '乐视' || filterObj.brand == '小辣椒' || filterObj.brand == '360'">
+                        <a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand=小辣椒&spec={{filterSpec}}&price={{filterPrice}}" class="filter-item-box" ng-class="{true:'curr',false:''}[filterObj.brand == '小辣椒']"
+                           ng-click="setFilterBrand('小辣椒')">
+                            小辣椒
+                            <ins></ins>
+                        </a>
+                    </li>
+                    <li class="filter-item pure-u-1-8" ng-show="brandMore || filterObj.brand == '魅族' || filterObj.brand == '美图' || filterObj.brand == '乐视' || filterObj.brand == '小辣椒' || filterObj.brand == '360'">
+                        <a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand=360&spec={{filterSpec}}&price={{filterPrice}}" class="filter-item-box" ng-class="{true:'curr',false:''}[filterObj.brand == '360']"
+                           ng-click="setFilterBrand('360')">
+                            360手机
+                            <ins></ins>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="filter-list border pure-g">
+                    <li class="label filter-item pure-u-1-8">
+                        <div class="filter-item-box">
+                            规格
+                        </div>
+                    </li>
+                    <li class="filter-item pure-u-1-8">
+                        <a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand={{filterBrand}}&spec=all&price={{filterPrice}}" class="filter-item-box" ng-class="{true:'curr',false:''}[filterObj.spec == 'all']"
+                             ng-click="setFilterSpec('all')">
+                            全部
+                            <ins></ins>
+                        </a>
+                    </li>
+                    <li class="filter-item pure-u-1-8">
+                        <a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand={{filterBrand}}&spec=16&price={{filterPrice}}" class="filter-item-box" ng-class="{true:'curr',false:''}[filterObj.spec == '16']"
+                             ng-click="setFilterSpec(16)">
+                            16GB
+                            <ins></ins>
+                        </a>
+                    </li>
+                    <li class="filter-item pure-u-1-8">
+                        <a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand={{filterBrand}}&spec=64&price={{filterPrice}}" class="filter-item-box" ng-class="{true:'curr',false:''}[filterObj.spec == '64']"
+                             ng-click="setFilterSpec(64)">
+                            64GB
+                            <ins></ins>
+                        </a>
+                    </li>
+                    <li class="filter-item pure-u-1-8">
+                        <a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand={{filterBrand}}&spec=128&price={{filterPrice}}" class="filter-item-box" ng-class="{true:'curr',false:''}[filterObj.spec == '128']"
+                             ng-click="setFilterSpec(128)">
+                            128GB
+                            <ins></ins>
+                        </a>
+                    </li>
+                    <li class="filter-item pure-u-1-8">
+                        <a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand={{filterBrand}}&spec=256&price={{filterPrice}}" class="filter-item-box" ng-class="{true:'curr',false:''}[filterObj.spec == '256']"
+                             ng-click="setFilterSpec(256)">
+                            256GB
+                            <ins></ins>
+                        </a>
+                    </li>
+                    <li class="filter-item pure-u-1-8">
+                        <a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand={{filterBrand}}&spec=other&price={{filterPrice}}" class="filter-item-box" ng-class="{true:'curr',false:''}[filterObj.spec == 'other']"
+                             ng-click="setFilterSpec('other')">
+                            其它
+                            <ins></ins>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="filter-list pure-g">
+                    <li class="label filter-item pure-u-1-8">
+                        <div class="filter-item-box">
+                            价格
+                        </div>
+                    </li>
+                    <li class="filter-item pure-u-1-8">
+                        <a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand={{filterBrand}}&spec={{filterSpec}}&price=all" class="filter-item-box" ng-class="{true:'curr',false:''}[filterObj.price == 'all']"
+                             ng-click="setFilterPrice('all')">
+                            全部
+                            <ins></ins>
+                        </a>
+                    </li>
+                    <li class="filter-item pure-u-1-8">
+                        <a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand={{filterBrand}}&spec={{filterSpec}}&price=[0,1500]" class="filter-item-box" ng-class="{true:'curr',false:''}[filterObj.price[0] == 0]"
+                             ng-click="setFilterPrice([0,1500])">
+                            ￥0-￥1500
+                            <ins></ins>
+                        </a>
+                    </li>
+                    <li class="filter-item pure-u-1-8">
+                        <a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand={{filterBrand}}&spec={{filterSpec}}&price=[1500,2500]" class="filter-item-box" ng-class="{true:'curr',false:''}[filterObj.price[0] == 1500]"
+                             ng-click="setFilterPrice([1500,2500])">
+                            ￥1500-￥2500
+                            <ins></ins>
+                        </a>
+                    </li>
+                    <li class="filter-item pure-u-1-8">
+                        <a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand={{filterBrand}}&spec={{filterSpec}}&price=[2500,3500]" class="filter-item-box" ng-class="{true:'curr',false:''}[filterObj.price[0] == 2500]"
+                             ng-click="setFilterPrice([2500,3500])">
+                            ￥2500-￥3500
+                            <ins></ins>
+                        </a>
+                    </li>
+                    <li class="filter-item pure-u-1-8">
+                        <a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand={{filterBrand}}&spec={{filterSpec}}&price=[3500,15000]" class="filter-item-box" ng-class="{true:'curr',false:''}[filterObj.price[0] == 3500]"
+                             ng-click="setFilterPrice([3500,15000])">
+                            ￥3500+
+                            <ins></ins>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="phone-filter">
+                <div class="pure-g">
+                    <div class="pure-u-1-2">
+                        <span class="phone-filter-item border" ng-class="{true:'curr'}[phoneFilter == '-activityproductId']" ng-click="setPhoneFilter('-activityproductId')">新品</span>
+                        <span class="phone-filter-item border" ng-class="{true:'curr'}[phoneFilter == 'salePrice' || phoneFilter == '-salePrice']">
+                            <span ng-if="phoneFilter == 'salePrice'" ng-click="setPhoneFilter('-salePrice')">价格 <span class="fa fa-arrow-up"></span></span><span ng-if="phoneFilter != 'salePrice'" ng-click="setPhoneFilter('salePrice')">价格 <span class="fa fa-arrow-down"></span></span>
+                        </span>
+                        <span class="phone-filter-item" ng-class="{true:'curr'}[phoneFilter == 'commentNum']" ng-click="setPhoneFilter('commentNum')">评论最多</span>
+                    </div>
+                    <div class="pure-u-1-2" style="text-align: right">
+                        <span class="phone-filter-item" ng-click="showIfSellOut()" style="padding-right: 0"><span class="fa" ng-class="{true:'fa-check-square',false:'fa-square-o'}[filterObj.sellOut]"></span> 仅显示有货商品</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="container">
+            <!-- phone-list -->
+            <div class="list-box">
+                <ul class="product-list pure-g" style="margin-top: 5px">
+                    <li ng-repeat="singlePhone in mainItems | orderBy : phoneFilter"
+                        class="pure-u-1-4"
+                        class="phone-listing">
+                        <div class="ng-list-item-box" params="params" category="category" gh="gh" activity="activity" page-type="pageType" single-phone="singlePhone"></div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="pages">
+                <a class="prev" ng-class="{true:'disabled',false:''}[selPage == 1]" ng-click="Previous()" href="javascript:;"><img src="/images/list/left-arrow.png"></a>
+                <a class="next" ng-class="{true:'disabled',false:''}[selPage == pages]" ng-click="Next()" href="javascript:;"><img src="/images/list/right-arrow.png"></a>
+            </div>
+
+            <div class="img-box" style="margin-top: 50px;margin-bottom: 50px">
+                <img src="/images/list/guessYouLike.png">
+            </div>
+
+            <div class="list-box">
+                <ul class="guess product-list pure-g" style="margin-top: 5px">
+                    <li ng-repeat="singlePhone in singlePhones | filter:{ifRecommend: 2} | limitTo : 5"
+                        class="pure-u-1-5"
+                        class="phone-listing">
+                        <div class="ng-list-item-box" params="params" category="category" gh="gh" activity="activity" page-type="pageType" single-phone="singlePhone"></div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="fqa-bottom fqa" style="display:none">
+        <div class="container">
+            <div class="fqa-box">
+                <h2 class="title"><span>0手续费分期必看</span><a target="_blank" href="/pcardn/explain.html">什么是信用卡分期？</a></h2>
+                <div class="title-info">本商城是广东电信唯一指定分期商城，更携手中行、工行、广发等6大银行，为您提供安全<br>
+                    可靠的0息0手续费分期购机优惠。<br>
+                    本店承诺：所售产品均为国行正品、套餐内容真实，如有不符，两倍赔付。
+                </div>
+                <ul class="fqa-list pure-g">
+                    <li ng-repeat="phoneFqa in fqas.phone.fqa" class="pure-u-1-4 li-box-{{$index + 1}}">
+                        <div class="img-box img-{{$index + 1}}"></div>
+                        <div ng-bind-html="phoneFqa | trustHtml" class="fqa-txt"></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="quality-box pure-g">
+                <div class="title pure-u-1-5">－品质承诺－
+                    <ins></ins>
+                </div>
+                <div class="txt pure-u-4-5">
+                    <p>本商城是广东电信唯一指定分期商城，更携手中行、工行、广发等6大银行，为您提供安全可靠的0息0手续费分期购机优惠。</p>
+                    <p>本商城承诺：所售产品均为国行正品、套餐内容真实，如有不符，两倍赔付。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

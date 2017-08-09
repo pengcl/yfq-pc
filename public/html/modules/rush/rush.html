@@ -1,0 +1,120 @@
+<!-- 抢购开始 -->
+<div class="list-box">
+    <div class="list-title">
+        <ins></ins>
+        <span class="floor">1F</span><span class="span-title">每日抢购</span>
+        <span class="floor-day ib">
+            <span class="floor-day-week">每日限量秒杀</span><br>
+            <span class="floor-day-sx">每天限量新机等你来</span>
+        </span>
+        <a href="javascript:;" class="floor-more">更多机型 ></a>
+    </div>
+
+        <!-- 抢购循环开始 -->
+        <div class="product-tab">
+            <ins class="prev" ng-click="rushPrev($event);" ng-class="{true:'disabled',false:''}[dayTag == 'before']"><img src="/images/index/time-arrow-l.png"></ins>
+            <div class="time-owl" ng-if="dayTag == 'before'">
+                <ul class="time-lists pure-g">
+                    <li class="time-item pure-u-1-3">
+                        <div class="time-box" ng-class="{true:'curr',false:''}[activeDate == todayB + ' 10']" ng-click="getActiveProList(todayB + ' 10')">
+                            <div class="ng-timer" ng-if="nowDate" now-time="{{nowDate}}" date-tag="before" date-day="todayB" start-title="10:00" start-time="10:00:00" end-time="11:00:00"></div>
+                        </div>
+                    </li>
+                    <li class="time-item pure-u-1-3">
+                        <div class="time-box" ng-class="{true:'curr',false:''}[activeDate == todayB + ' 12']" ng-click="getActiveProList(todayB + ' 12')">
+                            <div class="ng-timer" ng-if="nowDate" now-time="{{nowDate}}" date-tag="before" date-day="todayB" start-title="12:00" start-time="12:00:00" end-time="13:00:00"></div>
+                        </div>
+                    </li>
+                    <li class="time-item pure-u-1-3">
+                        <div class="time-box" ng-class="{true:'curr',false:''}[activeDate == todayB + ' 15']" ng-click="getActiveProList(todayB + ' 15')">
+                            <div class="ng-timer" ng-if="nowDate" now-time="{{nowDate}}" date-tag="before" date-day="todayB" start-title="15:00" start-time="15:00:00" end-time="16:00:00"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="time-owl" ng-if="dayTag == 'today'">
+                <ul class="time-lists pure-g">
+                    <li class="time-item pure-u-1-3">
+                        <div class="time-box" ng-class="{true:'curr',false:''}[activeDate == todayT + ' 10']" ng-click="getActiveProList(todayT + ' 10')">
+                            <div class="ng-timer" ng-if="nowDate" now-time="{{nowDate}}" date-tag="today" date-day="todayT" start-title="10:00" start-time="10:00:00" end-time="11:00:00"></div>
+                        </div>
+                    </li>
+                    <li class="time-item pure-u-1-3">
+                        <div class="time-box" ng-class="{true:'curr',false:''}[activeDate == todayT + ' 12']" ng-click="getActiveProList(todayT + ' 12')">
+                            <div class="ng-timer" ng-if="nowDate" now-time="{{nowDate}}" date-tag="today" date-day="todayT" start-title="12:00" start-time="12:00:00" end-time="13:00:00"></div>
+                        </div>
+                    </li>
+                    <li class="time-item pure-u-1-3">
+                        <div class="time-box" ng-class="{true:'curr',false:''}[activeDate == todayT + ' 15']" ng-click="getActiveProList(todayT + ' 15')">
+                            <div class="ng-timer" ng-if="nowDate" now-time="{{nowDate}}" date-tag="today" date-day="todayT" start-title="15:00" start-time="15:00:00" end-time="16:00:00"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="time-owl" ng-if="dayTag == 'after'">
+                <ul class="time-lists pure-g">
+                    <li class="time-item pure-u-1-3">
+                        <div class="time-box" ng-class="{true:'curr',false:''}[activeDate == todayA + ' 10']" ng-click="getActiveProList(todayA + ' 10')">
+                            <div class="ng-timer" ng-if="nowDate" now-time="{{nowDate}}" date-tag="after" date-day="todayA" start-title="10:00" start-time="10:00:00" end-time="11:00:00"></div>
+                        </div>
+                    </li>
+                    <li class="time-item pure-u-1-3">
+                        <div class="time-box" ng-class="{true:'curr',false:''}[activeDate == todayA + ' 12']" ng-click="getActiveProList(todayA + ' 12')">
+                            <div class="ng-timer" ng-if="nowDate" now-time="{{nowDate}}" date-tag="after" date-day="todayA" start-title="12:00" start-time="12:00:00" end-time="13:00:00"></div>
+                        </div>
+                    </li>
+                    <li class="time-item pure-u-1-3">
+                        <div class="time-box" ng-class="{true:'curr',false:''}[activeDate == todayA + ' 15']" ng-click="getActiveProList(todayA + ' 15')">
+                            <div class="ng-timer" ng-if="nowDate" now-time="{{nowDate}}" date-tag="after" date-day="todayA" start-title="15:00" start-time="15:00:00" end-time="16:00:00"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <ins class="next" ng-click="rushNext($event);" ng-class="{true:'disabled',false:''}[dayTag == 'after']"><img src="/images/index/time-arrow-r.png"></ins>
+        </div>
+        <ul class="product-list pure-g">
+            <li ng-repeat="rushPhone in rushPhones | filter:{startDateTime : activeDate}" class="pure-u-1-4" class="phone-listing">
+                <div class="box{{$index + 1}} item-box">
+                    <ins class="flag-bao">
+                        <img src="/images/index/soldout.png">
+                    </ins>
+
+                    <div class="img overlay-container">
+                        <a ng-click="isDisabled($event,dayTag)" href="/phs/rs/{{pageType}}/{{rushPhone.productId}}/{{rushPhone.activityProductId}}/{{activeDate.split(' ')[1]}}/{{dayTag}}{{params}}" ng-class="{true:'disabled',false:''}[dayTag == 'before']" ng-click="writeSelectFoods(this,rushPhone.productId,'BKDJ');">
+                            <img alt="{{rushPhone.productName}}" style="height:220px" ng-src="http://www.yfq.cn:8899/fileserver/medias/{{rushPhone.mainImageUrl}}">
+                        </a>
+                    </div>
+                    <div class="txt">
+                        <ins></ins>
+                        <div class="price">
+                            <h3 class="title"><a ng-click="isDisabled($event,dayTag)" href="/phs/rs/{{pageType}}/{{rushPhone.productId}}/{{rushPhone.activityProductId}}/{{activeDate.split(' ')[1]}}/{{dayTag}}{{params}}" ng-class="{true:'disabled',false:''}[dayTag == 'before']" ng-click="writeSelectFoods(this,rushPhone.productId,'BKDJ');">{{rushPhone.productName}} 移动联通电信4G手机</a>
+                            </h3>
+                        </div>
+                        <div class="buy">
+                            <div class="sprice">
+                                <div>
+                                    <div>原价：￥{{rushPhone.salePrice}}
+                                        <em></em>
+                                    </div>
+                                </div>
+                            </div>
+                            <a ng-click="isDisabled($event,dayTag)" href="/phs/rs/{{pageType}}/{{rushPhone.productId}}/{{rushPhone.activityProductId}}/{{activeDate.split(' ')[1]}}/{{dayTag}}{{params}}" ng-class="{true:'disabled',false:''}[dayTag == 'before']" class="rush-buy pure-g">
+                                <div class="rush-price pure-u-1-2">
+                                    <div class="rush-box">
+                                        抢购价：<em>￥</em><em ng-bind="rushPhone.activityPrice"></em>
+                                    </div>
+                                </div>
+                                <div class="rush-down pure-u-1-2">
+                                    <div class="rush-box">
+                                        直降：<em>￥</em><em ng-bind="rushPhone.salePrice - rushPhone.activityPrice"></em>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <!-- 抢购循环结束 -->
+</div>
+<!-- 抢购结束 -->

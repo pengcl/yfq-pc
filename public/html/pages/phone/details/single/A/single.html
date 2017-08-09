@@ -1,0 +1,448 @@
+<div class="modal fade angular-modal in" id="myModalPackage" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a class="close js-close" type="button" ng-click="domHide($event,'#myModalPackage')" href="javascript:;"><span>x</span></a>
+                <h4 class="modal-title">活动套餐</h4>
+            </div>
+            <div class="modal-body">
+                <div class="body-tops"><i class="fa fa-info-circle"></i>
+                    <span>独家政策，全国通用，接听免费，拨出无漫游，优惠周期36个月，号码归属广州</span></div>
+                <div class="body-content">
+                    <table class="pure-table">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>套餐原价</th>
+                            <th>每月实缴</th>
+                            <th>3年总返回话费</th>
+                            <th>每月返还(次月起)</th>
+                            <th>国内流量</th>
+                            <th>国内通话</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="package in phone.packageProductList" class="js-package">
+                            <td><i class="fa fa-check-circle"></i></td>
+                            <td><span ng-bind="package.oldPrice | number : 0"></span>元套餐</td>
+                            <td><span ng-bind="package.salesPrice | number : 0"></span>元</td>
+                            <td><span ng-bind="(package.oldPrice - package.salesPrice)*36"></span>元</td>
+                            <td><span ng-bind="package.oldPrice - package.salesPrice"></span>元</td>
+                            <td><span ng-bind="package.network"></span>G</td>
+                            <td><span ng-bind="package.talkTime"></span>分钟</td>
+                        </tr>
+                        <tr>
+                            <td colspan="7">
+                                <div class="body-info">
+                                    <p><em>*</em>超出收费：短信0.1元/条，国内通话0.15元/分，国内流量不足100MB按0.0003元/KB收费，100MB—500MB收费30元。
+                                    </p>
+                                    <p><em>*</em>领卡后当月充值使用的话费优惠折扣，会在下月初减免返回给您。</p>
+                                    <p ng-bind-html="mainTips"></p>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a class="js-close pure-button pure-button-default" ng-click="domHide($event,'#myModalPackage')"
+                   href="javascript:;">确定</a>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<div class="product-detail" ng-init="gotop()">
+    <form id="productDetailsForm" name="productDetailsForm" action="http://www.yfq.cn/pcardn/chooseInfo.html" method="post">
+        <input type="hidden" value="1" name="monthNumber" id="monthNumber">
+        <input type="hidden" value="{{category}}" name="category" id="category">
+        <input type="hidden" value="{{phone.activityproductId}}" ng-model="phone.productId" name="machineId" id="machineId">
+        <input type="hidden" value="{{activeTag}}" ng-model="activeTag" name="activeTag" id="activeTag">
+        <input type="hidden" value="{{phoneQueryUrl}}" name="phoneQueryUrl" id="phoneQueryUrl">
+        <input type="hidden" value="{{phoneQueryUrl}}" name="redirectUrl" id="redirectUrl">
+        <div class="ng-gh"></div>
+        <div class="ng-activity"></div>
+        <!--<input type="hidden" name="package" id="package" value="{{mainPackage}}"/>
+        <input type="hidden" name="color" id="color" value="{{mainImageColor}}"/>
+        <input type="hidden" name="colorSub" id="colorSub" value="{{mainImageColorSub}}"/>
+        <input type="hidden" name="storage" id="storage" value="{{phone.flash}}"/>
+        <input type="hidden" name="paymentMethod" id="paymentMethod" value="cmb"/>
+        <input type="hidden" name="productId" id="productId" value="{{mainProductId}}"/>
+        <input type="hidden" name="type" id="type" value="{{mainPackageType}}"/>-->
+        <div class="main">
+            <div class="position">
+                <div class="container">
+                    <a href="/" class="home">首页</a> <span>></span> <a href="javascript:;">{{phone.phoneTypes[0].productName}}</a>
+                </div>
+            </div>
+            <div class="container">
+                <div class="product pure-g">
+                    <div class="paopao-words"></div>
+                    <div class="product-img pure-u-9-24">
+                        <div class="img-wrap">
+                            <div class="img">
+                                <img alt="{{phone.phoneTypes[0].productName}}" ng-if="mainColor.mediaUrl != '' && mainColor.mediaUrl != undefined" style="width:100%;height:auto;" ng-src="http://www.yfq.cn:8899/fileserver/medias/{{mainColor.mediaUrl}}">
+                            </div>
+                            <div class="product-image-list">
+                                <div id="product-image-list" class="scrollable">
+                                    <span id="scroller-prev" class="prev disable"><i
+                                            class="fa fa-angle-left"></i></span>
+                                    <span id="scroller-next" class="next"><i class="fa fa-angle-right"></i></span>
+                                    <div class="scroller">
+                                        <ul class="img-list" id="imgList">
+                                            <li ng-repeat="color in phone.phoneTypes[0].mediaProductList"
+                                                ng-class="{'curr':color.name == mainColor.name && color.stock != 0,'disabled':color.stock == 0}"
+                                                ng-click="setMainPhoneColor(color,color.stock == 0)">
+                                                <img alt="{{phone.phoneTypes[0].productName}}"
+                                                     ng-src="http://www.yfq.cn:8899/fileserver/medias/{{color.mediaUrl}}">
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-txt pure-u-15-24">
+                        <div class="txt-content cf-font">
+                            <div class="title-box">
+                                <h1 class="title"><span ng-bind="phone.phoneTypes[0].productName"></span>
+                                    <span class="tips"><span ng-bind="mainColor.name"> </span> 国行正品 限时优惠9.5折</span>
+                                </h1>
+                                <h2 class="sub-title"><span ng-bind="mainTipsTitle"></span></h2>
+                            </div>
+                            <div class="price-box">
+                                <div class="price-buy">
+                                    <span class="label">95折价：</span>
+                                    <em class="yuan">￥</em><em
+                                        ng-bind="mainColor.salePrice * 0.95 | numberUp |number : 0"></em>
+                                    <del>
+                                        <span class="label">原价：</span>
+                                        <span class="yuan">￥</span><span ng-bind="mainColor.salePrice | number : 0"></span>
+                                    </del>
+                                    <div class="bijia" ng-repeat="channelPrice in mainColor.channelPrice" ng-if="channelPrice.source == 'jd'"><span>某东价：</span><em>￥</em><em ng-bind="channelPrice.dayPrice"></em></div>
+                                </div>
+                                <div id="productTips">
+                                    <p>全场限时特惠9.5折，最高降￥400！爆款机型12期免息分期！享更多优惠，关注“翼分期商城”公众号。</p>
+                                </div>
+                            </div>
+                            <div class="choose-box">
+                                <div class="stats">
+                                    <dl id="phoneType" class="i-phonetype clearfix">
+                                        <dt>
+                                            <ins></ins>
+                                            规格：
+                                        </dt>
+                                        <dd>
+                                            <ul data-list="phonetype" class="phonetype item-list">
+                                                <li ng-repeat="memory in phone.memoryProducts | orderBy : 'flash'"
+                                                    ng-class="{'curr':memory.productId == phone.activityproductId && memory.stock != 0,'disabled':memory.stock == 0}"
+                                                    ng-click="setFlashDriver(memory,memory.stock == 0)">
+                                                    <span ng-bind="memory.flash"></span><span>GB</span>
+                                                    <ins></ins>
+                                                </li>
+                                            </ul>
+                                        </dd>
+                                    </dl>
+                                    <div class="main-colors" title="主机颜色" ng-if="phone"></div>
+
+                                <!--<dl class="i-package clearfix">
+                                    <dt>促销方式：</dt>
+                                    <dd>
+                                        <ul class="package item-list">
+                                            <li class="curr" ng-class="{true:'curr',false:''}[buyType==1]" ng-click="setBuyType($event,1)">
+                                                <span>裸机+4G优惠套餐购</span>
+                                                <ins></ins>
+                                            </li>
+                                            <li ng-class="{true:'curr',false:''}[buyType==0]" ng-click="setBuyType($event,0)">
+                                                <span>裸机</span>
+                                                <ins></ins>
+                                            </li>
+                                        </ul>
+                                    </dd>
+                                </dl>-->
+
+                                <!--<dl class="i-package clearfix" ng-if="buyType == 1">
+                                    <input id="productId" name="productId" type="hidden" value="{{package.productId}}">
+                                    <dt>4G优惠套餐购：</dt>
+                                    <dd>
+                                        <ul class="package item-list">
+                                            <li ng-click="setPackage($event,pkg,$index);" ng-class="{true:'curr',false:''}[pkg.productId == package.productId]" ng-repeat="pkg in phone.packageProductList">
+                                                <span ng-bind="pkg.salesPrice | number : 0"></span><span>元/月</span>
+                                                <ins></ins>
+                                            </li>
+                                        </ul>
+                                    </dd>
+                                </dl>-->
+                                <!--<dl class="i-package-info clearfix" ng-if="buyType == 1">
+                                    <dd>
+                                        <div class="tooltip bottom package-{{mainTipsIndex}}">
+                                            <div class="tooltip-arrow"></div>
+                                            <div class="tooltip-inner tooltip-inner-n">
+                                                <i class="fa fa-gift"></i>
+                                                <span>包含{{package.network}}G流量＋{{package.talkTime}}分钟通话时间，</span>
+                                                <a ng-click="domShow($event,'#myModalPackage')" href="javascript:;">看活动折扣</a>
+                                            </div>
+                                        </div>
+                                    </dd>
+                                </dl>-->
+                                <dl class="i-paytype clearfix">
+                                    <input name="payType" id="payType" ng-model="payType" value="{{payType}}" required type="hidden">
+                                    <dt>付款特惠：</dt>
+                                    <dd>
+                                        <ul class="paytype item-list">
+                                            <li ng-class="{true:'curr',false:''}[payType == 0]" ng-click="setPayType($event,0)">
+                                                一次性付款
+                                                <span>官网价享95折</span>
+                                            </li>
+                                            <li style="text-align: center" ng-if="mainColor.salePrice >= 1000" ng-class="{true:'curr',false:''}[payType == 2]" ng-click="setPayType($event,2)">
+                                                分期申请
+                                                <span>0首付12期免息</span>
+                                            </li>
+                                        </ul>
+                                    </dd>
+                                </dl>
+
+                                <dl ng-if="totolPrice >= 1000 && payType == 2" class="i-paytype-info clearfix">
+                                    <dd>
+                                        <div class="tooltip bottom paytype-{{mainPayTipsIndex}}">
+                                            <div class="tooltip-arrow"></div>
+                                            <div class="tooltip-inner">
+                                                <span>翼分期商城为您垫付12期分期利息和手续费</span>
+                                                <a ng-click="domShow($event,'#myModalCredit')" href="javascript:;">去看信用卡支持银行</a>
+                                            </div>
+                                        </div>
+                                    </dd>
+                                </dl>
+
+                                <div class="ng-phone-query" ng-if="buyType == 1"></div>
+                            </div>
+
+                            <div class="buy">
+                                <div class="pure-g">
+                                    <div class="pure-u-1-4">
+                                        <a href="javascript:;" id="productBuyNow" ng-click="submitForm($event,'#productDetailsForm')" ng-class="{true:'disabled',false:''}[phone.phoneTypes[0].status == 0 || phone.ifSellOut == 1]" class="pure-button pure-button-buy">
+                                            <span ng-if="phone.phoneTypes[0].status != 0 && phone.ifSellOut !=1">去购买</span>
+                                            <span ng-if="phone.phoneTypes[0].status == 0 || phone.ifSellOut == 1">已售光</span>
+                                        </a>
+                                    </div>
+                                    <!--<div class="pure-u-1-4">-->
+                                        <!--<div class="promise-red">-->
+                                            <!--<ins class="bao"></ins>-->
+                                            <!--<p>阳光保险</p><p>假一赔二保障</p></div>-->
+                                    <!--</div>-->
+                                    <!--<div class="pure-u-1-4">-->
+                                        <!--<div class="promise-red">-->
+                                            <!--<ins class="telcom"></ins>-->
+                                            <!--<span>7天包退<br>15天包换，购买无忧</span></div>-->
+                                    <!--</div>-->
+                                    <!--<div class="pure-u-1-4">-->
+                                        <!--<div class="promise-red">-->
+                                        <!--<ins class="nsf"></ins>-->
+                                        <!--<span>中国电信<br>全国联播，官方授权</span></div>-->
+                                        <!--</div>-->
+                                        <div class="pure-u-3-4">
+                                            <div class="img-box">
+                                                <img style="display: block;width:100%" src="/images/index/ftbyfq.png"
+                                                     alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w pure-g">
+                    <div class="recommend pure-u-1-5">
+                        <div class="sidebar">
+                            <div class="hd">
+                                <div class="title">热卖机型推荐</div>
+                            </div>
+                            <div class="bd">
+                                <ul class="product-list">
+                                    <li class="product-item"
+                                        ng-repeat="recommendPhone in singlePhones | range : 0 : 8">
+                                        <div class="item-img">
+                                            <a href="/phs/sg/{{pageType}}/{{recommendPhone.activityproductId}}?gh={{gh}}&activity={{activity}}"
+                                               target="_blank">
+                                                <img title="{{recommendPhone.productName}}"
+                                                     alt="{{recommendPhone.productName}}"
+                                                     ng-src="http://www.yfq.cn:8899/fileserver/medias/{{recommendPhone.mainImageUrl}}">
+                                            </a>
+                                        </div>
+                                        <div class="item-name">
+                                            <a href="/phs/sg/{{pageType}}/{{recommendPhone.activityproductId}}?gh={{gh}}&activity={{activity}}"
+                                               title="{{recommendPhone.productName}}"
+                                               target="_blank"><span ng-bind="recommendPhone.productName"></span></a>
+                                        </div>
+                                        <div class="item-amount">
+                                            <div class="item-amount-div">
+                                                <div class="payprice">
+                                                    <em class="color-cf0">¥</em>
+                                                    <em class="paypricespan" ng-bind="recommendPhone.salePrice * 0.95 | numberUp | number : 0"></em>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right-box pure-u-4-5">
+                        <div class="details-tabs" ng-if="phone.phoneTypes[0].fullDescription"></div>
+                    </div>
+                </div>
+
+                <div class="fixedtray-buy" style="display:none">
+                    <ul>
+                        <li class="help pure-u-1-3"></li>
+                        <li class="info pure-u-1-3"></li>
+                        <li class="buy pure-u-1-3">
+                            <div class="purchase-info">
+                                <div class="price">
+                                    购机价:<sub>￥</sub><span class="current-price">1,088</span>
+                                    <div class="tooltip top">
+                                        <div class="tooltip-arrow"></div>
+                                        <div class="tooltip-inner">
+                                            预付30元，下单立减100元
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="financing">分期每月最低约 <sub>￥</sub>270</div>
+                                <div class="more">
+                                    <a href="javascript:;"><i class="fa fa-question"></i> 分期及月供详情 <i
+                                            class="fa fa-angle-right"></i></a>
+                                </div>
+                            </div>
+                            <div class="purchase">
+                                <button class="pure-button button-continue">去结算</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="modal fade angular-modal in" id="myModalCredit" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a class="close js-close" type="button" ng-click="domHide($event,'#myModalCredit')"
+                   href="javascript:;"><span>x</span></a>
+                <h4 class="modal-title">信用卡分期</h4>
+            </div>
+            <div class="modal-body">
+                <div class="body-tops"><i class="fa fa-info-circle"></i> <span>翼分期商城垫付12期分期利息和手续费</span></div>
+                <div class="body-content">
+                    <table class="pure-table">
+                        <thead>
+                        <tr>
+                            <th>银行</th>
+                            <th>12期</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>广发信用卡</td>
+                            <td><em ng-bind="totolPrice/12 | number : 2"></em><em>元</em>×12期</td>
+                        </tr>
+                        <tr>
+                            <td>招商信用卡</td>
+                            <td><em ng-bind="totolPrice/12 | number : 2"></em><em>元</em>×12期</td>
+                        </tr>
+
+                        <tr>
+                            <td>浦发信用卡</td>
+                            <td><em ng-bind="totolPrice/12 | number : 2"></em><em>元</em>×12期</td>
+                        </tr>
+
+                        <tr>
+                            <td>工商信用卡</td>
+                            <td><em ng-bind="totolPrice/12 | number : 2"></em><em>元</em>×12期</td>
+                        </tr>
+                        <tr>
+                            <td>建设信用卡</td>
+                            <td><em ng-bind="totolPrice/12 | number : 2"></em><em>元</em>×12期</td>
+                        </tr>
+                        <tr>
+                            <td>农业信用卡</td>
+                            <td><em ng-bind="totolPrice/12 | number : 2"></em><em>元</em>×12期</td>
+                        </tr>
+                        <tr>
+                            <td>中国银行信用卡</td>
+                            <td><em ng-bind="totolPrice/12 | number : 2"></em><em>元</em>×12期</td>
+                        </tr>
+                        <tr>
+                            <td>中国邮政储蓄信用卡</td>
+                            <td><em ng-bind="totolPrice/12 | number : 2"></em><em>元</em>×12期</td>
+                        </tr>
+                        <tr>
+                            <td>兴业信用卡</td>
+                            <td><em ng-bind="totolPrice/12 | number : 2"></em><em>元</em>×12期</td>
+                        </tr>
+                        <tr>
+                            <td>中信信用卡</td>
+                            <td><em ng-bind="totolPrice/12 | number : 2"></em><em>元</em>×12期</td>
+                        </tr>
+                        <tr>
+                            <td>民生信用卡</td>
+                            <td><em ng-bind="totolPrice/12 | number : 2"></em><em>元</em>×12期</td>
+                        </tr>
+                        <tr>
+                            <td>华夏信用卡</td>
+                            <td><em ng-bind="totolPrice/12 | number : 2"></em><em>元</em>×12期</td>
+                        </tr>
+                        <tr>
+                            <td>光大信用卡</td>
+                            <td><em ng-bind="totolPrice/12 | number : 2"></em><em>元</em>×12期</td>
+                        </tr>
+                        <tr>
+                            <td>广州农商信用卡</td>
+                            <td><em ng-bind="totolPrice/12 | number : 2"></em><em>元</em>×12期</td>
+                        </tr>
+                        <tr>
+                            <td>北京银行信用卡</td>
+                            <td><em ng-bind="totolPrice/12 | number : 2"></em><em>元</em>×12期</td>
+                        </tr>
+                        <tr>
+                            <td>北京农商信用卡</td>
+                            <td><em ng-bind="totolPrice/12 | number : 2"></em><em>元</em>×12期</td>
+                        </tr>
+                        <tr>
+                            <td>江苏银行信用卡</td>
+                            <td><em ng-bind="totolPrice/12 | number : 2"></em><em>元</em>×12期</td>
+                        </tr>
+                        <tr>
+                            <td>宁波银行信用卡</td>
+                            <td><em ng-bind="totolPrice/12 | number : 2"></em><em>元</em>×12期</td>
+                        </tr>
+                        <tr>
+                            <td>上海银行信用卡</td>
+                            <td><em ng-bind="totolPrice/12 | number : 2"></em><em>元</em>×12期</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="body-info">
+                                    <p>每期还款金额以信用卡账单为准</p>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div id="maskDetails" class="modal-backdrop"></div>

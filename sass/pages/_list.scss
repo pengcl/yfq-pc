@@ -1,0 +1,190 @@
+.main-list, .main {
+  .position {
+    padding: 10px 0;
+    font-size: 14px;
+    color: #999;
+    a, span {
+      color: #999;
+      font-size: 14px;
+      text-decoration: none;
+      line-height: 1.5;
+    }
+  }
+
+  .filter {
+    background: #fff;
+    padding: 5px 30px;
+    .filter-list {
+      &.border {
+        border-bottom: 1px solid #f5f5f5;
+      }
+      li {
+        color: #333;
+        font-size: 14px;
+        &.label {
+          color: #999;
+        }
+        &.last {
+          text-align: right;
+          position: relative;
+          .other-phones {
+            position: absolute;
+            top: 100%;
+            width: 100%;
+            background: #fff;
+            right: 0;
+            @include box-shadow(0px 2px 5px #999);
+            padding: 15px;
+            ul {
+              li {
+                line-height: 2em;
+                //border-bottom: 1px solid #d8d8d8;
+                a {
+                  color: #999;
+                  //text-decoration: none;
+                }
+              }
+            }
+          }
+        }
+        .filter-item-box {
+          padding: 15px 0;
+          position: relative;
+          @include inline-block;
+          overflow: hidden;
+          cursor: pointer;
+          color: #333;
+          text-decoration: none;
+          line-height: 28px;
+          i {
+            font-size: 24px;
+            line-height: 28px;
+            @include inline-block;
+          }
+          span {
+            line-height: 28px;
+            @include inline-block;
+          }
+          &.curr, &:hover {
+            color: #ff6600;
+            ins {
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              right: 0;
+              height: 2px;
+              background: #ff6600;
+            }
+          }
+        }
+      }
+    }
+  }
+  .phone-filter {
+    margin-top: 40px;
+    margin-bottom: 15px;
+    margin-left: -30px;
+    .phone-filter-item {
+      font-size: 14px;
+      color: #333;
+      padding: 0px 30px;
+      cursor: pointer;
+      &.border {
+        border-right: 1px solid #ccc;
+      }
+      &.curr {
+        color: #ff6600;
+      }
+      .fa-check-square {
+        color: #ff6600;
+      }
+    }
+  }
+
+  .product-list {
+    .item-box {
+      background: #fff;
+      .img {
+        a {
+          display: block;
+          img {
+            margin: 0 auto;
+            padding-top: 60px;
+            padding-bottom: 20px;
+          }
+        }
+      }
+      .txt {
+        .price {
+          padding-bottom: 15px !important;
+          margin-top: 5px !important;
+        }
+        a {
+          color: #666;
+          text-decoration: none;
+        }
+      }
+      .img-list {
+        text-align: center;
+        padding-bottom: 50px;
+        .img-item {
+          @include inline-block;
+          .img-box {
+            width: 36px;
+            height: 36px;
+            border: 1px solid #d8d8d8;
+            margin: 2px;
+            cursor: pointer;
+            &.curr {
+              border: 1px solid #ff6700;
+            }
+            img {
+              width: 30px;
+              height: 30px;
+              margin: 3px;
+            }
+          }
+        }
+      }
+    }
+    &.guess {
+      margin-bottom: 70px;
+      .item-box {
+        .img {
+          a {
+            img {
+              padding-top: 30px;
+              padding-bottom: 20px;
+            }
+          }
+        }
+        .txt {
+          .price {
+            padding-bottom: 30px !important;
+          }
+        }
+        .img-list {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .pages {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    a {
+      @include inline-block;
+      background: #fff;
+      padding: 10px;
+      border: 1px solid #ccc;
+      margin-left: 10px;
+      margin-right: 10px;
+      img {
+        display: block;
+      }
+    }
+  }
+
+}

@@ -1,0 +1,128 @@
+<div class="main-index">
+    <div class="owl-carousel">
+        <a href="/phs/sg/{{pageType}}/275{{params}}" ng-click="writeSelectFoods(this,293,'MYSY');" class="carousel-item item"><img src="/images/index/banner.jpg"></a>
+        <a href="http://www.yfq.cn/fanghao/indexA.html{{params}}" has-hash="false" class="carousel-item item"><img src="/images/index/banner--1.jpg"></a>
+    </div>
+    <div class="product-phone">
+
+        <div class="container">
+            <h2 class="title" title="0利息0手续费机型供你任性选择"><span class="span-title">0利息0手续费机型供你任性选择</span></h2>
+        </div>
+        <div class="container">
+
+            <div class="ng-rush" style="display: none"></div>
+            <!-- 单机开始 -->
+            <div class="single-phone list-box">
+                <!--<div class="list-title">
+                    <ins></ins>
+                    <span class="floor">1F</span><span class="span-title">爆款单机</span>
+                    <span class="floor-day ib">
+            			<span class="floor-day-week">款款精品</span><br>
+            			<span class="floor-day-sx">正品保障</span>
+        			</span>
+                    <span class="floor-brand huawei"></span>
+                    <a href="javascript:;" class="floor-more">更多机型 ></a>
+                </div>-->
+                <div class="list-banner">
+                    <a href="/phs/sg/{{pageType}}/279{{params}}"><img class="lazy" data-original="/images/index/banner2.jpg"></a>
+                </div>
+
+                <!-- 单机循环开始 -->
+                <ul class="product-list pure-g">
+                    <li ng-repeat="singlePhone in singlePhones" class="pure-u-1-3" class="phone-listing" on-finish>
+                        <div class="box{{$index + 1}} item-box">
+                            <ins class="flag-0">
+                                <span class="flag-a" ng-if="singlePhone.cardItems == singlePhone.fanhuan">0元<br>购机</span>
+                                <span class="flag-b">含话费<br>{{singlePhone.fanhuan}}</span>
+                            </ins>
+
+                            <div class="img overlay-container">
+                                <a href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}{{params}}" ng-click="writeSelectFoods(this,singlePhone.activityproductId,'BKDJ');">
+                                    <img alt="{{singlePhone.productName}}" style="height:220px" class="lazy" data-original="http://www.yfq.cn:8899/fileserver/medias/{{singlePhone.mainImageUrl}}">
+                                </a>
+                            </div>
+                            <div class="txt">
+                                <ins></ins>
+                                <div class="price">
+                                    <h3 class="title"><a href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}{{params}}" ng-click="writeSelectFoods(this,singlePhone.activityproductId,'BKDJ');">{{singlePhone.productName}}</a>
+                                    </h3>
+                                </div>
+                                <div class="buy">
+                                    <div class="sprice">
+                                        <div>
+                                            <div>合约价：￥{{singlePhone.cardItems}}
+                                                <em>优惠推荐：预存话费+购机价</em>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="">
+                                        <div class="monthly">
+                                            <div><span>优惠合约价：</span><sub>￥</sub><em
+                                                    ng-bind="singlePhone.cardItems - (singlePhone.cardItems | jm : 800)"></em> <sub
+                                                    class="normal"></sub></div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <!-- 单机循环结束 -->
+            </div>
+            <!-- 单机结束 -->
+
+        </div>
+    </div>
+    <div class="fqa-bottom fqa" style="display:none">
+        <div class="container">
+            <div class="fqa-box">
+                <h2 class="title"><span>0手续费分期必看</span><a target="_blank" href="/pcardn/explain.html">什么是信用卡分期？</a></h2>
+                <div class="title-info">本商城是广东电信唯一指定分期商城，更携手中行、工行、广发等6大银行，为您提供安全<br>
+                    可靠的0息0手续费分期购机优惠。<br>
+                    本店承诺：所售产品均为国行正品、套餐内容真实，如有不符，两倍赔付。
+                </div>
+                <ul class="fqa-list pure-g">
+                    <li ng-repeat="phoneFqa in fqas.phone.fqa" class="pure-u-1-4 li-box-{{$index + 1}}">
+                        <div class="img-box img-{{$index + 1}}"></div>
+                        <div ng-bind-html="phoneFqa | trustHtml" class="fqa-txt"></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="quality-box pure-g">
+                <div class="title pure-u-1-5">－品质承诺－
+                    <ins></ins>
+                </div>
+                <div class="txt pure-u-4-5">
+                    <p>本商城是广东电信唯一指定分期商城，更携手中行、工行、广发等6大银行，为您提供安全可靠的0息0手续费分期购机优惠。</p>
+                    <p>本商城承诺：所售产品均为国行正品、套餐内容真实，如有不符，两倍赔付。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-ft" style="display:none" >
+        <div class="ft-paopao">
+            <img src="/images/index/ft-paopao.png">
+        </div>
+        <div class="close"><i style="display: inline-block" class="close-icon" ng-click="ftClose();"><img width="30" src="images/index/close.png"></i></div>
+    </div>
+
+    <div class="index-nav-sort">
+        <!--<a class="index-nav-sort-0" ng-class="{true:'curr',false:''}[navSortIndex==0]" href="javascript:void(0)" ng-click="scrollTo($event,0,'.ng-rush')">
+            <span></span>
+        </a>
+        <div class="line"></div>-->
+        <a class="index-nav-sort-1" ng-class="{true:'curr',false:''}[navSortIndex==1]" href="javascript:void(0)" ng-click="scrollTo($event,1,'.single-phone')">
+            <span></span>
+        </a>
+        <!--<div class="line"></div>
+        <a class="index-nav-sort-2" ng-class="{true:'curr',false:''}[navSortIndex==2]" href="javascript:void(0)" ng-click="scrollTo($event,2,'.double-phone')">
+            <span></span>
+        </a>-->
+        <div class="line"></div>
+        <a class="index-nav-sort-3" ng-class="{true:'curr',false:''}[navSortIndex==3]" href="javascript:void(0)" ng-click="scrollTo($event,3,'.header-top')">
+            <span></span>
+        </a>
+    </div>
+</div>

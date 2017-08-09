@@ -1,0 +1,28 @@
+<div class="box item-box">
+    <div class="img overlay-container">
+        <a href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}?gh={{gh}}&activity={{activity}}&colorTag={{mainColor.name}}"
+           ng-click="writeSelectFoods(this,singlePhone.activityproductId,'BKDJ');">
+            <img alt="{{singlePhone.productName}}" ng-src="http://www.yfq.cn:8899/fileserver/medias/{{mainColor.mediaUrl}}" style="height:180px" class="lazy"
+                 data-original="http://www.yfq.cn:8899/fileserver/medias/{{mainColor.mediaUrl}}">
+        </a>
+    </div>
+    <div class="txt">
+        <h3 class="title"><a
+                href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}?gh={{gh}}&activity={{activity}}&colorTag={{mainColor.name}}"
+                ng-click="writeSelectFoods(this,singlePhone.activityproductId,'BKDJ');">{{singlePhone.productName}}</a>
+        </h3>
+        <!--<p class="sub-title">
+            <del>原价：￥<span ng-bind="singlePhone.salePrice"></span></del>
+        </p>-->
+        <div class="price">
+            <em>￥</em><em ng-bind="mainColor.salePrice * 0.95 | numberUp | number : 0"></em>
+        </div>
+    </div>
+    <ul class="img-list">
+        <li class="img-item" ng-repeat="color in singlePhone.phoneTypes[0].mediaProductList">
+            <div class="img-box" ng-class="{'curr':color == mainColor,'disabled':color.stock != 1}" ng-mouseover="selectedColor(color.stock,color)">
+                <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{color.mediaUrl}}">
+            </div>
+        </li>
+    </ul>
+</div>

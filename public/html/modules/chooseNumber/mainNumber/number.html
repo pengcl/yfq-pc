@@ -1,0 +1,30 @@
+<dl class="i-number clearfix">
+    <input id="mainNumber" name="mainNumber" ng-model="mainNumber" type="hidden" required value="{{mainNumber}}">
+    <dt>选择靓号：</dt>
+    <dd>
+        <div class="number-ctrl">
+            <ul class="option-list" id="choose-nums1">
+                <li class="n1" data-value="1"></li>
+                <li class="n8" data-value="8"></li>
+                <li class="n1" data-value="1"></li>
+                <li ng-click="onclickSpan(1,3)" class="wnone" data-value=""></li>
+                <li ng-click="onclickSpan(1,4)" class="none" data-value=""></li>
+                <li ng-click="onclickSpan(1,5)" class="none" data-value=""></li>
+                <li ng-click="onclickSpan(1,6)" class="none" data-value=""></li>
+                <li ng-click="onclickSpan(1,7)" class="none" data-value=""></li>
+                <li ng-click="onclickSpan(1,8)" class="none" data-value=""></li>
+                <li ng-click="onclickSpan(1,9)" class="none" data-value=""></li>
+                <li ng-click="onclickSpan(1,10)" class="none" data-value=""></li>
+            </ul>
+            <div style="display:none;z-index:1070" class="tooltip bottom t-1 l5" id="idNumDiv">
+                <div class="tooltip-arrow tooltip-arrow-n"></div>
+                <div class="tooltip-inner box">
+                    <div class="numberContent">
+                        <ul class="number-list">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </dd>
+</dl>
