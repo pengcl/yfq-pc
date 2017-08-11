@@ -426,13 +426,14 @@ app.controller('appController', ['$scope', '$location', '$cookieStore', '$filter
     $scope.setProductType = function (type) {
         $scope.productType = type;
         $scope.regionProduct = null;
+        writebdLog($scope.category, "_" + $scope.productType, "渠道号", $scope.gh);
     };
 
 
     //只有输入手机号码才记录到闭环
     $scope.inputMobile = function (mobile) {
         if (mobile == undefined || mobile == "" || mobile.length <= 10) return;
-        writebdLog($scope.category, "_InputMobile", "渠道号", $scope.gh);//手机号码
+        writebdLog($scope.category, "_InputMobile" + $scope.productType, "渠道号", $scope.gh);//手机号码
     };
 
     $scope.selectedFlowProd = function (checked, product) {
@@ -464,7 +465,7 @@ app.controller('appController', ['$scope', '$location', '$cookieStore', '$filter
         }
 
         $scope.regionFlowProduct = product.regionProducts[0];
-        writebdLog($scope.category, "_SelectPackage", "渠道号", $scope.gh);
+        writebdLog($scope.category, "_SelectPackage" + $scope.productType, "渠道号", $scope.gh);
     };
 
     $scope.selectedFeeProd = function (checked, product) {
@@ -490,7 +491,7 @@ app.controller('appController', ['$scope', '$location', '$cookieStore', '$filter
 
         $scope.regionFeeProduct = product.regionProducts[0];
 
-        writebdLog($scope.category, "_SelectPackage", "渠道号", $scope.gh);
+        writebdLog($scope.category, "_SelectPackage" + $scope.productType, "渠道号", $scope.gh);
     };
 
     $scope.getFlowMore = function (checked) {
@@ -523,7 +524,7 @@ app.controller('appController', ['$scope', '$location', '$cookieStore', '$filter
             MarketSvc.pay($scope.mobile, product.productId, regionProduct.productFlowPriceId, $scope.flowList.area_operator, 'recharge', $scope.gh, encodeURIComponent('http://mall.yfq.cn/payState/A/flow?returnUrl=' + encodeURIComponent(window.location.href)), encodeURIComponent(window.location.href), coupons, $scope.referrerId).then(function success(data) {
                 if (data.result) {
                     window.location.href = data.payUrl;
-                    writebdLog($scope.category, "_BuyNow", "渠道号", $scope.gh);
+                    writebdLog($scope.category, "_BuyNow" + $scope.productType, "渠道号", $scope.gh);
                 } else {
                     console.log(data.msg);
                 }
