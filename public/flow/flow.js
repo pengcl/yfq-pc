@@ -408,16 +408,30 @@ app.controller('appController', ['$scope', '$location', '$cookieStore', '$filter
         autoPlay: 3000
     });
 
-    $scope.gh = getUrlParam('gh');
-    $scope.activity = getUrlParam('activity');
-    $scope.referrerId = getUrlParam('referrerId');
+    if(getUrlParam('gh')){
+        $scope.gh = getUrlParam('gh');
+    }else {
+        $scope.gh = "";
+    }
+
+    if(getUrlParam('activity')){
+        $scope.activity = getUrlParam('activity');
+    }else {
+        $scope.activity = "";
+    }
+
+    if(getUrlParam('referrerId')){
+        $scope.referrerId = getUrlParam('referrerId');
+    }else {
+        $scope.referrerId = "";
+    }
 
     $scope.category = "yfqmall_flowBag_A";
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
 
-    /*if ($cookieStore.get('rechargeMobile')) {
+    if ($cookieStore.get('rechargeMobile')) {
         $scope.mobile = $cookieStore.get('rechargeMobile');
-    }*/
+    }
 
     $scope.bodyClass = 'bodyc';
 
@@ -516,10 +530,10 @@ app.controller('appController', ['$scope', '$location', '$cookieStore', '$filter
     $scope.buyFeeProd = function (product, event) {
         $scope.regionFeeProduct = product;
     };
-
-
     $scope.pay = function (product, regionProduct, coupons) {
         if (regionProduct) {
+            //mobile, productId, productFlowPriceId, carrier, activityTag, channelCode, successUrl, channelUrl, couponNo, referrerId
+            //console.log($scope.gh);
             MarketSvc.pay($scope.mobile, product.productId, regionProduct.productFlowPriceId, $scope.flowList.area_operator, 'recharge', $scope.gh, encodeURIComponent('http://mall.yfq.cn/payState/A/flow?returnUrl=' + encodeURIComponent(window.location.href)), encodeURIComponent(window.location.href), coupons, $scope.referrerId).then(function success(data) {
                 if (data.result) {
                     window.location.href = data.payUrl;
@@ -691,7 +705,7 @@ app.controller('appController', ['$scope', '$location', '$cookieStore', '$filter
                 "operator": "移动"
             };
         }
-        if (n !== undefined && n !== o) {
+        if (n !== undefined) {
 
             $cookieStore.put('rechargeMobile', n);
             CouponSvc.getCouponList(n).then(function success(data) {

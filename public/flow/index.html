@@ -44,8 +44,6 @@
 
         <div class="view-container">
             <div class="main-index">
-                <div class="ng-gh"></div>
-                <div class="ng-activity"></div>
                 <div id="banner" class="owl-carousel">
                     <a href="javascript:;" class="carousel-item item"><img
                             src="http://mall.yfq.cn/images/flow/banner-1.jpg"></a>
@@ -101,7 +99,7 @@
 
                                                 <div class="fl phoneContainer" _type="recharge">
                                                     <input class="mobile" wtf="gray"
-                                                           wtf-class="rechargeForm.mobile.$pristine" ng-model="mobile"
+                                                           wtf-class="rechargeForm.mobile.$pristine && !mobile" ng-model="mobile"
                                                            name="mobile" ng-focus="mobileClass"
                                                            ng-blur="inputMobile(mobile)"
                                                            ng-pattern="/^[0-9]*$/" pattern="[0-9]*"
