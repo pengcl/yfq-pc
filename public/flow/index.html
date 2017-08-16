@@ -66,7 +66,7 @@
                                         <li class="fore2 bussType" wtf wtf-class="productType === 'flow'"
                                             ng-click="setProductType('flow')"><s></s>流量充值
                                         </li>
-                                        <li class="fore1 bussType" wtf wtf-class="productType === 'fee'"
+                                        <li class="fore1 bussType" ng-if="isFeeShow" wtf wtf-class="productType === 'fee'"
                                             ng-click="setProductType('fee')"><s></s>话费充值
                                         </li>
                                     </ul>

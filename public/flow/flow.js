@@ -272,9 +272,9 @@ app.factory("MarketSvc", ['$http', '$q', function ($http, $q) {
         return d.promise;
     };
 
-    service.pay = function (mobile, productId, productFlowPriceId, carrier, activityTag, channelCode, successUrl, channelUrl, couponNo, referrerId) {//获取订单统计 promise对象
+    service.pay = function (mobile, productId, productFlowPriceId, carrier, activityTag, channelCode, successUrl, channelUrl, couponNo, referrerId, category) {//获取订单统计 promise对象
         var d = $q.defer();
-        $http.jsonp('http://sell.yfq.cn/order/submitFlowOrder.ht?mobile=' + mobile + '&productId=' + productId + '&productFlowPriceId=' + productFlowPriceId + '&carrier=' + carrier + '&activityTag=' + activityTag + '&channelCode=' + channelCode + '&successUrl=' + successUrl + '&channelUrl=' + channelUrl + '&couponNo=' + couponNo + '&referrerId=' + referrerId + '&callback=JSON_CALLBACK').success(function (data) {
+        $http.jsonp('http://sell.yfq.cn/order/submitFlowOrder.ht?mobile=' + mobile + '&productId=' + productId + '&productFlowPriceId=' + productFlowPriceId + '&carrier=' + carrier + '&activityTag=' + activityTag + '&channelCode=' + channelCode + '&successUrl=' + successUrl + '&channelUrl=' + channelUrl + '&couponNo=' + couponNo + '&referrerId=' + referrerId + '&category=' + category + '&callback=JSON_CALLBACK').success(function (data) {
             return d.resolve(data);
         }).error(function (error) {
             d.reject(error);
@@ -399,6 +399,7 @@ app.filter('flowSalesPrice', function () {
 app.controller('appController', ['$scope', '$location', '$cookieStore', '$filter', 'MarketSvc', 'CouponSvc', function ($scope, $location, $cookieStore, $filter, MarketSvc, CouponSvc) {
     $scope.$root.pageTitle = '翼分期';
 
+    $scope.isFeeShow = true;
 
     $("#banner").owlCarousel({
         navigation: true, // Show next and prev buttons
@@ -408,22 +409,26 @@ app.controller('appController', ['$scope', '$location', '$cookieStore', '$filter
         autoPlay: 3000
     });
 
-    if(getUrlParam('gh')){
+    if (getUrlParam('gh')) {
         $scope.gh = getUrlParam('gh');
-    }else {
+    } else {
         $scope.gh = "";
     }
 
-    if(getUrlParam('activity')){
+    if (getUrlParam('activity')) {
         $scope.activity = getUrlParam('activity');
-    }else {
+    } else {
         $scope.activity = "";
     }
 
-    if(getUrlParam('referrerId')){
+    if (getUrlParam('referrerId')) {
         $scope.referrerId = getUrlParam('referrerId');
-    }else {
+    } else {
         $scope.referrerId = "";
+    }
+
+    if (($scope.gh && $scope.gh.indexOf('yypdf') !== -1) || (getUrlParam('token') && getUrlParam('uuid'))) {
+        $scope.isFeeShow = false;
     }
 
     $scope.category = "yfqmall_flowBag_A";
@@ -535,7 +540,7 @@ app.controller('appController', ['$scope', '$location', '$cookieStore', '$filter
         if (regionProduct) {
             //mobile, productId, productFlowPriceId, carrier, activityTag, channelCode, successUrl, channelUrl, couponNo, referrerId
             //console.log($scope.gh);
-            MarketSvc.pay($scope.mobile, product.productId, regionProduct.productFlowPriceId, $scope.flowList.area_operator, 'recharge', $scope.gh, encodeURIComponent('http://mall.yfq.cn/payState/A/flow?returnUrl=' + encodeURIComponent(window.location.href)), encodeURIComponent(window.location.href), coupons, $scope.referrerId).then(function success(data) {
+            MarketSvc.pay($scope.mobile, product.productId, regionProduct.productFlowPriceId, $scope.flowList.area_operator, 'recharge', $scope.gh, encodeURIComponent('http://mall.yfq.cn/payState/A/flow?returnUrl=' + encodeURIComponent(window.location.href)), encodeURIComponent(window.location.href), coupons, $scope.referrerId, $scope.category).then(function success(data) {
                 if (data.result) {
                     window.location.href = data.payUrl;
                     writebdLog($scope.category, "_BuyNow" + $scope.productType, "渠道号", $scope.gh);
