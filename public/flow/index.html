@@ -55,6 +55,9 @@
                 </div>
 
                 <div class="flow-content">
+                    <a href="http://convert.yypdf.cn?gh=yfq" target="_blank" class="ad-l">
+                        <img src="images/flow/list-banner-2.png">
+                    </a>
                     <div class="position">
                         <span>您当前的位置：</span><a href="http://mall.yfq.cn">首页</a> > <span>流量/话费充值</span>
                     </div>
@@ -66,7 +69,7 @@
                                         <li class="fore2 bussType" wtf wtf-class="productType === 'flow'"
                                             ng-click="setProductType('flow')"><s></s>流量充值
                                         </li>
-                                        <li class="fore1 bussType" ng-if="isFeeShow" wtf wtf-class="productType === 'fee'"
+                                        <li class="fore1 bussType" wtf wtf-class="productType === 'fee'"
                                             ng-click="setProductType('fee')"><s></s>话费充值
                                         </li>
                                     </ul>
@@ -186,8 +189,8 @@
                                                               data-tips="因可能存在系统缓存、页面更新导致价格变动异常等不确定性情况出现，商品售价以本结算页商品价格为准；如有疑问，请您立即联系销售商咨询。"><i></i>充值说明</span>
                                                     </div>
                                                 </div>
-
-                                                <div style="margin-top: 20px;font-size: 14px;color: #e54043"><b>流量包充值买一送一：</b>充值流量包，即赠送等金额（按实际金额向下取整，最多30元）的流量包/话费充值通用优惠券，可用于下次充值或转赠给朋友使用。</div>
+                                                <div style="margin-top: 20px;font-size: 14px;color: #e54043" ng-if="showTips">流量充值送PDF转换流量：每充值1元手机流量，可获得100KB。本优惠由YYPDF提供。</div>
+                                                <div style="margin-top: 10px;font-size: 14px;color: #e54043"><b>流量包充值买一送一：</b>充值流量包，即赠送等金额（按实际金额向下取整，最多30元）的流量包/话费充值通用优惠券，可用于下次充值或转赠给朋友使用。</div>
                                             </div>
                                             <div class="fee" ng-if="productType === 'fee'">
 

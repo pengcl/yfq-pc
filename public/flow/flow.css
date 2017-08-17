@@ -677,6 +677,20 @@ span.charging-btn:hover {
 .flow .flow-content {
     width: 1000px;
     margin: 0 auto;
+    position: relative;
+}
+
+.flow .flow-content .ad-l {
+    position: fixed;
+    top:50%;
+    left: 50%;
+    margin-left: -630px;
+    width: 120px;
+}
+
+.flow .flow-content .ad-l img {
+    display: block;
+    width: 100%;
 }
 
 .flow .ctr-panel h1 {

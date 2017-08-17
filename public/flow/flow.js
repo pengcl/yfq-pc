@@ -427,8 +427,8 @@ app.controller('appController', ['$scope', '$location', '$cookieStore', '$filter
         $scope.referrerId = "";
     }
 
-    if (($scope.gh && $scope.gh.indexOf('yypdf') !== -1) || (getUrlParam('token') && getUrlParam('uuid'))) {
-        $scope.isFeeShow = false;
+    if (getUrlParam('token') && getUrlParam('uid')) {
+        $scope.showTips = true;
     }
 
     $scope.category = "yfqmall_flowBag_A";
