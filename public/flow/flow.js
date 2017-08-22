@@ -561,8 +561,8 @@ app.controller('appController', ['$scope', '$location', '$cookieStore', '$filter
         $scope.regionProducts = null;
         $scope.regionFlowProduct = null;
         $scope.regionFeeProduct = null;
-        $scope.flowList = null;
-        $scope.feeList = null;
+        /*$scope.flowList = null;
+        $scope.feeList = null;*/
         $scope.couponList = null;
         $scope.flowLimitTo = 4;
         $scope.feeLimitTo = 4;
