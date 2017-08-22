@@ -484,7 +484,7 @@ app.controller('appController', ['$scope', '$location', '$cookieStore', '$filter
         }
 
         $scope.regionFlowProduct = product.regionProducts[0];
-        writebdLog($scope.category, "_SelectPackage" + $scope.productType, "渠道号", $scope.gh);
+        writebdLog($scope.category, "_SelectPackage" + $scope.productType + product.sortNo, "渠道号", $scope.gh);
     };
 
     $scope.selectedFeeProd = function (checked, product) {
@@ -510,7 +510,7 @@ app.controller('appController', ['$scope', '$location', '$cookieStore', '$filter
 
         $scope.regionFeeProduct = product.regionProducts[0];
 
-        writebdLog($scope.category, "_SelectPackage" + $scope.productType, "渠道号", $scope.gh);
+        writebdLog($scope.category, "_SelectPackage" + $scope.productType + product.sortNo, "渠道号", $scope.gh);
     };
 
     $scope.getFlowMore = function (checked) {
