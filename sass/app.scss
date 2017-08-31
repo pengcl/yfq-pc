@@ -899,3 +899,24 @@
 .product-txt .choose-box dl.i-package-info .tooltip .tooltip-arrow, .product-txt .choose-box dl.i-paytype-info .tooltip .tooltip-arrow {
   left: 175px;
 }
+
+.angular-modal.in {
+  display: block;
+  .modal-footer {
+    .btn {
+      padding:6px 12px;
+      @include border-radius(4px);
+      @include inline-block;
+      background: #fff;
+      color: #333;
+      border: 1px solid #ccc;
+      margin-left:3px;
+      margin-right: 3px;
+      &.btn-primary {
+        background-color: #337ab7;
+        border-color: #2e6da4;
+        color: #fff;
+      }
+    }
+  }
+}

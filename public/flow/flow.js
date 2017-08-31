@@ -415,6 +415,7 @@ app.controller('appController', ['$scope', '$location', '$cookieStore', '$filter
         $scope.gh = "";
     }
 
+
     if (getUrlParam('activity')) {
         $scope.activity = getUrlParam('activity');
     } else {
@@ -429,6 +430,11 @@ app.controller('appController', ['$scope', '$location', '$cookieStore', '$filter
 
     if (getUrlParam('token') && getUrlParam('uid')) {
         $scope.showTips = true;
+        $scope.gh = "etc_a_yypdf_01";
+        if (!(window.location.search.indexOf('gh') !== -1)) {
+            $scope.cookie_gh = $scope.gh;
+            $cookieStore.put('cookie_gh', $scope.cookie_gh);
+        }
     }
 
     $scope.category = "yfqmall_flowBag_A";
@@ -484,7 +490,7 @@ app.controller('appController', ['$scope', '$location', '$cookieStore', '$filter
         }
 
         $scope.regionFlowProduct = product.regionProducts[0];
-        writebdLog($scope.category, "_SelectPackage" + $scope.productType + product.sortNo, "渠道号", $scope.gh);
+        writebdLog($scope.category, "_SelectPackage" + $scope.productType + product.sortNo + 'M', "渠道号", $scope.gh);
     };
 
     $scope.selectedFeeProd = function (checked, product) {
@@ -510,7 +516,7 @@ app.controller('appController', ['$scope', '$location', '$cookieStore', '$filter
 
         $scope.regionFeeProduct = product.regionProducts[0];
 
-        writebdLog($scope.category, "_SelectPackage" + $scope.productType + product.sortNo, "渠道号", $scope.gh);
+        writebdLog($scope.category, "_SelectPackage" + $scope.productType + product.sortNo + 'M', "渠道号", $scope.gh);
     };
 
     $scope.getFlowMore = function (checked) {

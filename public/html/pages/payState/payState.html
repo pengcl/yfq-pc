@@ -43,14 +43,40 @@
                 </table>
             </div>
 
-            <p ng-if="getCoupon > 0">您本次交易中获取系统赠送的 "<span style="color: #e4393c;font-size: 16px">{{getCoupon}}元</span>" 优惠券。扫描下方二维码领取优惠券</p>
+            <p ng-if="getCoupon > 0">您本次交易中获取系统赠送的 "<span style="color: #e4393c;font-size: 24px">{{getCoupon}}元</span>" 优惠券。扫描下方二维码领取优惠券</p>
             <p ng-if="getCoupon == 0">扫描下方二维码关注"翼分期商城"，获取更多商品优惠信息</p>
             
             <div style="width: 200px;margin: 15px auto;">
                 <img src="/images/qrcode.jpg" style="display: block;width: 100%">
             </div>
 
-            <a class="button-secondary pure-button" href="{{returnUrl}}">返回下单页</a>
+            <a class="button-secondary pure-button" ng-click="tipsShow = true">返回下单页</a>
         </div>
     </div>
+</div>
+
+<div class="modal fade angular-modal in" id="myModalCredit" ng-show="tipsShow">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a class="close js-close btn" ng-click="tipsShow = false"
+                   href="javascript:;"><span>x</span></a>
+                <h4 class="modal-title">友情提示</h4>
+            </div>
+            <div class="modal-body">
+                <div class="body-content">
+                    <p>优惠券需要扫描二维码才能领取哦！</p>
+                    <div style="width: 200px;margin: 15px auto;">
+                        <img src="/images/qrcode.jpg" style="display: block;width: 100%">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="{{returnUrl}}" ng-click="tipsShow = false" class="btn btn-default" data-dismiss="modal">返回下单页</a>
+                <a href="http://mall.yfq.cn" ng-click="tipsShow = false" class="btn btn-primary">看看新款手机</a>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
 </div>
