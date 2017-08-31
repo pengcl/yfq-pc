@@ -74,7 +74,7 @@ function operation() {
         var flag = false;
         var info = "flow=" + loc + "&operation=" + map.get('operation');
         info = info.replace("?", "&");//将链接里的？字符转换为&，可以让后台获取
-        var url = "http://m.gd189fq.com/record/writeLog.html?" + info + "&s=wap";
+        var url = "http://m.yfq.cn/record/writeLog.html?" + info + "&s=wap";
         $.ajax({
             type: "get",
             url: url,
@@ -89,7 +89,7 @@ function operation() {
         return flag;
     };
     this.writeIntentionMsg = function (operationName, operationValue, dataType, opSeq) {
-        var url = "http://m.gd189fq.com/record/intentionLog.html";
+        var url = "http://m.yfq.cn/record/intentionLog.html";
         $.get(url, {operationName: operationName, operationValue: operationValue, dataType: dataType, opSeq: opSeq},
             function (data) {
 
@@ -459,6 +459,10 @@ app.controller('appController', ['$scope', '$location', '$cookieStore', '$filter
     $scope.inputMobile = function (mobile) {
         if (mobile == undefined || mobile == "" || mobile.length <= 10) return;
         writebdLog($scope.category, "_InputMobile" + $scope.productType, "渠道号", $scope.gh);//手机号码
+    };
+    
+    $scope.writeClick = function (value) {
+        writebdLog($scope.category, "_" + value, "渠道号", $scope.gh);//记录点击事件
     };
 
     $scope.selectedFlowProd = function (checked, product) {
