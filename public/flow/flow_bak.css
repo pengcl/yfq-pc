@@ -693,10 +693,6 @@ span.charging-btn:hover {
     width: 100%;
 }
 
-.flow .ctr-panel {
-    background: #fff;
-}
-
 .flow .ctr-panel h1 {
     font-size: 20px;
     color: #ff6700;
@@ -715,7 +711,6 @@ span.charging-btn:hover {
     font-size: 20px;
     height: 47px;
     line-height: 47px;
-    display: none;
 }
 
 .flow .ctr-panel .ctr-box .cznav .renzheng {
@@ -746,6 +741,7 @@ span.charging-btn:hover {
 
 #chongzhi {
     font-family: "Microsoft YaHei";
+    padding-top: 47px;
 }
 
 #chongzhi .item {
@@ -760,7 +756,6 @@ span.charging-btn:hover {
     height: 36px;
     line-height: 36px;
     width: 83px;
-    color: #999;
 }
 
 #chongzhi .priceItem {
@@ -780,6 +775,7 @@ span.charging-btn:hover {
     height: auto;
     margin-left: 83px;
     overflow: hidden;
+    width: 584px;
 }
 
 #chongzhi .priceItem .salePrice li {
@@ -792,7 +788,6 @@ span.charging-btn:hover {
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
     box-sizing: content-box;
-    width: 470px;
 }
 
 #chongzhi .priceItem .salePrice li .flowArea, #chongzhi .priceItem .salePrice li .flowDesc, #chongzhi .priceItem .salePrice li .flowPrice, #chongzhi .priceItem .salePrice li .delPrice, #chongzhi .priceItem .salePrice li .flowSaleDesc, #chongzhi .priceItem .salePrice li .flowSalePic {
@@ -808,17 +803,7 @@ span.charging-btn:hover {
 }
 
 #chongzhi .priceItem .salePrice li .flowSalePic {
-    padding-left: 10px;
-    padding-right: 10px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    margin-right: 5px;
-}
-
-#chongzhi .priceItem .salePrice li .flowDesc {
-    color: #999;
-    font-size: 14px;
+    width: 25px;
 }
 
 #chongzhi .priceItem .salePrice li .flowSaleDesc {
@@ -865,11 +850,11 @@ span.charging-btn:hover {
 }
 
 #chongzhi .priceItem .salePrice li.curr {
-    border: 2px solid #ff6c08;
+    border: 2px solid #e4393c;
 }
 
 #chongzhi .priceItem .salePrice li.curr .flowSaleDesc, #chongzhi .priceItem .salePrice li.curr .flowSalePic {
-    background-color: #ff6c08;
+    background-color: #c81623;
     color: #fff;
 }
 
@@ -882,22 +867,16 @@ span.charging-btn:hover {
     margin-top: 20px;
 }
 
-#chongzhi .submitItem .disc,#chongzhi .priceItem .disc {
+#chongzhi .submitItem .disc {
     margin-bottom: 15px;
     font-size: 14px;
-    color: #ff6c08;
+    color: #c81623;
 
 }
 
 #chongzhi .submitItem .disc em {
     font-size: 18px;
     font-style: normal;
-}
-
-#chongzhi .priceItem .disc em {
-    font-size: 30px;
-    font-style: normal;
-    line-height: 30px;
 }
 
 #chongzhi .phoneitem {
@@ -915,81 +894,29 @@ span.charging-btn:hover {
 }
 
 #chongzhi .phoneContainer {
+    height: 60px;
     position: relative;
 }
 
-/*#chongzhi .phoneContainer .input-overlay {
-    color: #ff6c08;
-    font-size: 24px;
-    position: absolute;
-    top:0;
-    left: 0;
-    line-height: 36px;
-    padding: 5px 10px;
-    z-index: -1;
-    width: 418px;
-}*/
-
 #chongzhi .phoneContainer input {
     border: 1px solid #ddd;
-    font-size: 24px;
-    line-height: 30px;
-    padding: 5px 10px;
-    width: 350px;
-    color: #ff6c08;
-}
-
-#chongzhi .phoneContainer input::-webkit-input-placeholder {
-    color: #666;
-    font-size: 14px;
-    line-height: 36px;
-}
-
-#chongzhi .phoneContainer input:-moz-placeholder {
-    color: #666;
-    font-size: 14px;
-    line-height: 36px;
-}
-
-#chongzhi .phoneContainer input::-moz-placeholder {
-    color: #666;
-    font-size: 14px;
-    line-height: 36px;
-}
-
-#chongzhi .phoneContainer input:-ms-input-placeholder {
-    color: #666;
-    font-size: 14px;
-    line-height: 36px;
-}
-
-#chongzhi .phoneContainer input:focus {
-    border:1px solid #ff6c08;
-    outline: none;
-    box-shadow: none;
-    -webkit-box-shadow: none;
-}
-
-#chongzhi .beizhu-info {
-    display: inline-block;
-    vertical-align: middle;
-    padding-top: 11px;
-    margin-left: 20px;
-}
-#chongzhi .beizhu-info img {
-    display: block;
-}
-
-/*#chongzhi .phoneContainer .gray {
-    color: #ff6c08;
     font-size: 26px;
-}*/
+    height: 36px;
+    line-height: 36px;
+    padding: 0 10px;
+    width: 418px;
+}
+
+#chongzhi .phoneContainer .gray {
+    color: #ccc;
+    font-size: 14px;
+}
 
 #chongzhi .phoneContainer .area {
     color: #999;
     position: absolute;
     right: 10px;
-    top: 12px;
+    top: 9px;
 }
 
 #chongzhi .phoneContainer .icon-right {
@@ -1031,12 +958,7 @@ span.charging-btn:hover {
 }
 
 #chongzhi .rechargeItem {
-    margin-bottom: 0px;
-}
-
-.disc-content {
-    display: inline-block;
-    vertical-align: middle;
+    margin-bottom: 17px;
 }
 
 #chongzhi .productList ul {
@@ -1044,6 +966,7 @@ span.charging-btn:hover {
     font-family: "Microsoft YaHei";
     font-size: 18px;
     overflow: hidden;
+    width: 600px;
 }
 
 #chongzhi .productList ul li {
@@ -1053,7 +976,7 @@ span.charging-btn:hover {
     margin: 0 20px 20px 0;
     position: relative;
     text-align: center;
-    width: 104px;
+    width: 93px;
 }
 
 #chongzhi .productList ul li .salePic{
@@ -1071,7 +994,7 @@ span.charging-btn:hover {
 
 #chongzhi .productList ul li .item-box .title {
     font-size: 18px;
-    line-height: 40px;
+    line-height: 24px;
 }
 
 #chongzhi .productList ul li .item-box .disc {
@@ -1106,7 +1029,7 @@ span.charging-btn:hover {
 }
 
 #chongzhi .productList ul .curr {
-    border: 2px solid #ff6c08;
+    border: 2px solid #e4393c;
 }
 
 #chongzhi .productList ul .curr s {
@@ -1119,11 +1042,6 @@ span.charging-btn:hover {
 
 #chongzhi .productList ul .nomb {
     margin-bottom: 0;
-}
-
-.site-bar .ad,.site-bar .banner,.site-bar .service {
-    background: none;
-    padding-left: 20px;
 }
 
 .nav-panel .leftMenu {
@@ -1205,7 +1123,8 @@ span.charging-btn:hover {
 }*/
 
 #chongzhi .price-desc-tip {
-    color: #999;
+    background: rgba(0, 0, 0, 0) url("//misc.360buyimg.com/user/purchase/2.0.0/css/i/presale-icon.png") no-repeat scroll 0 0;
+    color: #005ea7;
     display: inline-block;
     font-size: 12px;
     height: 20px;
@@ -1214,10 +1133,17 @@ span.charging-btn:hover {
     vertical-align: middle;
 }
 
-#chongzhi .price-desc-tip img,#chongzhi .price-desc-tip span {
+#chongzhi .price-desc-tip i {
     display: inline-block;
+    height: 20px;
     margin-right: 5px;
     text-decoration: none;
+    vertical-align: middle;
+    width: 20px;
+}
+
+#chongzhi .price-desc-tip:hover {
+    color: #005ea7;
 }
 
 .flow .position {

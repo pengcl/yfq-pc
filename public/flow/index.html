@@ -19,8 +19,8 @@
     <link rel="stylesheet" href="//www.yfq.cn/templates/default/pages/active/fanghao/css/fq-index.css">
     <link rel="stylesheet" href="//www.yfq.cn/templates/default/pages/active/fanghao/css/app-g.css">
     <link rel="stylesheet" href="//www.yfq.cn/templates/default/pages/appnew/css/app.css">
-    <link rel="stylesheet" href="http://mall.yfq.cn/css/1.0.1/app.min.css?1">
-    <link rel="stylesheet" href="flow.css?222333">
+    <link rel="stylesheet" href="http://mall.yfq.cn/css/1.0.1/app.min.css?2">
+    <link rel="stylesheet" href="flow.css?23">
     <script>
         var _hmt = _hmt || [];
         (function () {
@@ -43,232 +43,284 @@
         </div>
 
         <div class="view-container">
-            <div class="main-index">
-                <div id="banner" class="owl-carousel">
-                    <a href="javascript:;" class="carousel-item item"><img
-                            src="http://mall.yfq.cn/images/flow/banner-1.jpg"></a>
-                    <a href="javascript:;" class="carousel-item item"><img
-                            src="http://mall.yfq.cn/images/flow/banner-2.jpg"></a>
-                    <!--<a href="/phs/sg/{{pageType}}/258?gh={{gh}}&activity={{activity}}" has-hash="false"
-                       class="carousel-item item"><img
-                            src="/images/index/banner-3.jpg"></a>-->
-                </div>
+            <div class="main-index" style="padding-top: 15px">
 
-                <div class="flow-content">
-                    <a href="http://convert.yypdf.cn?gh=yfq" target="_blank" class="ad-l">
-                        <img src="images/flow/list-banner-2.png">
-                    </a>
-                    <div class="position">
-                        <span>您当前的位置：</span><a href="http://mall.yfq.cn">首页</a> > <span>流量/话费充值</span>
-                    </div>
-                    <div class="ctr-container">
-                        <div class="pure-g">
-                            <div class="nav-panel pure-u-1-6">
-                                <div class="fl leftMenu">
-                                    <ul>
-                                        <li class="fore2 bussType" wtf wtf-class="productType === 'flow'"
-                                            ng-click="setProductType('flow')"><s></s>流量充值
-                                        </li>
-                                        <li class="fore1 bussType" wtf wtf-class="productType === 'fee'"
-                                            ng-click="setProductType('fee')"><s></s>话费充值
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="ctr-panel pure-u-5-6">
-                                <div class="ctr-box">
-                                    <div class="cznav">
-                                        <s class="renzheng"></s>
-                                        <span class="desc">流量、话费充值 品质保证&nbsp;&nbsp;安全快捷</span>
-                                        <span style="color: #666;float: right;font-size: 14px">移动、电信、联通三网通用</span>
-                                        <!--<ul class="fr cztype">
-                                            <li class="fore1  curr " _type="recharge">话费快充<s></s></li>
-                                            <li class="fore10 " _type="kami">
-                                                充值卡
-                                                <s></s>
-                                            </li>
-                                            <li class="fore2 " _type="many">多人充值<s></s></li>
-                                            <li class=" " _type="fixtime">
-                                                定期充值
-                                                <i></i>
-                                                <s></s>
-                                            </li>
-                                        </ul>-->
-                                    </div>
-                                    <div id="chongzhi">
-                                        <form id="rechargeForm" name="rechargeForm">
-                                            <div class="phoneitem item">
-                                                <span class="itemName">手机号码：</span>
-
-                                                <div class="fl phoneContainer" _type="recharge">
-                                                    <input class="mobile" wtf="gray"
-                                                           wtf-class="rechargeForm.mobile.$pristine && !mobile" ng-model="mobile"
-                                                           name="mobile" ng-focus="mobileClass"
-                                                           ng-blur="inputMobile(mobile)"
-                                                           ng-pattern="/^[0-9]*$/" pattern="[0-9]*"
-                                                           ng-minlength="11" ng-maxlength="11"
-                                                           class="weui-input"
-                                                           placeholder="请输入需要充值的手机号码" required/><br>
-                                                    <span class="area" ng-if="mobile"><s
-                                                            class="icon-right"></s><span
-                                                            ng-bind="flowList.area_operator"></span></span>
-                                                    <span class="errorTip"><s
-                                                            class="icon-error"></s><span>请输入11位正确手机号码</span></span>
-                                                    <div class="record"></div>
-                                                </div>
-                                                <span class="beizhu-info"></span>
-
+                <div class="container">
+                    <div class="pure-g">
+                        <div class="pure-u-17-24" style="background: #fff">
+                            <div class="flow-content" style="width: 100%;height: 100%;">
+                                <div class="ctr-container" style="border: none;height: 100%">
+                                    <div class="pure-g" style="height: 100%">
+                                        <div class="nav-panel pure-u-1-6">
+                                            <div class="fl leftMenu">
+                                                <ul>
+                                                    <li class="fore2 bussType" wtf wtf-class="productType === 'flow'"
+                                                        ng-click="setProductType('flow')"><s></s>流量充值
+                                                    </li>
+                                                    <li class="fore1 bussType" wtf wtf-class="productType === 'fee'"
+                                                        ng-click="setProductType('fee')"><s></s>话费充值
+                                                    </li>
+                                                </ul>
                                             </div>
-                                            <div class="flow" ng-if="productType === 'flow'">
-
-                                                <div class="rechargeItem item">
-                                                    <span class="itemName">流量面值：</span>
-
-                                                    <div class="productList">
-                                                        <ul>
-                                                            <li ng-repeat="item in flowList.data"
-                                                                wtf="curr" wtf-class="item === flowProduct">
-                                                                <div class="item-box"
-                                                                     ng-click="selectedFlowProd(!!mobile,item);"
-                                                                     wtf="disabled" wtf-class="!mobile">
-                                                                    <div class="title" ng-bind="item.productName"></div>
-                                                                    <div class="disc"><span
-                                                                            ng-bind="item.regionProducts | flowSalesPrice | number : 2"></span>元
-                                                                    </div>
-                                                                    <s></s>
-                                                                    <i class="salePic" ng-if="item.sortNo >= 100 && couponList.length > 0"></i>
-                                                                </div>
-                                                            </li>
-                                                            <!--<li ng-click="getFlowMore(!!mobile)"
-                                                                ng-if="flowLimitTo === 4">
-                                                                <div class="item-box more">
-                                                                    <div class="title">更多</div>
-                                                                    <s></s>
-                                                                </div>
-                                                            </li>-->
-                                                        </ul>
-                                                    </div>
-                                                </div>
-
-                                                <div class="clr"></div>
-
-                                                <div class="priceItem item" ng-if="flowProduct">
-                                                    <span class="itemName">销售价格：</span>
-
-                                                    <ul class="salePrice">
-                                                        <li ng-repeat="item in flowProduct.regionProducts"
-                                                            ng-click="buyFlowProd(item,$event)" wtf="curr"
-                                                            wtf-class="item === regionFlowProduct">
-                                                            <span class="flowSalePic">促</span><span
-                                                                class="flowSaleDesc">:&nbsp;送<span
-                                                                ng-bind="item.salesPrice | flowCoupon"></span>元优惠券~！</span>
-                                                            <span class="flowArea"><span
-                                                                    ng-bind="item.regionName"></span>流量：</span> <span
-                                                                class="flowDesc">支持2G/3G/4G，当月有效</span>
-                                                            <del class="delPrice">{{item.costPrice | number : 2}} 元
-                                                            </del>
-                                                            <span class="flowPrice">¥<i
-                                                                    ng-bind="(item.salesPrice) | number : 2"></i></span><s></s>
+                                        </div>
+                                        <div class="ctr-panel pure-u-5-6">
+                                            <div class="ctr-box">
+                                                <div class="cznav">
+                                                    <s class="renzheng"></s>
+                                                    <span class="desc">流量、话费充值 品质保证&nbsp;&nbsp;安全快捷</span>
+                                                    <span style="color: #666;float: right;font-size: 14px">移动、电信、联通三网通用</span>
+                                                    <!--<ul class="fr cztype">
+                                                        <li class="fore1  curr " _type="recharge">话费快充<s></s></li>
+                                                        <li class="fore10 " _type="kami">
+                                                            充值卡
+                                                            <s></s>
                                                         </li>
-                                                    </ul>
-
+                                                        <li class="fore2 " _type="many">多人充值<s></s></li>
+                                                        <li class=" " _type="fixtime">
+                                                            定期充值
+                                                            <i></i>
+                                                            <s></s>
+                                                        </li>
+                                                    </ul>-->
                                                 </div>
+                                                <div id="chongzhi">
+                                                    <form id="rechargeForm" name="rechargeForm">
+                                                        <div class="phoneitem item">
+                                                            <span class="itemName">手机号码：</span>
 
+                                                            <div class="fl phoneContainer" _type="recharge">
+                                                                <!--<div class="input-overlay">
+                                                                    {{mobile | phoneNumber}}
+                                                                </div>-->
+                                                                <input name="mobile" class="" ng-model="mobile"
+                                                                       ng-pattern="/^[0-9]*$/" pattern="[0-9]*"
+                                                                       ng-minlength="11" ng-maxlength="11"
+                                                                       type="hidden">
+                                                                <input class="mobile" ng-model="mobileView"
+                                                                       name="mobileView" ng-focus="mobileClass"
+                                                                       ng-blur="inputMobile(mobile)"
+                                                                       class="weui-input"
+                                                                       placeholder="支持移动/电信/联通号码" required/><br>
+                                                                <span class="area" ng-if="mobile"><!--<s
+                                                                        class="icon-right"></s>--><span
+                                                                        ng-bind="flowList.area_operator"></span></span>
+                                                                <span class="errorTip"><s
+                                                                        class="icon-error"></s><span>请输入11位正确手机号码</span></span>
+                                                                <div class="record"></div>
+                                                            </div>
+                                                            <span class="beizhu-info"><img src="images/flow/sf.png"></span>
 
-                                                <div class="submitItem item">
-                                                    <p class="disc" ng-if="flowCouponLength > 0" class="">使用<em
-                                                            ng-bind="flowCouponLength"></em>张优惠券，下单再省<em
-                                                            ng-bind="flowCouponLength | number : 2"></em>元</p>
-                                                    <div>
-                                                        <input class="submit" wtf="disabled"
-                                                               wtf-class="!regionFlowProduct"
-                                                               ng-click="pay(flowProduct,regionFlowProduct,flowCoupons)"
-                                                               value="立即充值" type="button">
-                                                        <span class="price-desc-tip" data-toggle="modal"
-                                                              data-target="#flowModal"
-                                                              data-tips="因可能存在系统缓存、页面更新导致价格变动异常等不确定性情况出现，商品售价以本结算页商品价格为准；如有疑问，请您立即联系销售商咨询。"><i></i>充值说明</span>
-                                                    </div>
-                                                </div>
-                                                <div style="margin-top: 20px;font-size: 14px;color: #e54043" ng-if="showTips">流量充值送PDF转换流量：每充值1元手机流量，可获得100KB。本优惠由YYPDF提供。</div>
-                                                <div style="margin-top: 10px;font-size: 14px;color: #e54043"><b>流量包充值买一送一：</b>充值流量包，即赠送等金额（按实际金额向下取整，最多30元）的流量包/话费充值通用优惠券，可用于下次充值或转赠给朋友使用。</div>
-                                            </div>
-                                            <div class="fee" ng-if="productType === 'fee'">
+                                                        </div>
+                                                        <div class="flow" ng-if="productType === 'flow'">
 
-                                                <div class="rechargeItem item">
-                                                    <span class="itemName">话费面值：</span>
+                                                            <div class="rechargeItem item">
+                                                                <span class="itemName">流量面值：</span>
 
-                                                    <div class="productList">
-                                                        <ul>
-                                                            <li ng-repeat="item in feeList.data"
-                                                                wtf="curr" wtf-class="item === feeProduct">
-                                                                <div class="item-box"
-                                                                     ng-click="selectedFeeProd(!!mobile,item);"
-                                                                     wtf="disabled" wtf-class="!mobile">
-                                                                    <div class="title" ng-bind="item.productName"></div>
-                                                                    <div class="disc"><span
-                                                                            ng-bind="item.regionProducts | flowSalesPrice | number : 2"></span>元
-                                                                    </div>
-                                                                    <s></s>
-                                                                    <i class="salePic" ng-if="item.sortNo >= 50 && couponList.length > 0"></i>
+                                                                <div class="productList">
+                                                                    <ul>
+                                                                        <li ng-repeat="item in flowList.data | limitTo : 7"
+                                                                            wtf="curr" wtf-class="item === flowProduct">
+                                                                            <div class="item-box"
+                                                                                 ng-click="selectedFlowProd(!!mobile,item);"
+                                                                                 wtf="disabled" wtf-class="!item.stock">
+                                                                                <div class="title"
+                                                                                     ng-bind="item.productName"></div>
+                                                                                <!--<div class="disc"><span
+                                                                                        ng-bind="item.regionProducts | flowSalesPrice | number : 2"></span>元
+                                                                                </div>-->
+                                                                                <s></s>
+                                                                                <i class="salePic"
+                                                                                   ng-if="item.sortNo >= 100 && couponList.length > 0"></i>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li ng-click="getFlowMore()">
+                                                                            <div class="item-box more">
+                                                                                <div class="title">更多流量</div>
+                                                                                <s></s>
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
                                                                 </div>
-                                                            </li>
-                                                            <!--<li ng-click="getFeeMore(!!mobile)"
-                                                                ng-if="feeLimitTo === 4">
-                                                                <div class="item-box more">
-                                                                    <div class="title">更多</div>
-                                                                    <s></s>
+                                                            </div>
+
+                                                            <div class="clr"></div>
+
+                                                            <div class="priceItem item" ng-if="flowProduct">
+                                                                <span class="itemName">流量类型：</span>
+
+                                                                <ul class="salePrice">
+                                                                    <li ng-repeat="item in flowProduct.regionProducts"
+                                                                        ng-click="buyFlowProd(item,$event)" wtf="curr"
+                                                                        wtf-class="item === regionFlowProduct">
+                                                                        <span class="flowSalePic"><span ng-bind="item.regionName"></span></span>
+                                                                        <span
+                                                                                class="flowDesc">支持2G/3G/4G，当月有效</span>
+                                                                        <!--<del class="delPrice">{{item.costPrice | number
+                                                                            : 2}} 元
+                                                                        </del>-->
+                                                                        <!--<span class="flowPrice">¥<i
+                                                                                ng-bind="(item.salesPrice) | number : 2"></i></span><s></s>-->
+                                                                    </li>
+                                                                </ul>
+
+                                                            </div>
+
+                                                            <div class="priceItem item" ng-if="flowProduct" style="margin-top: 20px">
+                                                                <span class="itemName">销售价格：</span>
+                                                                <p class="disc" class="">
+                                                                    <span class="disc-content" style="margin-right: 20px">
+                                                                        <em>￥</em><em ng-bind="regionFlowProduct.salesPrice | number : 2"></em>
+                                                                        <del ng-bind="'￥' + (regionFlowProduct.costPrice | number : 2)" style="color: #999"></del>
+                                                                    </span>
+                                                                    <span class="disc-content" style="margin-right: 20px">
+                                                                        <img src="images/flow/icon-coupon.png" style="display: inline-block;vertical-align: middle">
+                                                                        <span style="display: inline-block;vertical-align: middle" ng-bind="regionFlowProduct.salesPrice | flowCoupon"></span><span style="display: inline-block;vertical-align: middle">元优惠券</span>
+                                                                        <img src="images/flow/what.png" style="display: inline-block;vertical-align: middle">
+                                                                    </span>
+                                                                    <span ng-if="showTips" class="disc-content" style="margin-right: 20px">
+                                                                        <img src="images/flow/gift.png" style="display: inline-block;vertical-align: middle">
+                                                                        <span style="display: inline-block;vertical-align: middle">YYPDF流量优惠</span>
+                                                                    </span>
+                                                                </p>
+                                                            </div>
+
+
+                                                            <div class="submitItem item">
+                                                                <p class="disc" ng-if="flowCouponLength > 0" class="">使用<em
+                                                                        ng-bind="flowCouponLength"></em>张优惠券，下单再省<em
+                                                                        ng-bind="flowCouponLength | number : 2"></em>元
+                                                                </p>
+                                                                <div>
+                                                                    <input class="submit" wtf="disabled"
+                                                                           wtf-class="!regionFlowProduct"
+                                                                           ng-click="pay(flowProduct,regionFlowProduct,flowCoupons)"
+                                                                           value="立即充值" type="button">
+                                                                    <span class="price-desc-tip" data-toggle="modal"
+                                                                          data-target="#flowModal"
+                                                                          data-tips="因可能存在系统缓存、页面更新导致价格变动异常等不确定性情况出现，商品售价以本结算页商品价格为准；如有疑问，请您立即联系销售商咨询。"><img src="images/flow/what.png"><span>活动规则及须知</span></span>
                                                                 </div>
-                                                            </li>-->
-                                                        </ul>
-                                                    </div>
-                                                </div>
+                                                            </div>
+                                                            <!--<div style="margin-top: 20px;font-size: 14px;color: #e54043"
+                                                                 ng-if="showTips">
+                                                                流量充值送PDF转换流量：每充值1元手机流量，可获得100KB。本优惠由YYPDF提供。
+                                                            </div>-->
+                                                            <!--<div style="margin-top: 10px;font-size: 14px;color: #e54043">
+                                                                <b>流量包充值买一送一：</b>充值流量包，即赠送等金额（按实际金额向下取整，最多30元）的流量包/话费充值通用优惠券，可用于下次充值或转赠给朋友使用。
+                                                            </div>-->
+                                                        </div>
+                                                        <div class="fee" ng-if="productType === 'fee'">
 
-                                                <div class="clr"></div>
+                                                            <div class="rechargeItem item">
+                                                                <span class="itemName">话费面值：</span>
 
-                                                <div class="priceItem item" ng-if="feeProduct">
-                                                    <span class="itemName">销售价格：</span>
+                                                                <div class="productList">
+                                                                    <ul>
+                                                                        <li ng-repeat="item in feeList.data"
+                                                                            wtf="curr" wtf-class="item === feeProduct">
+                                                                            <div class="item-box"
+                                                                                 ng-click="selectedFeeProd(!!mobile,item);"
+                                                                                 wtf="disabled" wtf-class="!mobile">
+                                                                                <div class="title"
+                                                                                     ng-bind="item.productName"></div>
+                                                                                <!--<div class="disc"><span
+                                                                                        ng-bind="item.regionProducts | flowSalesPrice | number : 2"></span>元
+                                                                                </div>-->
+                                                                                <s></s>
+                                                                                <i class="salePic"
+                                                                                   ng-if="item.sortNo >= 50 && couponList.length > 0"></i>
+                                                                            </div>
+                                                                        </li>
+                                                                        <!--<li ng-click="getFeeMore(!!mobile)"
+                                                                            ng-if="feeLimitTo === 4">
+                                                                            <div class="item-box more">
+                                                                                <div class="title">更多</div>
+                                                                                <s></s>
+                                                                            </div>
+                                                                        </li>-->
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
 
-                                                    <ul class="salePrice">
-                                                        <li ng-repeat="item in feeProduct.regionProducts"
-                                                            ng-click="buyFeeProd(item,$event)" wtf="curr"
-                                                            wtf-class="item === regionFeeProduct">
+                                                            <div class="clr"></div>
+
+                                                            <div class="priceItem item" ng-if="feeProduct">
+                                                                <span class="itemName">销售价格：</span>
+
+                                                                <ul class="salePrice">
+                                                                    <li ng-repeat="item in feeProduct.regionProducts"
+                                                                        ng-click="buyFeeProd(item,$event)" wtf="curr"
+                                                                        wtf-class="item === regionFeeProduct">
                                                             <span ng-if="item.costPrice >= 50"><span
                                                                     class="flowSalePic">促</span><span
                                                                     class="flowSaleDesc">:&nbsp;送<span
                                                                     ng-bind="item.costPrice | feeCoupon : 30"></span>元优惠券~！</span></span>
-                                                            <span class="flowDesc">支持2G/3G/4G</span>
-                                                            <del class="delPrice">{{item.costPrice | number : 2}} 元
-                                                            </del>
-                                                            <span class="flowPrice">¥<i
-                                                                    ng-bind="(item.salesPrice) | number : 2"></i></span><s></s>
-                                                        </li>
-                                                    </ul>
+                                                                        <span class="flowDesc">支持2G/3G/4G</span>
+                                                                        <!--<del class="delPrice">{{item.costPrice | number
+                                                                            : 2}} 元
+                                                                        </del>-->
+                                                                        <!--<span class="flowPrice">¥<i
+                                                                                ng-bind="(item.salesPrice) | number : 2"></i></span><s></s>-->
+                                                                    </li>
+                                                                </ul>
 
+                                                            </div>
+
+
+                                                            <div class="submitItem item">
+                                                                <p ng-if="feeCouponLength > 0" class="disc">使用<em
+                                                                        ng-bind="feeCouponLength"></em>张优惠券，下单再省<em
+                                                                        ng-bind="feeCouponLength | number : 2"></em>元
+                                                                </p>
+                                                                <div>
+                                                                    <input class="submit" wtf="disabled"
+                                                                           wtf-class="!regionFeeProduct"
+                                                                           ng-click="pay(feeProduct,regionFeeProduct,feeCoupons)"
+                                                                           value="立即充值" type="button">
+                                                                    <span class="price-desc-tip" data-toggle="modal"
+                                                                          data-target="#feeModal"
+                                                                          data-tips="因可能存在系统缓存、页面更新导致价格变动异常等不确定性情况出现，商品售价以本结算页商品价格为准；如有疑问，请您立即联系销售商咨询。"><i></i>充值说明</span>
+                                                                </div>
+                                                            </div>
+                                                            <div style="margin-top: 20px;font-size: 14px;color: #e54043">
+                                                                <b>话费充值充50送5，充100送10：</b>话费充值50元送5元优惠券，面值100元送10元优惠券，多充多送（最多30元），优惠券流量包/话费充值通用，可用于下次充值或转赠给朋友使用。
+                                                            </div>
+                                                        </div>
+                                                    </form>
                                                 </div>
 
-
-                                                <div class="submitItem item">
-                                                    <p ng-if="feeCouponLength > 0" class="disc">使用<em
-                                                            ng-bind="feeCouponLength"></em>张优惠券，下单再省<em
-                                                            ng-bind="feeCouponLength | number : 2"></em>元</p>
-                                                    <div>
-                                                        <input class="submit" wtf="disabled"
-                                                               wtf-class="!regionFeeProduct"
-                                                               ng-click="pay(feeProduct,regionFeeProduct,feeCoupons)"
-                                                               value="立即充值" type="button">
-                                                        <span class="price-desc-tip" data-toggle="modal"
-                                                              data-target="#feeModal"
-                                                              data-tips="因可能存在系统缓存、页面更新导致价格变动异常等不确定性情况出现，商品售价以本结算页商品价格为准；如有疑问，请您立即联系销售商咨询。"><i></i>充值说明</span>
-                                                    </div>
-                                                </div>
-                                                <div style="margin-top: 20px;font-size: 14px;color: #e54043"><b>话费充值充50送5，充100送10：</b>话费充值50元送5元优惠券，面值100元送10元优惠券，多充多送（最多30元），优惠券流量包/话费充值通用，可用于下次充值或转赠给朋友使用。</div>
                                             </div>
-                                        </form>
+                                        </div>
                                     </div>
-
-                                    <div class="img-box" style="margin-top: 80px;margin-bottom: 90px"><img
-                                            src="http://mall.yfq.cn/images/flow/pros.png"></div>
-
+                                </div>
+                            </div>
+                        </div>
+                        <div class="site-bar pure-u-7-24">
+                            <div class="banner" style="margin-bottom: 20px">
+                                <div class="img-box">
+                                    <img src="images/flow/banner-flow.jpg">
+                                </div>
+                            </div>
+                            <div class="ad" style="margin-bottom: 20px">
+                                <div class="img-box">
+                                    <img src="images/flow/banner-2.jpg">
+                                </div>
+                            </div>
+                            <div class="service">
+                                <div class="pure-g">
+                                    <div class="pure-u-1-2">
+                                        <div style="margin-right: 10px">
+                                            <div class="img-box" ng-click="getComments($event);">
+                                                <img src="images/flow/service-1.jpg">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pure-u-1-2">
+                                        <div style="margin-left: 10px">
+                                            <div class="img-box">
+                                                <img src="images/flow/service-2.jpg">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -313,7 +365,7 @@
 
         </div>
     </div>
-    <div class="ng-comments"></div>
+    <!--<div class="ng-comments"></div>-->
 </div>
 
 <div class="modal fade" id="flowModal" tabindex="-1" role="dialog">

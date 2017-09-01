@@ -346,6 +346,26 @@ app.filter('flowCoupon', function () {
     }
 });
 
+app.filter('phoneNumber', function () {
+    return function (number) {
+        if (number) {
+            var value = number;
+            value = value.replace(/\s*/g, "");
+            var result = [];
+            for (var i = 0; i < value.length; i++) {
+                if (i == 3 || i == 7) {
+                    result.push(" " + value.charAt(i));
+                }
+                else {
+                    result.push(value.charAt(i));
+                }
+            }
+            console.log(result.join(""));
+            return result.join("");
+        }
+    }
+});
+
 app.filter('jm', function () {
     return function (price, max) {
         for (var i = 0; i <= max / 5; i++) {
@@ -396,10 +416,12 @@ app.filter('flowSalesPrice', function () {
     }
 });
 
-app.controller('appController', ['$scope', '$location', '$cookieStore', '$filter', 'MarketSvc', 'CouponSvc', function ($scope, $location, $cookieStore, $filter, MarketSvc, CouponSvc) {
+app.controller('appController', ['$scope', '$location', '$cookieStore', '$filter', '$timeout', 'MarketSvc', 'CouponSvc', function ($scope, $location, $cookieStore, $filter, $timeout, MarketSvc, CouponSvc) {
     $scope.$root.pageTitle = '翼分期';
 
     $scope.isFeeShow = true;
+
+    $scope.mobileInputFocus = true;
 
     $("#banner").owlCarousel({
         navigation: true, // Show next and prev buttons
@@ -441,7 +463,7 @@ app.controller('appController', ['$scope', '$location', '$cookieStore', '$filter
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
 
     if ($cookieStore.get('rechargeMobile')) {
-        $scope.mobile = $cookieStore.get('rechargeMobile');
+        $scope.mobileView = $cookieStore.get('rechargeMobile');
     }
 
     $scope.bodyClass = 'bodyc';
@@ -462,7 +484,7 @@ app.controller('appController', ['$scope', '$location', '$cookieStore', '$filter
     };
 
     $scope.selectedFlowProd = function (checked, product) {
-        $scope.productType = 'flow';
+        //$scope.productType = 'flow';
         if (!checked) {
             //$scope.$root.appDialog.open('系统提示', '请输入您的手机号码');
             return false;
@@ -494,7 +516,7 @@ app.controller('appController', ['$scope', '$location', '$cookieStore', '$filter
     };
 
     $scope.selectedFeeProd = function (checked, product) {
-        $scope.productType = 'fee';
+        //$scope.productType = 'fee';
         if (!checked) {
             //$scope.$root.appDialog.open('系统提示', '请输入您的手机号码');
             return false;
@@ -560,175 +582,99 @@ app.controller('appController', ['$scope', '$location', '$cookieStore', '$filter
 
     };
 
+    $scope.$watch('mobileView', function (n, o, $scope) {
+        if (n) {
+            console.log(n);
+            var value = n;
+            value = value.replace(/\s*/g, "");
+            var result = [];
+            for (var i = 0; i < value.length; i++) {
+                if (i == 3 || i == 7) {
+                    result.push(" " + value.charAt(i));
+                }
+                else {
+                    result.push(value.charAt(i));
+                }
+            }
+            $scope.mobileView = result.join("");
+            $scope.mobile = value;
+            $cookieStore.put('rechargeMobile', $scope.mobileView);
+        }
+    });
+
+    var rebuildData = function (data, compareData) {//data 待对比对象 compareData 对比对象
+        /*var _listData = listData.data;*/
+        if (compareData) {//如果 compareData === true 进行对比
+            $.each(data.data, function (i, k) {
+                k.stock = false;
+                $.each(compareData.data, function (item, key) {
+                    if (k.productName === key.productName) {
+                        k.stock = true;
+                    }
+                });
+            });
+        } else {//如果 compareData === false 不进行对比
+            $.each(data.data, function (i, k) {
+                k.stock = true;
+            });
+        }
+
+        console.log(data);
+        return data;
+    };
+
+    MarketSvc.getFlows('').then(function success(data) {
+        $scope.tempFlowList = rebuildData(data, false);
+        MarketSvc.getFees('').then(function success(data) {
+            $scope.tempFeeList = rebuildData(data, false);
+
+            $scope.$watch('mobileValid', function (n, o, $scope) {
+                //console.log(n);
+                if (!n) {
+                    console.log(1);
+                    $scope.flowList = $scope.tempFlowList;
+                    $scope.selectedFlowProd(true, $scope.flowList.data[0]);
+
+                    $scope.feeList = $scope.tempFeeList;
+                    $scope.selectedFeeProd(true, $scope.feeList.data[0]);
+                }
+            });
+        });
+    });
+
     $scope.$watch('mobile', function (n, o, $scope) {
 
-        $scope.flowProduct = null;
+        /*$scope.flowProduct = null;
         $scope.feeProduct = null;
         $scope.regionProducts = null;
         $scope.regionFlowProduct = null;
-        $scope.regionFeeProduct = null;
+        $scope.regionFeeProduct = null;*/
         /*$scope.flowList = null;
         $scope.feeList = null;*/
-        $scope.couponList = null;
+        /*$scope.couponList = null;
         $scope.flowLimitTo = 4;
         $scope.feeLimitTo = 4;
         $scope.flowCouponLength = null;
-        $scope.feeCouponLength = null;
-        if (n === undefined || n === '') {
-            $scope.flowList = {
-                "area": "广东",
-                "codeMsg": "查询成功",
-                "area_operator": "广东移动",
-                "data": [
-                    {
-                        "productId": 10000091120342,
-                        "productName": "10M",
-                        "regionProducts": [
-                            {
-                                "costPrice": 3,
-                                "describes": "",
-                                "productFlowPriceId": 2527,
-                                "recommend": 0,
-                                "regionName": "全国",
-                                "salesPrice": 2.94
-                            }
-                        ],
-                        "salesPrice": 3,
-                        "sortNo": 10
-                    },
-                    {
-                        "productId": 10000091120342,
-                        "productName": "30M",
-                        "regionProducts": [
-                            {
-                                "costPrice": 5,
-                                "describes": "",
-                                "productFlowPriceId": 2528,
-                                "recommend": 0,
-                                "regionName": "全国",
-                                "salesPrice": 4.9
-                            }
-                        ],
-                        "salesPrice": 5,
-                        "sortNo": 30
-                    }, {
-                        "productId": 10000091120342,
-                        "productName": "70M",
-                        "regionProducts": [
-                            {
-                                "costPrice": 10,
-                                "describes": "",
-                                "productFlowPriceId": 2529,
-                                "recommend": 0,
-                                "regionName": "全国",
-                                "salesPrice": 9.8
-                            }
-                        ],
-                        "salesPrice": 10,
-                        "sortNo": 70
-                    }, {
-                        "productId": 10000091120342,
-                        "productName": "100M",
-                        "regionProducts": [
-                            {
-                                "costPrice": 10,
-                                "describes": "",
-                                "productFlowPriceId": 2530,
-                                "recommend": 0,
-                                "regionName": "全国",
-                                "salesPrice": 9.8
-                            }
-                        ],
-                        "salesPrice": 10,
-                        "sortNo": 100
-                    }
-                ],
-                "code": "0",
-                "operator": "移动"
-            };
-
-            $scope.feeList = {
-                "area": "广东",
-                "codeMsg": "查询成功",
-                "area_operator": "广东移动",
-                "data": [{
-                    "productId": 10000092870385,
-                    "productName": "30元",
-                    "regionProducts": [
-                        {
-                            "costPrice": 30,
-                            "describes": "",
-                            "productFlowPriceId": 2682,
-                            "recommend": 0,
-                            "regionName": "省内",
-                            "salesPrice": 30
-                        }
-                    ],
-                    "salesPrice": 30,
-                    "sortNo": 30
-                }, {
-                    "productId": 10000092870385,
-                    "productName": "50元",
-                    "regionProducts": [
-                        {
-                            "costPrice": 50,
-                            "describes": "",
-                            "productFlowPriceId": 2683,
-                            "recommend": 0,
-                            "regionName": "省内",
-                            "salesPrice": 50
-                        }
-                    ],
-                    "salesPrice": 50,
-                    "sortNo": 50
-                }, {
-                    "productId": 10000092870385,
-                    "productName": "100元",
-                    "regionProducts": [
-                        {
-                            "costPrice": 100,
-                            "describes": "",
-                            "productFlowPriceId": 2684,
-                            "recommend": 0,
-                            "regionName": "省内",
-                            "salesPrice": 100
-                        }
-                    ],
-                    "salesPrice": 100,
-                    "sortNo": 100
-                }, {
-                    "productId": 10000092870385,
-                    "productName": "200元",
-                    "regionProducts": [
-                        {
-                            "costPrice": 200,
-                            "describes": "",
-                            "productFlowPriceId": 2685,
-                            "recommend": 0,
-                            "regionName": "省内",
-                            "salesPrice": 200
-                        }
-                    ],
-                    "salesPrice": 200,
-                    "sortNo": 200
-                }
-                ],
-                "code": "0",
-                "operator": "移动"
-            };
+        $scope.feeCouponLength = null;*/
+        if (!n || n && n.length !== 11) {
+            $scope.mobileValid = false;
         }
-        if (n !== undefined) {
-
-            $cookieStore.put('rechargeMobile', n);
+        if (n !== undefined && n.length == 11) {
+            $scope.mobileValid = true;
             CouponSvc.getCouponList(n).then(function success(data) {
                 $scope.couponList = $filter('filter')(data.couponList, {isUsed: 0, isOverdue: 0, type: 'DK'});
 
-                MarketSvc.getFlows(n).then(function success(data) {
-                    $scope.flowList = data;
+                $timeout(function () {
+                    MarketSvc.getFlows(n).then(function success(data) {
+                        $scope.flowList = rebuildData($scope.tempFlowList, data);
+                        $scope.selectedFlowProd(true, $scope.flowList.data[0]);
+                    });
+                    MarketSvc.getFees(n).then(function success(data) {
+                        $scope.feeList = rebuildData($scope.tempFeeList, data);
+                        $scope.selectedFeeProd(true, $scope.feeList.data[0]);
+                    });
                 });
-                MarketSvc.getFees(n).then(function success(data) {
-                    $scope.feeList = data;
-                });
+
             });
         }
     });
