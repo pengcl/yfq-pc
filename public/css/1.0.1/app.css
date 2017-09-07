@@ -1243,11 +1243,100 @@ span.charging-btn:hover {
 }
 /* line 6, ../../../sass/pages/_payState.scss */
 .pay-state .msg-box {
-  margin-top: 20px;
+  margin-top: 45px;
   margin-bottom: 20px;
-  border: 1px solid #cccccc;
+  border: 0;
   background: #fff;
   padding: 30px;
+  -moz-box-shadow: 0px 0px 10px #ddd;
+  -webkit-box-shadow: 0px 0px 10px #ddd;
+  box-shadow: 0px 0px 10px #ddd;
+}
+/* line 13, ../../../sass/pages/_payState.scss */
+.pay-state .msg-box .msg-box-title {
+  margin-top: -10px;
+  text-align: left;
+  font-size: 16px;
+  color: #999;
+  padding-bottom: 20px;
+  line-height: 1em;
+  border-bottom: 1px solid #ccc;
+}
+/* line 22, ../../../sass/pages/_payState.scss */
+.pay-state .msg-box .msg-box-msg {
+  position: relative;
+  text-align: left;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 150px;
+  border-bottom: 1px solid #ccc;
+}
+/* line 29, ../../../sass/pages/_payState.scss */
+.pay-state .msg-box .msg-box-msg .msg-icon {
+  position: absolute;
+  left: 30px;
+  top: 30px;
+  height: 80px;
+  width: 80px;
+}
+/* line 35, ../../../sass/pages/_payState.scss */
+.pay-state .msg-box .msg-box-msg .msg-icon img {
+  display: block;
+  width: 100%;
+}
+/* line 40, ../../../sass/pages/_payState.scss */
+.pay-state .msg-box .msg-box-msg .msg-box-msg-txt {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+/* line 43, ../../../sass/pages/_payState.scss */
+.pay-state .msg-box .msg-box-msg .msg-box-msg-txt h2 {
+  line-height: 36px;
+  color: #ff6700;
+  font-size: 24px;
+}
+/* line 48, ../../../sass/pages/_payState.scss */
+.pay-state .msg-box .msg-box-msg .msg-box-msg-txt p {
+  font-size: 16px;
+  color: #666;
+  line-height: 24px;
+}
+
+/* line 61, ../../../sass/pages/_payState.scss */
+.pc-payment .pay-state .msg-box .msg-box-msg-txt {
+  padding: 0;
+}
+/* line 63, ../../../sass/pages/_payState.scss */
+.pc-payment .pay-state .msg-box .msg-box-msg-txt h2 {
+  color: #000;
+  font-weight: normal;
+  line-height: 1em;
+  margin-bottom: 10px;
+}
+/* line 69, ../../../sass/pages/_payState.scss */
+.pc-payment .pay-state .msg-box .msg-box-msg-txt p.disc {
+  color: #999;
+}
+/* line 72, ../../../sass/pages/_payState.scss */
+.pc-payment .pay-state .msg-box .msg-box-msg-txt p.coupons {
+  color: #ff6700;
+}
+/* line 74, ../../../sass/pages/_payState.scss */
+.pc-payment .pay-state .msg-box .msg-box-msg-txt p.coupons img {
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  *zoom: 1;
+  *display: inline;
+  margin-right: 10px;
+}
+/* line 78, ../../../sass/pages/_payState.scss */
+.pc-payment .pay-state .msg-box .msg-box-msg-txt p.coupons span {
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  *zoom: 1;
+  *display: inline;
 }
 
 /* line 4, ../../../sass/pages/_details.scss */
@@ -2464,4 +2553,87 @@ span.charging-btn:hover {
   background-color: #337ab7;
   border-color: #2e6da4;
   color: #fff;
+}
+
+/* line 925, ../../../sass/app.scss */
+.pc-payment .pay-content {
+  background: #fff;
+  padding-bottom: 50px;
+}
+/* line 928, ../../../sass/app.scss */
+.pc-payment .pay-content .order-pay {
+  background: #fff;
+  border-top: 2px solid #ccc;
+  -moz-box-shadow: 3px 3px 3px #ccc, -3px 3px 3px #ccc;
+  -webkit-box-shadow: 3px 3px 3px #ccc, -3px 3px 3px #ccc;
+  box-shadow: 3px 3px 3px #ccc, -3px 3px 3px #ccc;
+  position: relative;
+}
+/* line 933, ../../../sass/app.scss */
+.pc-payment .pay-content .order-pay h1.label {
+  position: absolute;
+  top: 20px;
+  left: 0;
+}
+/* line 939, ../../../sass/app.scss */
+.pc-payment .pay-content .order-info {
+  padding-top: 5px;
+  padding-bottom: 0px;
+  padding-left: 15px;
+  padding-right: 15px;
+  overflow: hidden;
+}
+/* line 945, ../../../sass/app.scss */
+.pc-payment .pay-content .order-info .order-no {
+  color: #333;
+}
+/* line 948, ../../../sass/app.scss */
+.pc-payment .pay-content .order-info .order-date {
+  color: #999;
+  margin-left: 30px;
+}
+/* line 952, ../../../sass/app.scss */
+.pc-payment .pay-content .order-info .order-product {
+  font-weight: bold;
+}
+/* line 956, ../../../sass/app.scss */
+.pc-payment .pay-content .pay-tabs {
+  margin: 30px 0px 0px;
+}
+/* line 958, ../../../sass/app.scss */
+.pc-payment .pay-content .pay-tabs .tab-content {
+  padding: 30px;
+}
+/* line 961, ../../../sass/app.scss */
+.pc-payment .pay-content .pay-tabs .tab-content .pay-list .mode-name {
+  font-size: 16px;
+  color: #777;
+}
+/* line 966, ../../../sass/app.scss */
+.pc-payment .pay-content .pay-tabs .tab-content .pay-list .pay-item-box.new-box {
+  height: 80px;
+  padding-left: 0;
+  border: none;
+  cursor: pointer;
+}
+/* line 971, ../../../sass/app.scss */
+.pc-payment .pay-content .pay-tabs .tab-content .pay-list .pay-item-box.new-box .pay-logo {
+  display: block;
+  position: static;
+  width: auto;
+  height: 80px;
+}
+/* line 976, ../../../sass/app.scss */
+.pc-payment .pay-content .pay-tabs .tab-content .pay-list .pay-item-box.new-box .pay-logo img {
+  display: block;
+  height: 100%;
+  width: auto;
+}
+/* line 982, ../../../sass/app.scss */
+.pc-payment .pay-content .pay-tabs .tab-content .pay-list .pay-item-box.new-box .txt {
+  display: none;
+}
+/* line 985, ../../../sass/app.scss */
+.pc-payment .pay-content .pay-tabs .tab-content .pay-list .pay-item-box.new-box .mode-select {
+  display: none;
 }

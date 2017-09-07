@@ -24,10 +24,25 @@
 
 
         <div class="msg-box" style="text-align: center">
-            <h2><i style="color: #09bb07;font-size: 32px;vertical-align: middle;" class="fa fa-check-circle"></i> <span
-                    style="vertical-align: middle;">您已成功付款！</span></h2>
+            <div class="msg-box-title">订单编号：{{orderNo}} <span style="margin-left: 15px">{{order.salesOrder.createtime.time | date:'MM-dd HH:mm'}}</span></div>
+            <div class="msg-box-msg">
+                <span class="msg-icon">
+                    <img src="/images/success-icon.png">
+                </span>
+                <div class="msg-box-msg-txt">
+                    <h2>支付成功！</h2>
+                    <p>已成功为号码 {{order.salesOrder.recievermobile}}
+                        <span ng-if="order.product.productname == '话费充值'">充话费<span ng-bind="order.salesOrder.amount"></span>元</span>
+                        <span ng-if="order.product.productname == '流量充值'">充流量<span ng-bind="order.salesOrder.amount"></span>元</span>
+                        ，请留意手机到账短信。</p>
+                </div>
+            </div>
             <div class="msg-box-desc">
-                <table class="pure-table pure-table-bordered" width="60%" style="width: 60%;margin: 20px auto;">
+                <div class="img-box" style="width: 256px;height: 256px;margin: 30px auto 20px">
+                    <img src="/images/spc-qrcode.png">
+                </div>
+                <p style="text-align: center;font-size: 24px;color: #ff6700">扫码领取优惠券</p>
+                <!--<table class="pure-table pure-table-bordered" width="60%" style="width: 60%;margin: 20px auto;">
                     <tr class="pure-table-odd">
                         <td style="text-align: right;">订单号：</td>
                         <td style="text-align: left;">{{orderNo}}</td>
@@ -40,17 +55,14 @@
                         <td style="text-align: right;">交易详情：</td>
                         <td style="text-align: left;">已支付{{orderPrice | number : 2}}元。</td>
                     </tr>
-                </table>
+                </table>-->
             </div>
 
-            <p ng-if="getCoupon > 0">您本次交易中获取系统赠送的 "<span style="color: #e4393c;font-size: 24px">{{getCoupon}}元</span>" 优惠券。扫描下方二维码领取优惠券</p>
-            <p ng-if="getCoupon == 0">扫描下方二维码关注"翼分期商城"，获取更多商品优惠信息</p>
-            
-            <div style="width: 200px;margin: 15px auto;">
-                <img src="/images/qrcode.jpg" style="display: block;width: 100%">
-            </div>
+            <p ng-if="getCoupon > 0" style="font-size: 16px;color: #666;margin-top: 15px">优惠券{{getCoupon}}元已存入帐号 {{order.salesOrder.recievermobile}} <br>
+            微信扫码即可领取</p>
+            <p ng-if="getCoupon == 0" style="font-size: 16px;color: #666;margin-top: 15px">扫描上方二维码关注"翼分期商城"，获取更多商品优惠信息</p>
 
-            <a class="button-secondary pure-button" ng-click="tipsShow = true">返回下单页</a>
+            <a class="button-secondary pure-button" ng-click="tipsShow = true" style="margin-top: 30px;margin-bottom: 30px">逛逛手机商城</a>
         </div>
     </div>
 </div>

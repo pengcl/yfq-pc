@@ -682,7 +682,7 @@ span.charging-btn:hover {
 
 .flow .flow-content .ad-l {
     position: fixed;
-    top:50%;
+    top: 50%;
     left: 50%;
     margin-left: -630px;
     width: 120px;
@@ -750,7 +750,6 @@ span.charging-btn:hover {
 
 #chongzhi .item {
     margin-bottom: 37px;
-    overflow: hidden;
 }
 
 #chongzhi .item span.itemName {
@@ -882,7 +881,7 @@ span.charging-btn:hover {
     margin-top: 20px;
 }
 
-#chongzhi .submitItem .disc,#chongzhi .priceItem .disc {
+#chongzhi .submitItem .disc, #chongzhi .priceItem .disc {
     margin-bottom: 15px;
     font-size: 14px;
     color: #ff6c08;
@@ -942,29 +941,29 @@ span.charging-btn:hover {
 #chongzhi .phoneContainer input::-webkit-input-placeholder {
     color: #666;
     font-size: 14px;
-    line-height: 36px;
+    line-height: normal;
 }
 
 #chongzhi .phoneContainer input:-moz-placeholder {
     color: #666;
     font-size: 14px;
-    line-height: 36px;
+    line-height: normal;
 }
 
 #chongzhi .phoneContainer input::-moz-placeholder {
     color: #666;
     font-size: 14px;
-    line-height: 36px;
+    line-height: normal;
 }
 
 #chongzhi .phoneContainer input:-ms-input-placeholder {
     color: #666;
     font-size: 14px;
-    line-height: 36px;
+    line-height: normal;
 }
 
 #chongzhi .phoneContainer input:focus {
-    border:1px solid #ff6c08;
+    border: 1px solid #ff6c08;
     outline: none;
     box-shadow: none;
     -webkit-box-shadow: none;
@@ -976,6 +975,7 @@ span.charging-btn:hover {
     padding-top: 11px;
     margin-left: 20px;
 }
+
 #chongzhi .beizhu-info img {
     display: block;
 }
@@ -1002,7 +1002,6 @@ span.charging-btn:hover {
 
 #chongzhi .phoneContainer .errorTip {
     color: #e4393c;
-    display: none;
     padding-top: 4px;
 }
 
@@ -1039,11 +1038,15 @@ span.charging-btn:hover {
     vertical-align: middle;
 }
 
+#chongzhi .productList {
+    float: left;
+    width: 520px;
+}
+
 #chongzhi .productList ul {
     color: #333;
     font-family: "Microsoft YaHei";
     font-size: 18px;
-    overflow: hidden;
 }
 
 #chongzhi .productList ul li {
@@ -1056,17 +1059,28 @@ span.charging-btn:hover {
     width: 104px;
 }
 
-#chongzhi .productList ul li .salePic{
-    background: rgba(0, 0, 0, 0) url("http://mall.yfq.cn/images/flow/hui.png") no-repeat;
-    height: 38px;
+#chongzhi .productList ul li .salePic {
+    background: rgba(0, 0, 0, 0) url("images/flow/hui.png") no-repeat;
+    height: 31px;
     position: absolute;
-    right: -2px;
-    top: -2px;
-    width: 37px;
+    right: 0px;
+    top: 0px;
+    width: 31px;
+}
+
+#chongzhi .productList ul li .more-list .salePic {
+    background: rgba(0, 0, 0, 0) url("images/flow/hui-2.png") no-repeat;
+    width: 25px;
+    height: 18px;
 }
 
 #chongzhi .productList ul li .item-box {
-    padding: 5px 0px
+    padding: 5px 0px;
+    position: relative;
+}
+
+#chongzhi .productList ul li .item-box.disabled {
+    color: #dbdbdb;
 }
 
 #chongzhi .productList ul li .item-box .title {
@@ -1095,14 +1109,47 @@ span.charging-btn:hover {
     line-height: 40px
 }
 
+#chongzhi .productList ul li.item-more ins {
+    position: absolute;
+    display: block;
+    right: 15px;
+    top: 50%;
+    margin-top: -4px;
+    width: 9px;
+    height: 8px;
+}
+
+#chongzhi .productList ul li.item-more ins img {
+    display: block;
+    width: 100%;
+}
+
+#chongzhi .productList ul li.item-more .more-list {
+    position: absolute;
+    z-index: 999;
+    width: 104px;
+    background: #fff;
+    border: 2px solid #ddd;
+    margin-left: -2px;
+    margin-right: -2px;
+}
+
 #chongzhi .productList ul li s {
-    background: rgba(0, 0, 0, 0) url("//misc.360buyimg.com/virtuals/chongzhi/css/i/recharge.png?__sprite") no-repeat scroll 0 -151px;
+    background: rgba(0, 0, 0, 0) url("images/flow/item-check.png") no-repeat;
     bottom: 0;
     display: none;
-    height: 12px;
+    height: 21px;
     position: absolute;
     right: 0;
-    width: 12px;
+    width: 21px;
+}
+
+#chongzhi .productList ul li .hot {
+    position: absolute;
+    display: block;
+    right: 1px;
+    top: 1px;
+    font-size: 1px;
 }
 
 #chongzhi .productList ul .curr {
@@ -1121,7 +1168,7 @@ span.charging-btn:hover {
     margin-bottom: 0;
 }
 
-.site-bar .ad,.site-bar .banner,.site-bar .service {
+.site-bar .ad, .site-bar .banner, .site-bar .service {
     background: none;
     padding-left: 20px;
 }
@@ -1184,18 +1231,19 @@ span.charging-btn:hover {
 }
 
 #chongzhi .submit {
-    background: #e54043 none repeat scroll 0 0;
+    background: #ff6700 none repeat scroll 0 0;
     border: 0 none;
     border-radius: 3px;
     color: #fff;
     font-family: "Microsoft YaHei";
-    font-size: 18px;
+    font-size: 24px;
     font-weight: 700;
-    height: 36px;
     margin-right: 8px;
     text-align: center;
     vertical-align: middle;
-    width: 136px;
+    font-weight: normal;
+    padding:12px 35px;
+    line-height: 1em;
 }
 
 /*#chongzhi .disabled {
@@ -1214,7 +1262,7 @@ span.charging-btn:hover {
     vertical-align: middle;
 }
 
-#chongzhi .price-desc-tip img,#chongzhi .price-desc-tip span {
+#chongzhi .price-desc-tip img, #chongzhi .price-desc-tip span {
     display: inline-block;
     margin-right: 5px;
     text-decoration: none;

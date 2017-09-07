@@ -920,3 +920,75 @@
     }
   }
 }
+
+.pc-payment {
+  .pay-content {
+    background: #fff;
+    padding-bottom: 50px;
+    .order-pay {
+      background: #fff;
+      border-top: 2px solid #ccc;
+      @include box-shadow(3px 3px 3px #ccc,-3px 3px 3px #ccc);
+      position: relative;
+      h1.label {
+        position: absolute;
+        top:20px;
+        left: 0;
+      }
+    }
+    .order-info {
+      padding-top: 5px;
+      padding-bottom: 0px;
+      padding-left: 15px;
+      padding-right: 15px;
+      overflow: hidden;
+      .order-no {
+        color: #333;
+      }
+      .order-date {
+        color: #999;
+        margin-left: 30px;
+      }
+      .order-product {
+        font-weight: bold;
+      }
+    }
+    .pay-tabs {
+      margin:30px 0px 0px;
+      .tab-content {
+        padding:30px;
+        .pay-list {
+          .mode-name {
+            font-size: 16px;
+            color: #777;
+          }
+          .pay-item-box {
+            &.new-box {
+              height: 80px;
+              padding-left: 0;
+              border:none;
+              cursor: pointer;
+              .pay-logo {
+                display: block;
+                position: static;
+                width: auto;
+                height: 80px;
+                img {
+                  display: block;
+                  height: 100%;
+                  width: auto;
+                }
+              }
+              .txt {
+                display: none;
+              }
+              .mode-select {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

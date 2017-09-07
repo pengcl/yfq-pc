@@ -41,12 +41,11 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
     }
 
     OrderSvc.getOrder($scope.orderNo).then(function success(data) {
-        console.log(data);
         $scope.order = data[0];
         if ($scope.order.product.productname == '话费充值') {
             $scope.getCoupon = getFeeCoupon($scope.order.salesOrder.amount, 30);
         } else {
-            $scope.getCoupon = getFlowCoupon($scope.order.salesOrder.paidamount, 30);
+            $scope.getCoupon = getFlowCoupon($scope.order.salesOrder.totalamount, 30);
         }
     });
 

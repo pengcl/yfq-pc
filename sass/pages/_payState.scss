@@ -4,10 +4,82 @@
     text-align: right;
   }
   .msg-box {
-    margin-top: 20px;
+    margin-top: 45px;
     margin-bottom: 20px;
-    border: 1px solid #cccccc;
+    border: 0;
     background: #fff;
     padding: 30px;
+    @include box-shadow(0px 0px 10px #ddd);
+    .msg-box-title {
+      margin-top: -10px;
+      text-align: left;
+      font-size: 16px;
+      color: #999;
+      padding-bottom: 20px;
+      line-height: 1em;
+      border-bottom: 1px solid #ccc;
+    }
+    .msg-box-msg {
+      position: relative;
+      text-align: left;
+      padding-top: 30px;
+      padding-bottom: 30px;
+      padding-left: 150px;
+      border-bottom: 1px solid #ccc;
+      .msg-icon {
+        position: absolute;
+        left: 30px;
+        top: 30px;
+        height: 80px;
+        width: 80px;
+        img {
+          display: block;
+          width: 100%;
+        }
+      }
+      .msg-box-msg-txt {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        h2 {
+          line-height: 36px;
+          color: #ff6700;
+          font-size: 24px;
+        }
+        p {
+          font-size: 16px;
+          color: #666;
+          line-height: 24px;
+        }
+      }
+    }
+  }
+}
+
+.pc-payment {
+  .pay-state {
+    .msg-box {
+      .msg-box-msg-txt {
+        padding: 0;
+        h2 {
+          color: #000;
+          font-weight: normal;
+          line-height: 1em;
+          margin-bottom: 10px;
+        }
+        p.disc {
+          color: #999;
+        }
+        p.coupons {
+          color: #ff6700;
+          img {
+            @include inline-block;
+            margin-right: 10px;
+          }
+          span {
+            @include inline-block;
+          }
+        }
+      }
+    }
   }
 }
