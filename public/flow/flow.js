@@ -667,6 +667,7 @@ app.controller('appController', ['$scope', '$location', '$cookieStore', '$filter
 
                 $timeout(function () {
                     MarketSvc.getFlows(n).then(function success(data) {
+                        console.log(data);
                         $scope.flowList = rebuildData($scope.tempFlowList, data);
                         $scope.selectedFlowProd(true, $scope.flowList.data[0]);
                     });

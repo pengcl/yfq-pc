@@ -1,5 +1,21 @@
 'use strict';
 
+function stopPropagation(e){
+
+    e=window.event||e;
+
+    if(document.all){  //只有ie识别
+
+        e.cancelBubble=true;
+
+    }else{
+
+        e.stopPropagation();
+
+    }
+
+}
+
 //map
 function Map() {
     var struct = function (key, value) {
@@ -453,6 +469,8 @@ app.filter('flowSalesPrice', function () {
 app.controller('appController', ['$scope', '$q', '$location', '$cookieStore', '$filter', '$timeout', 'MarketSvc', 'CouponSvc', function ($scope, $q, $location, $cookieStore, $filter, $timeout, MarketSvc, CouponSvc) {
     $scope.$root.pageTitle = '翼分期';
 
+    $(".mobile").focus();
+
     if (getUrlParam('gh')) {
         $scope.gh = getUrlParam('gh');
     } else {
@@ -492,6 +510,8 @@ app.controller('appController', ['$scope', '$q', '$location', '$cookieStore', '$
 
     $scope.productType = 'flow';
 
+    $scope.warningShow = false;
+
     $scope.setProductType = function (type) {
         $scope.productType = type;
         $scope.regionProduct = null;
@@ -501,6 +521,11 @@ app.controller('appController', ['$scope', '$q', '$location', '$cookieStore', '$
 
     //只有输入手机号码才记录到闭环
     $scope.inputMobile = function (mobile) {
+        /*if(!$scope.mobileValid && !$scope.rechargeForm.mobileView.$pristine){
+            $scope.warningShow = true;
+        }else {
+            $scope.warningShow = false;
+        }*/
         if (mobile == undefined || mobile == "" || mobile.length <= 10) return;
         writebdLog($scope.category, "_InputMobile" + $scope.productType, "渠道号", $scope.gh);//手机号码
     };
@@ -545,7 +570,7 @@ app.controller('appController', ['$scope', '$q', '$location', '$cookieStore', '$
                 $scope.flowCouponLength = 2;
             }
         } else {
-            $scope.feeCoupons = "";
+            $scope.flowCoupons = "";
         }
 
         $scope.regionFlowProduct = product.regionProducts[0];
@@ -582,9 +607,15 @@ app.controller('appController', ['$scope', '$q', '$location', '$cookieStore', '$
         writebdLog($scope.category, "_SelectPackage" + $scope.productType + product.sortNo + 'M', "渠道号", $scope.gh);
     };
 
-    $scope.getFlowMore = function () {
-        $scope.flowMore = true;
+    $scope.getFlowMore = function (e) {
+        stopPropagation(e);
+        $scope.flowMore = !$scope.flowMore;
     };
+
+    $("#container").click(function () {
+        $scope.flowMore = false;
+        $scope.$apply();
+    });
 
     $scope.getFeeMore = function () {
         $scope.feeMore = true;
@@ -627,12 +658,12 @@ app.controller('appController', ['$scope', '$q', '$location', '$cookieStore', '$
 
         if (type === 'flow') {
             content = '<p>1、充值流量包即可获得支付金额同等金额的优惠券（按实际支付金额向下取整，单笔最多获得30元优惠券）。</p>' +
-                '<p>2、优惠券适用于充值话费及流量，请在有效期内使用。</p>';
+                '<p>2、优惠券可用于下次充值，适用于话费及流量，请在有效期内使用。</p>';
         }
 
         if (type === 'fee') {
             content = '<p>1、充值话费面值50元或以上可获得5元优惠券，面值100元或以上可获得10元优惠券，多充多送（单笔最多获得30元优惠券）。</p>' +
-                '<p>2、优惠券适用于充值话费及流量，请在有效期内使用。</p>';
+                '<p>2、优惠券可用于下次充值，适用于话费及流量，请在有效期内使用。</p>';
         }
 
         $scope.alert = {
@@ -688,9 +719,8 @@ app.controller('appController', ['$scope', '$q', '$location', '$cookieStore', '$
     var tempFlowList, tempFeeList;
 
     var getDefault = function (data) {
-        var index;
+        var index = 0;
         $.each(data, function (i, k) {
-
             var prodName = k.productName.substr(0, k.productName.length - 1);
             if (k.stock && prodName >= 100) {
                 index = i;
@@ -715,27 +745,36 @@ app.controller('appController', ['$scope', '$q', '$location', '$cookieStore', '$
                         $scope.couponList = $filter('filter')(data.couponList, {isUsed: 0, isOverdue: 0, type: 'DK'});
 
                         MarketSvc.getFlows($scope.mobile).then(function success(data) {
-                            $scope.flowList = rebuildData(tempFlowList, data);
+                            if(data.code == 0){
+                                $scope.flowList = rebuildData(tempFlowList, data);
 
-                            var _flowIndex = getDefault($scope.flowList.data);
+                                var _flowIndex = getDefault($scope.flowList.data);
 
-                            if (_flowIndex > 6) {
-                                $scope.selectedFlowProd(true, $scope.flowList.data[_flowIndex], false);
-                            } else {
-                                $scope.selectedFlowProd(true, $scope.flowList.data[_flowIndex], true);
+                                if (_flowIndex > 6) {
+                                    $scope.selectedFlowProd(true, $scope.flowList.data[_flowIndex], false);
+                                } else {
+                                    $scope.selectedFlowProd(true, $scope.flowList.data[_flowIndex], true);
+                                }
+                            }else {
+                                $scope.flowList = rebuildData(tempFlowList, false);
+                                $scope.selectedFlowProd(true, $scope.flowList.data[0], true);
                             }
                         });
                         MarketSvc.getFees($scope.mobile).then(function success(data) {
-                            $scope.feeList = rebuildData(tempFeeList, data);
+                            if(data.code == 0){
+                                $scope.feeList = rebuildData(tempFeeList, data);
 
-                            var _feeIndex = getDefault($scope.feeList.data);
+                                var _feeIndex = getDefault($scope.feeList.data);
 
-                            if (_feeIndex > 6) {
-                                $scope.selectedFeeProd(true, $scope.feeList.data[_feeIndex], false);
-                            } else {
-                                $scope.selectedFeeProd(true, $scope.feeList.data[_feeIndex], true);
+                                if (_feeIndex > 6) {
+                                    $scope.selectedFeeProd(true, $scope.feeList.data[_feeIndex], false);
+                                } else {
+                                    $scope.selectedFeeProd(true, $scope.feeList.data[_feeIndex], true);
+                                }
+                            }else {
+                                $scope.feeList = rebuildData(tempFeeList, false);
+                                $scope.selectedFeeProd(true, $scope.feeList.data[0], true);
                             }
-
                         });
 
                     });

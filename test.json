@@ -3,223 +3,241 @@
   "code": "0",
   "data": [
     {
-      "productId": 10000091120342,
-      "productName": "20M",
-      "regionProducts": [
-        {
-          "costPrice": 3,
-          "describes": "当月可多次叠加",
-          "productFlowPriceId": 4326,
-          "recommend": 0,
-          "regionName": "全国",
-          "salesPrice": 2.94
-        }
-      ],
-      "salesPrice": 3,
-      "sortNo": 20
-    },
-    {
+      "ifHot": 0,
       "productId": 10000091120342,
       "productName": "30M",
+      "recommend": 0,
       "regionProducts": [
         {
-          "costPrice": 4,
-          "describes": "",
-          "productFlowPriceId": 2388,
-          "recommend": 0,
-          "regionName": "省内",
-          "salesPrice": 3.2
-        },
-        {
-          "costPrice": 4,
-          "describes": "",
-          "productFlowPriceId": 2654,
+          "costPrice": 5,
+          "describes": "当月可多次叠加",
+          "productFlowPriceId": 4317,
           "recommend": 0,
           "regionName": "全国",
-          "salesPrice": 3.92
+          "salesPrice": 4.75
         }
       ],
-      "salesPrice": 4,
+      "salesPrice": 5,
       "sortNo": 30
     },
     {
+      "ifHot": 0,
       "productId": 10000091120342,
-      "productName": "50M",
+      "productName": "70M",
+      "recommend": 0,
       "regionProducts": [
         {
-          "costPrice": 6,
-          "describes": "",
-          "productFlowPriceId": 2389,
-          "recommend": 0,
-          "regionName": "省内",
-          "salesPrice": 6
-        },
-        {
-          "costPrice": 6,
-          "describes": "",
-          "productFlowPriceId": 2650,
+          "costPrice": 10,
+          "describes": "当月可多次叠加",
+          "productFlowPriceId": 4312,
           "recommend": 0,
           "regionName": "全国",
-          "salesPrice": 5.88
+          "salesPrice": 9.5
         }
       ],
-      "salesPrice": 6,
-      "sortNo": 50
+      "salesPrice": 10,
+      "sortNo": 70
     },
     {
+      "ifHot": 1,
       "productId": 10000091120342,
       "productName": "100M",
+      "recommend": 0,
       "regionProducts": [
         {
           "costPrice": 10,
-          "describes": "",
-          "productFlowPriceId": 2390,
-          "recommend": 0,
-          "regionName": "省内",
-          "salesPrice": 8.8
-        },
-        {
-          "costPrice": 10,
-          "describes": "",
-          "productFlowPriceId": 2651,
+          "describes": "不得低于面值价95折销售",
+          "productFlowPriceId": 3997,
           "recommend": 0,
           "regionName": "全国",
-          "salesPrice": 9.8
+          "salesPrice": 9.5
         }
       ],
       "salesPrice": 10,
       "sortNo": 100
     },
     {
-      "productId": 10000091120342,
-      "productName": "200M",
-      "regionProducts": [
-        {
-          "costPrice": 15,
-          "describes": "",
-          "productFlowPriceId": 2391,
-          "recommend": 0,
-          "regionName": "省内",
-          "salesPrice": 13.2
-        },
-        {
-          "costPrice": 15,
-          "describes": "",
-          "productFlowPriceId": 2652,
-          "recommend": 0,
-          "regionName": "全国",
-          "salesPrice": 14.7
-        }
-      ],
-      "salesPrice": 15,
-      "sortNo": 200
-    },
-    {
+      "ifHot": 0,
       "productId": 10000091120342,
       "productName": "300M",
+      "recommend": 0,
       "regionProducts": [
         {
           "costPrice": 20,
-          "describes": "",
-          "productFlowPriceId": 2392,
-          "recommend": 0,
-          "regionName": "省内",
-          "salesPrice": 17.6
-        },
-        {
-          "costPrice": 20,
-          "describes": "",
-          "productFlowPriceId": 2655,
+          "describes": "不得低于面值价95折销售",
+          "productFlowPriceId": 3998,
           "recommend": 0,
           "regionName": "全国",
-          "salesPrice": 19.6
+          "salesPrice": 19
         }
       ],
       "salesPrice": 20,
       "sortNo": 300
     },
     {
-      "productId": 10000091120342,
-      "productName": "500M",
-      "regionProducts": [
-        {
-          "costPrice": 30,
-          "describes": "",
-          "productFlowPriceId": 2393,
-          "recommend": 0,
-          "regionName": "省内",
-          "salesPrice": 26.4
-        },
-        {
-          "costPrice": 30,
-          "describes": "",
-          "productFlowPriceId": 2653,
-          "recommend": 0,
-          "regionName": "全国",
-          "salesPrice": 29.4
-        }
-      ],
-      "salesPrice": 30,
-      "sortNo": 500
-    },
-    {
+      "ifHot": 1,
       "productId": 10000091120342,
       "productName": "1G",
+      "recommend": 0,
       "regionProducts": [
         {
           "costPrice": 50,
-          "describes": "",
-          "productFlowPriceId": 2394,
-          "recommend": 0,
-          "regionName": "省内",
-          "salesPrice": 44
-        },
-        {
-          "costPrice": 50,
-          "describes": "",
-          "productFlowPriceId": 2656,
+          "describes": "不得低于面值价95折销售",
+          "productFlowPriceId": 3991,
           "recommend": 0,
           "regionName": "全国",
-          "salesPrice": 49
+          "salesPrice": 47.5
         }
       ],
       "salesPrice": 50,
       "sortNo": 1000
     },
     {
+      "ifHot": 0,
       "productId": 10000091120342,
       "productName": "2G",
+      "recommend": 0,
       "regionProducts": [
         {
-          "costPrice": 90,
-          "describes": "当月可多次叠加",
-          "productFlowPriceId": 4332,
+          "costPrice": 70,
+          "describes": "不得低于面值价95折销售",
+          "productFlowPriceId": 3992,
           "recommend": 0,
           "regionName": "全国",
-          "salesPrice": 88.2
+          "salesPrice": 66.5
         }
       ],
-      "salesPrice": 90,
+      "salesPrice": 70,
       "sortNo": 2000
     },
     {
+      "ifHot": 0,
       "productId": 10000091120342,
-      "productName": "3G",
+      "productName": "10M",
+      "recommend": 0,
       "regionProducts": [
         {
-          "costPrice": 120,
+          "costPrice": 3,
           "describes": "当月可多次叠加",
-          "productFlowPriceId": 4333,
+          "productFlowPriceId": 4343,
           "recommend": 0,
           "regionName": "全国",
-          "salesPrice": 117.6
+          "salesPrice": 2.85
         }
       ],
-      "salesPrice": 120,
+      "salesPrice": 3,
+      "sortNo": 10
+    },
+    {
+      "ifHot": 0,
+      "productId": 10000091120342,
+      "productName": "150M",
+      "recommend": 0,
+      "regionProducts": [
+        {
+          "costPrice": 20,
+          "describes": "当月可多次叠加",
+          "productFlowPriceId": 4323,
+          "recommend": 0,
+          "regionName": "全国",
+          "salesPrice": 19
+        }
+      ],
+      "salesPrice": 20,
+      "sortNo": 150
+    },
+    {
+      "ifHot": 0,
+      "productId": 10000091120342,
+      "productName": "500M",
+      "recommend": 0,
+      "regionProducts": [
+        {
+          "costPrice": 30,
+          "describes": "不得低于面值价95折销售",
+          "productFlowPriceId": 3990,
+          "recommend": 0,
+          "regionName": "全国",
+          "salesPrice": 28.5
+        }
+      ],
+      "salesPrice": 30,
+      "sortNo": 500
+    },
+    {
+      "ifHot": 0,
+      "productId": 10000091120342,
+      "productName": "3G",
+      "recommend": 0,
+      "regionProducts": [
+        {
+          "costPrice": 100,
+          "describes": "不得低于面值价95折销售",
+          "productFlowPriceId": 3993,
+          "recommend": 0,
+          "regionName": "全国",
+          "salesPrice": 95
+        }
+      ],
+      "salesPrice": 100,
       "sortNo": 3000
+    },
+    {
+      "ifHot": 0,
+      "productId": 10000091120342,
+      "productName": "4G",
+      "recommend": 0,
+      "regionProducts": [
+        {
+          "costPrice": 130,
+          "describes": "不得低于面值价95折销售",
+          "productFlowPriceId": 3994,
+          "recommend": 0,
+          "regionName": "全国",
+          "salesPrice": 123.5
+        }
+      ],
+      "salesPrice": 130,
+      "sortNo": 4000
+    },
+    {
+      "ifHot": 0,
+      "productId": 10000091120342,
+      "productName": "6G",
+      "recommend": 0,
+      "regionProducts": [
+        {
+          "costPrice": 180,
+          "describes": "不得低于面值价95折销售",
+          "productFlowPriceId": 3995,
+          "recommend": 0,
+          "regionName": "全国",
+          "salesPrice": 171
+        }
+      ],
+      "salesPrice": 180,
+      "sortNo": 6000
+    },
+    {
+      "ifHot": 0,
+      "productId": 10000091120342,
+      "productName": "11G",
+      "recommend": 0,
+      "regionProducts": [
+        {
+          "costPrice": 280,
+          "describes": "不得低于面值价95折销售",
+          "productFlowPriceId": 3996,
+          "recommend": 0,
+          "regionName": "全国",
+          "salesPrice": 266
+        }
+      ],
+      "salesPrice": 280,
+      "sortNo": 11000
     }
   ],
   "codeMsg": "查询成功",
-  "area_operator": "广东联通",
+  "area_operator": "广东移动",
   "operator": ""
 }

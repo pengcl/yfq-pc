@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="//www.yfq.cn/templates/default/pages/active/fanghao/css/app-g.css">
     <link rel="stylesheet" href="//www.yfq.cn/templates/default/pages/appnew/css/app.css">
     <link rel="stylesheet" href="http://mall.yfq.cn/css/1.0.1/app.min.css?2">
-    <link rel="stylesheet" href="flow.css?234567">
+    <link rel="stylesheet" href="flow.css?23456789">
     <script>
         var _hmt = _hmt || [];
         (function () {
@@ -92,12 +92,12 @@
                                                                 <!--<div class="input-overlay">
                                                                     {{mobile | phoneNumber}}
                                                                 </div>-->
-                                                                <input name="mobile" class="" ng-model="mobile"
-                                                                       ng-pattern="/^[0-9]*$/" pattern="[0-9]*"
-                                                                       ng-minlength="11" ng-maxlength="11"
-                                                                       type="hidden" required>
+                                                                <input name="mobile" style="display: none" class="" ng-model="mobile"
+                                                                       ng-pattern="/^(1[0-9]*$)/" pattern="(1[0-9]*)"
+                                                                       ng-minlength="11" minlength="11" ng-maxlength="11" maxlength="11"
+                                                                       required>
 
-                                                                <input class="mobile" ng-model="mobileView"
+                                                                <input class="mobile" ng-class="{true:'success',false:''}[rechargeForm.mobile.$valid]" ng-model="mobileView"
                                                                        name="mobileView" ng-focus="mobileClass"
                                                                        ng-pattern="/^[0-9 ]*$/" pattern="[0-9 ]*"
                                                                        ng-blur="inputMobile(mobile)"
@@ -106,9 +106,9 @@
                                                                 <span class="area" ng-if="mobile"><!--<s
                                                                         class="icon-right"></s>--><span
                                                                         ng-bind="flowList.area_operator"></span></span>
-                                                                <span ng-if="!mobileValid && !rechargeForm.mobileView.$pristine"
-                                                                      class="errorTip"><s
-                                                                        class="icon-error"></s><span>请输入11位正确手机号码</span></span>
+                                                                <span ng-if="!rechargeForm.mobile.$valid && !rechargeForm.mobileView.$pristine"
+                                                                      class="errorTip" style="display: block;">
+                                                                    <s class="icon-error" style="margin-right: 5px;display: inline-block"></s><span style="line-height: 16px;vertical-align:middle;display: inline-block">请输入11位正确手机号码</span></span>
                                                                 <div class="record"></div>
                                                             </div>
                                                             <span class="beizhu-info"><img
@@ -144,8 +144,8 @@
                                                                                 <div class="title">更多流量</div>
                                                                                 <s></s>
                                                                             </div>
-                                                                            <div ng-click="getFlowMore()"
-                                                                                 class="item-box"
+                                                                            <div ng-click="getFlowMore($event)"
+                                                                                 class="item-box curr"
                                                                                  ng-repeat="item in flowList.data"
                                                                                  ng-if="item === flowProduct && $index > 6">
                                                                                 <div class="title"
@@ -164,8 +164,8 @@
                                                                                      ng-if="$index > 6 && item.stock"
                                                                                      ng-repeat="item in flowList.data"
                                                                                      ng-click="selectedFlowProd(item.stock,item,false);"
-                                                                                     wtf="disabled"
-                                                                                     wtf-class="!item.stock">
+                                                                                     wtf="curr"
+                                                                                     wtf-class="item === flowProduct">
                                                                                     <div class="title"
                                                                                          ng-bind="item.productName"></div>
                                                                                     <!--<s></s>-->
@@ -216,6 +216,7 @@
                                                                           style="margin-right: 20px;cursor: pointer">
                                                                         <img src="images/flow/icon-coupon.png"
                                                                              style="display: inline-block;vertical-align: middle">
+                                                                        <span style="display: inline-block;vertical-align: middle">赠</span>
                                                                         <span style="display: inline-block;vertical-align: middle"
                                                                               ng-bind="regionFlowProduct.salesPrice | flowCoupon"></span><span
                                                                             style="display: inline-block;vertical-align: middle">元优惠券</span>
@@ -300,7 +301,7 @@
                                                                           style="margin-right: 20px">
                                                                         <em>￥</em><em
                                                                             ng-bind="regionFeeProduct.salesPrice | number : 2"></em>
-                                                                        <del ng-bind="'￥' + (regionFeeProduct.costPrice | number : 2)"
+                                                                        <del ng-if="regionFeeProduct.salesPrice < regionFeeProduct.costPrice" ng-bind="'￥' + (regionFeeProduct.costPrice | number : 2)"
                                                                              style="color: #999"></del>
                                                                     </span>
                                                                     <span ng-click="showCouponTips('fee')" class="disc-content"
@@ -308,6 +309,7 @@
                                                                           ng-if="regionFeeProduct.costPrice >= 50">
                                                                         <img src="images/flow/icon-coupon.png"
                                                                              style="display: inline-block;vertical-align: middle">
+                                                                        <span style="display: inline-block;vertical-align: middle">赠</span>
                                                                         <span style="display: inline-block;vertical-align: middle"
                                                                               ng-bind="regionFeeProduct.costPrice | feeCoupon : 30"></span><span
                                                                             style="display: inline-block;vertical-align: middle">元优惠券</span>
@@ -439,7 +441,7 @@
             <div class="modal-body">
                 <ol>
                     <li>1. 输入的充值号码务必填写正确，因为自动充值，一旦填错，无法修改和退款；</li>
-                    <li>2. 到账时间一般为1到10分钟左右。充值高峰期（月初、月末、节假日）到账时间会有延迟，具体到账时间以当地运营商查询时间为准。若您长时间未收到短信提醒，建议登录运营商网上营业厅或运营商客服热线（移动10086/电信 10000/联通10010 )查询充值缴费记录。</li>
+                    <li>2. 到账时间一般为1到10分钟左右。充值高峰期（月初、月末、节假日）及运营商不定期的系统维护期间，到账时间会有延迟，具体到账时间以当地运营商查询时间为准。若您长时间未收到短信提醒，建议登录运营商网上营业厅或运营商客服热线（移动10086/电信 10000/联通10010 )查询充值缴费记录。</li>
                     <li>3. 流量包为当月有效，月末最后一天24点清零，按照自然月计算，未使用完的部分不能延续、累加至次月，仅限当月使用。流量包仅限充值号码使用，不可共享或分享。</li>
                     <li>4. 请确认您的号码未欠费停机，流量包要需在号码正常使用情况下才能使用。流量使用先后顺序，以当地运营商实际计费为准。</li>
                     <li>5. 流量包充值后立即生效，无法取消，到期自动失效；不支持日租卡，请注意！</li>
@@ -536,7 +538,7 @@
 <!--<script src="/bower_components/velocity/velocity.min.js"></script>-->
 <script>
     var tampTime = new Date().getTime();
-    document.write("<script src='/components/apiConfig.js?" + tampTime + "'><\/script>");
+    document.write("<script src='//mall.yfq.cn/components/apiConfig.js?" + tampTime + "'><\/script>");
     document.write("<script src='flow.new.js?23" + tampTime + "'><\/script>");
 </script>
 </body>
