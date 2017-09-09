@@ -124,7 +124,7 @@
                                                                         <li ng-repeat="item in flowList.data | limitTo : 7"
                                                                             wtf="curr" wtf-class="item === flowProduct">
                                                                             <div class="item-box"
-                                                                                 ng-click="selectedFlowProd(item.stock,item,true);"
+                                                                                 ng-click="selectedFlowProd(item.stock,item,true,$event);"
                                                                                  wtf="disabled" wtf-class="!item.stock">
                                                                                 <div class="title"
                                                                                      ng-bind="item.productName"></div>
@@ -163,7 +163,7 @@
                                                                                 <div class="item-box"
                                                                                      ng-if="$index > 6 && item.stock"
                                                                                      ng-repeat="item in flowList.data"
-                                                                                     ng-click="selectedFlowProd(item.stock,item,false);"
+                                                                                     ng-click="selectedFlowProd(item.stock,item,false,$event);"
                                                                                      wtf="disabled"
                                                                                      wtf-class="!item.stock">
                                                                                     <div class="title"
@@ -266,7 +266,7 @@
                                                                         <li ng-repeat="item in feeList.data"
                                                                             wtf="curr" wtf-class="item === feeProduct">
                                                                             <div class="item-box"
-                                                                                 ng-click="selectedFeeProd(item.stock,item,true);"
+                                                                                 ng-click="selectedFeeProd(item.stock,item,true,$event);"
                                                                                  wtf="disabled" wtf-class="!item.stock">
                                                                                 <div class="title"
                                                                                      ng-bind="item.productName"></div>
@@ -537,7 +537,7 @@
 <script>
     var tampTime = new Date().getTime();
     document.write("<script src='/components/apiConfig.js?" + tampTime + "'><\/script>");
-    document.write("<script src='flow.new.js?23" + tampTime + "'><\/script>");
+    document.write("<script src='flow.new.js?234" + tampTime + "'><\/script>");
 </script>
 </body>
 </html>
