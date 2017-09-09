@@ -199,6 +199,8 @@ app.directive("ngComments", ['$location', function ($location) {
                 _MEIQIA('showPanel', {
                     groupToken: '8ba3446475970c6af51f22c9a7bb4fb4'
                 });
+                
+                writebdLog(scope.category, "_CustConsult", "渠道号", scope.gh);//客服咨询
             };
             scope.showComments = function (event) {
                 event.preventDefault();
