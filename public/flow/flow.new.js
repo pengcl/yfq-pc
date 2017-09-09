@@ -578,6 +578,7 @@ app.controller('appController', ['$scope', '$q', '$location', '$cookieStore', '$
     };
 
     $scope.selectedFeeProd = function (checked, product) {
+
         //$scope.productType = 'fee';
         if (!checked) {
             //$scope.$root.appDialog.open('系统提示', '请输入您的手机号码');
