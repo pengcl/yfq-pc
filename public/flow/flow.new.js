@@ -640,6 +640,8 @@ app.controller('appController', ['$scope', '$q', '$location', '$cookieStore', '$
             content: content
         };
         $('#appMsg').modal('show');
+        
+        writebdLog($scope.category, "_CouponTips" + type, "渠道号", $scope.gh); //记录查看优惠券信息行为
     };
 
     $scope.$watch('mobileView', function (n, o, $scope) {
@@ -756,6 +758,8 @@ app.controller('appController', ['$scope', '$q', '$location', '$cookieStore', '$
         _MEIQIA('showPanel', {
             groupToken: '8ba3446475970c6af51f22c9a7bb4fb4'
         });
+        
+        writebdLog($scope.category, "_CustConsult", "渠道号", $scope.gh);//客服咨询
     };
 
     $scope.$watch('mobile', function (n, o, $scope) {

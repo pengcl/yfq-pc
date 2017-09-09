@@ -243,7 +243,7 @@
                                                                            ng-click="pay(mobileValid,flowProduct,regionFlowProduct,flowCoupons)"
                                                                            value="立即充值" type="button">
                                                                     <span style="cursor: pointer" class="price-desc-tip" data-toggle="modal"
-                                                                          data-target="#flowModal"
+                                                                          data-target="#flowModal" ng-click="writeClick('FlowModal');"
                                                                           data-tips="因可能存在系统缓存、页面更新导致价格变动异常等不确定性情况出现，商品售价以本结算页商品价格为准；如有疑问，请您立即联系销售商咨询。"><img
                                                                             src="images/flow/what.png"><span>活动规则及须知</span></span>
                                                                 </div>
@@ -333,7 +333,7 @@
                                                                            ng-click="pay(mobileValid,feeProduct,regionFeeProduct,feeCoupons)"
                                                                            value="立即充值" type="button">
                                                                     <span style="cursor: pointer" class="price-desc-tip" data-toggle="modal"
-                                                                          data-target="#feeModal"
+                                                                          data-target="#feeModal" ng-click="writeClick('FeeModal');"
                                                                           data-tips="因可能存在系统缓存、页面更新导致价格变动异常等不确定性情况出现，商品售价以本结算页商品价格为准；如有疑问，请您立即联系销售商咨询。"><img
                                                                             src="images/flow/what.png"><span>活动规则及须知</span></span>
                                                                 </div>
@@ -376,7 +376,7 @@
                                     <div class="pure-u-1-2">
                                         <div style="margin-left: 10px">
                                             <div style="cursor: pointer" class="img-box" data-toggle="modal"
-                                                 data-target="#codeModal">
+                                                 data-target="#codeModal" ng-click="writeClick('FollowWeChat')">
                                                 <img src="images/flow/service-2.jpg">
                                             </div>
                                         </div>
