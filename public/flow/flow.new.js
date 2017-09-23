@@ -869,4 +869,12 @@ app.controller('appController', ['$scope', '$q', '$location', '$cookieStore', '$
 
 app.controller('appCodeController', ['$scope', function ($scope) {
 
+	 if (getUrlParam('gh')) {
+        $scope.gh = getUrlParam('gh');
+     } else {
+        $scope.gh = "";
+     }
+	
+	 $scope.category = "yfqmall_GiveFlow_A";
+	 writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
 }]);
