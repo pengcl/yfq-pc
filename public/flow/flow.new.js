@@ -540,6 +540,8 @@ app.controller('appController', ['$scope', '$q', '$location', '$cookieStore', '$
     };
 
     $scope.isMore = true;
+  //是否属于默认选中商品
+    $scope.isRobot = true;
 
     $scope.selectedFlowProd = function (checked, product, isMore, e) {
         //$scope.productType = 'flow';
@@ -579,8 +581,10 @@ app.controller('appController', ['$scope', '$q', '$location', '$cookieStore', '$
         }
 
         $scope.regionFlowProduct = product.regionProducts[0];
-        if (e) {
-            writebdLog($scope.category, "_SelectPackage" + $scope.productType + product.sortNo + 'M', "渠道号", $scope.gh);
+        if(e)
+        {
+        	$scope.isRobot = false;
+        	writebdLog($scope.category, "_SelectPackage" + $scope.productType + product.sortNo + 'M', "渠道号", $scope.gh);
         }
     };
 
@@ -611,8 +615,10 @@ app.controller('appController', ['$scope', '$q', '$location', '$cookieStore', '$
 
         $scope.regionFeeProduct = product.regionProducts[0];
 
-        if (e) {
-            writebdLog($scope.category, "_SelectPackage" + $scope.productType + product.sortNo + 'M', "渠道号", $scope.gh);
+        if(e)
+        {
+        	$scope.isRobot = false;
+        	writebdLog($scope.category, "_SelectPackage" + $scope.productType + product.sortNo + 'M', "渠道号", $scope.gh);
         }
     };
 
@@ -647,6 +653,11 @@ app.controller('appController', ['$scope', '$q', '$location', '$cookieStore', '$
                 if (data.result) {
                     window.location.href = data.payUrl;
                     writebdLog($scope.category, "_BuyNow" + $scope.productType, "渠道号", $scope.gh);
+                    //默认选中商品，点击下单时统计选择的商品
+                    if($scope.isRobot)
+                    {
+                    	writebdLog($scope.category, "_SelectPackage" + $scope.productType + product.sortNo + 'M', "渠道号", $scope.gh);
+                    }
                 } else {
                     $scope.alert = {
                         title: '系统提示',
