@@ -40,7 +40,7 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
         writebdLog($scope.category, "_CustConsult", "渠道号", $scope.gh);//客服咨询
     };
 
-    $http.jsonp('http://m.yfq.cn/product/getProList.html?activeTag=ljzma&pt=pc&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
+    $http.jsonp('http://sell.yfq.cn/product/getProList.ht?activeTag=ljzma&pt=pc&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
         $scope.singlePhones = data;
 
         $scope.pkgs = data;

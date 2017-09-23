@@ -40,11 +40,16 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
         }
     }
 
+    $scope.rechargeDetails = "";
+
     OrderSvc.getOrder($scope.orderNo).then(function success(data) {
+        console.log(data);
         $scope.order = data[0];
         if ($scope.order.product.productname == '话费充值') {
+            $scope.rechargeDetails = $scope.order.flowPrice.productName + "话费";
             $scope.getCoupon = getFeeCoupon($scope.order.salesOrder.amount, 30);
         } else {
+            $scope.rechargeDetails = $scope.order.flowPrice.productName + $scope.order.flowPrice.region + "流量";
             $scope.getCoupon = getFlowCoupon($scope.order.salesOrder.totalamount, 30);
         }
     });

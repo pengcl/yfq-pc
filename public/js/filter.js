@@ -229,7 +229,7 @@ appFilters.filter('phoneListFilter', function () {
                 return rest;
             } else {
                 $.each(rest, function (i, k) {
-                    if (k.ifSellOut == 0) {
+                    if (k.ifSellOut > 0) {
                         _phones.push(k);
                     }
                 });

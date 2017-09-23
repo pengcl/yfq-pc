@@ -32,8 +32,7 @@
                 <div class="msg-box-msg-txt">
                     <h2>支付成功！</h2>
                     <p>已成功为号码 {{order.salesOrder.recievermobile}}
-                        <span ng-if="order.product.productname == '话费充值'">充话费<span ng-bind="order.salesOrder.amount"></span>元</span>
-                        <span ng-if="order.product.productname == '流量充值'">充流量<span ng-bind="order.salesOrder.amount"></span>元</span>
+                        充值<span ng-bind="rechargeDetails"></span>
                         ，请留意手机到账短信。</p>
                 </div>
             </div>
@@ -41,7 +40,8 @@
                 <div class="img-box" style="width: 256px;height: 256px;margin: 30px auto 20px">
                     <img src="/images/spc-qrcode.png">
                 </div>
-                <p style="text-align: center;font-size: 24px;color: #ff6700">扫码领取优惠券</p>
+                <p ng-if="order.salesOrder.channelcode == 'etc_a_yypdf_01'" style="text-align: center;font-size: 24px;color: #ff6700">扫码关注“翼分期商城”，领取YYPDF转换流量！<br><span style="font-size: 18px">注：转换流量直接充入YYPDF账号</span></p>
+                <p ng-if="order.salesOrder.channelcode != 'etc_a_yypdf_01'" style="text-align: center;font-size: 24px;color: #ff6700">扫码领取优惠券</p>
                 <!--<table class="pure-table pure-table-bordered" width="60%" style="width: 60%;margin: 20px auto;">
                     <tr class="pure-table-odd">
                         <td style="text-align: right;">订单号：</td>
@@ -58,7 +58,7 @@
                 </table>-->
             </div>
 
-            <p ng-if="getCoupon > 0" style="font-size: 16px;color: #666;margin-top: 15px">优惠券{{getCoupon}}元已存入帐号 {{order.salesOrder.recievermobile}} <br>
+            <p ng-if="getCoupon > 0" style="font-size: 16px;color: #666;margin-top: 15px">{{getCoupon}}元手机充值优惠券已存入帐号 {{order.salesOrder.recievermobile}} <br>
             微信扫码即可领取</p>
             <p ng-if="getCoupon == 0" style="font-size: 16px;color: #666;margin-top: 15px">扫描上方二维码关注"翼分期商城"，获取更多商品优惠信息</p>
 
@@ -77,7 +77,8 @@
             </div>
             <div class="modal-body">
                 <div class="body-content">
-                    <p>优惠券需要扫描二维码才能领取哦！</p>
+                    <p ng-if="order.salesOrder.channelcode == 'etc_a_yypdf_01'">扫码关注"翼分期商城"，领取yypdf转换流量！</p>
+                    <p ng-if="order.salesOrder.channelcode != 'etc_a_yypdf_01'">优惠券需要扫描二维码才能领取哦！</p>
                     <div style="width: 200px;margin: 15px auto;">
                         <img src="/images/qrcode.jpg" style="display: block;width: 100%">
                     </div>

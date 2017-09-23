@@ -1283,3 +1283,13 @@ span.charging-btn:hover {
 .flow .position a {
     color: #ff6700
 }
+
+#content-container.code {
+    background-image: url("http://mall.yfq.cn/flow/images/code/bg.png");
+    background-color: #ffe6d3;
+    background-position: bottom center;
+}
+
+#content-container.code .main-index {
+    background: none;
+}

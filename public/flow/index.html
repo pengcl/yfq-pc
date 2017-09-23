@@ -32,6 +32,11 @@
     </script>
 </head>
 <body class="flow" ng-cloak class="ng-cloak">
+<script>
+    !(function(c,b,d,a){c[a]||(c[a]={});c[a].config={pid:"jaxuo2s4aj@5acf3ff8160165e"};
+        with(b)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("crossorigin","",src=d)
+    })(window,document,"https://retcode.alicdn.com/retcode/bl.js","__bl");
+</script>
 <div id="container">
     <div class="notifications"></div>
     <div class="content-overlay"></div>
@@ -97,7 +102,7 @@
                                                                        ng-minlength="11" minlength="11" ng-maxlength="11" maxlength="11"
                                                                        required>
 
-                                                                <input class="mobile" ng-class="{true:'success',false:''}[rechargeForm.mobile.$valid]" ng-model="mobileView"
+                                                                <input id="mobileView" class="mobile" ng-class="{true:'success',false:''}[rechargeForm.mobile.$valid]" ng-model="mobileView"
                                                                        name="mobileView" ng-focus="mobileClass"
                                                                        ng-pattern="/^[0-9 ]*$/" pattern="[0-9 ]*"
                                                                        ng-blur="inputMobile(mobile)"
@@ -218,7 +223,7 @@
                                                                              style="display: inline-block;vertical-align: middle">
                                                                         <span style="display: inline-block;vertical-align: middle">赠</span>
                                                                         <span style="display: inline-block;vertical-align: middle"
-                                                                              ng-bind="regionFlowProduct.salesPrice | flowCoupon"></span><span
+                                                                              ng-bind="regionFlowProduct.salesPrice - flowCouponLength | flowCoupon"></span><span
                                                                             style="display: inline-block;vertical-align: middle">元优惠券</span>
                                                                         <img src="images/flow/what.png"
                                                                              style="display: inline-block;vertical-align: middle">

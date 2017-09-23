@@ -126,7 +126,7 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
     };
 
 
-    $http.jsonp('http://m.yfq.cn/product/getProDetailList.html?activeTag=ljzma&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
+    $http.jsonp('http://sell.yfq.cn/product/getProDetailList.ht?activeTag=ljzma&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
 
         $scope.singlePhones = data;
         //$scope.filterItems = $filter('phoneListFilter')(data, $scope.$root.filterBrand, $scope.filterSpec, $scope.$root.filterPrice, $scope.filterSellOut);

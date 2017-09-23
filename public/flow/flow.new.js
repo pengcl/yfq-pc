@@ -1,14 +1,14 @@
 'use strict';
 
-function stopPropagation(e){
+function stopPropagation(e) {
 
-    e=window.event||e;
+    e = window.event || e;
 
-    if(document.all){  //只有ie识别
+    if (document.all) {  //只有ie识别
 
-        e.cancelBubble=true;
+        e.cancelBubble = true;
 
-    }else{
+    } else {
 
         e.stopPropagation();
 
@@ -123,17 +123,18 @@ function writebdLog(category, action, opt_label, opt_value) {//category项目，
 //美恰在线客服
 function getMeiqia() {
     (function (m, ei, q, i, a, j, s) {
-        m[a] = m[a] || function () {
-            (m[a].a = m[a].a || []).push(arguments)
+        m[i] = m[i] || function () {
+            (m[i].a = m[i].a || []).push(arguments)
         };
         j = ei.createElement(q),
             s = ei.getElementsByTagName(q)[0];
         j.async = true;
         j.charset = 'UTF-8';
-        j.src = i + '?v=' + new Date().getUTCDate();
+        j.src = 'https://static.meiqia.com/dist/meiqia.js?_=t';
         s.parentNode.insertBefore(j, s);
-    })(window, document, 'script', '//static.meiqia.com/dist/meiqia.js', '_MEIQIA');
+    })(window, document, 'script', '_MEIQIA');
     _MEIQIA('entId', 27864);
+    _MEIQIA('fallback', 1);
     _MEIQIA('withoutBtn');
 };
 
@@ -195,7 +196,7 @@ app.directive("ngGh", ['$location', function ($location) {
 app.directive("headerLogo", ['$location', function ($location) {
     return {
         restrict: 'C',
-        templateUrl: "header/logo/logo.html",
+        templateUrl: "header/logo/logo.html?v=1",
         link: function (scope, element, attrs) {
 
         }
@@ -336,6 +337,7 @@ app.factory("CouponSvc", ['$http', '$q', function ($http, $q) {
     service.getCouponList = function (mobile) {//获取订单列表 promise对象
         var d = $q.defer();
         $http.jsonp(cfApi.apiHost + '/product/getCouponList.ht?recieverMobile=' + mobile + '&callback=JSON_CALLBACK').success(function (data) {
+            //var memberId = data[0].memberId;
             var isOverdueCount = 0;
             var isUsedCount = 0;
             var length = data[0].couponList.length;
@@ -344,30 +346,32 @@ app.factory("CouponSvc", ['$http', '$q', function ($http, $q) {
                 "couponList": []
             };
 
-            $.each(data[0].couponList, function (i, k) {
-                var isOverdue;
-                if (k.validEndTime.time - Date.parse(new Date()) >= 0) {//没过期
-                    isOverdue = 0;
-                } else {//已过期
-                    isOverdue = 1;
-                    isOverdueCount = isOverdueCount + 1;
-                }
-                if (k.isUsed == 1) {
-                    isUsedCount = isUsedCount + 1
-                }
-                var obj = {
-                    couponNo: k.couponNo,
-                    activeUsername: k.activeUsername,
-                    couponBatchName: k.couponBatchName,
-                    validStartTime: k.validStartTime.time,
-                    validEndTime: k.validEndTime.time,
-                    isUsed: k.isUsed,
-                    callbackUrl: k.callbackUrl,
-                    type: k.couponBatchType,
-                    isOverdue: isOverdue
-                };
-                couponList.couponList.push(obj);
-            });
+            /*if (memberId != '0') {*/
+                $.each(data[0].couponList, function (i, k) {
+                    var isOverdue;
+                    if (k.validEndTime.time - Date.parse(new Date()) >= 0) {//没过期
+                        isOverdue = 0;
+                    } else {//已过期
+                        isOverdue = 1;
+                        isOverdueCount = isOverdueCount + 1;
+                    }
+                    if (k.isUsed == 1) {
+                        isUsedCount = isUsedCount + 1
+                    }
+                    var obj = {
+                        couponNo: k.couponNo,
+                        activeUsername: k.activeUsername,
+                        couponBatchName: k.couponBatchName,
+                        validStartTime: k.validStartTime.time,
+                        validEndTime: k.validEndTime.time,
+                        isUsed: k.isUsed,
+                        callbackUrl: k.callbackUrl,
+                        type: k.couponBatchType,
+                        isOverdue: isOverdue
+                    };
+                    couponList.couponList.push(obj);
+                });
+            /*}*/
 
             couponList.isOverdueCount = isOverdueCount;
             couponList.isUsedCount = isUsedCount;
@@ -468,6 +472,7 @@ app.filter('flowSalesPrice', function () {
 
 app.controller('appController', ['$scope', '$q', '$location', '$cookieStore', '$filter', '$timeout', 'MarketSvc', 'CouponSvc', function ($scope, $q, $location, $cookieStore, $filter, $timeout, MarketSvc, CouponSvc) {
     $scope.$root.pageTitle = '翼分期';
+    $scope.$root.pageName = 'flow';
 
     $(".mobile").focus();
 
@@ -574,9 +579,8 @@ app.controller('appController', ['$scope', '$q', '$location', '$cookieStore', '$
         }
 
         $scope.regionFlowProduct = product.regionProducts[0];
-        if(e)
-        {
-        	writebdLog($scope.category, "_SelectPackage" + $scope.productType + product.sortNo + 'M', "渠道号", $scope.gh);
+        if (e) {
+            writebdLog($scope.category, "_SelectPackage" + $scope.productType + product.sortNo + 'M', "渠道号", $scope.gh);
         }
     };
 
@@ -607,9 +611,8 @@ app.controller('appController', ['$scope', '$q', '$location', '$cookieStore', '$
 
         $scope.regionFeeProduct = product.regionProducts[0];
 
-        if(e)
-        {
-        	writebdLog($scope.category, "_SelectPackage" + $scope.productType + product.sortNo + 'M', "渠道号", $scope.gh);
+        if (e) {
+            writebdLog($scope.category, "_SelectPackage" + $scope.productType + product.sortNo + 'M', "渠道号", $scope.gh);
         }
     };
 
@@ -663,7 +666,7 @@ app.controller('appController', ['$scope', '$q', '$location', '$cookieStore', '$
         var content = "";
 
         if (type === 'flow') {
-            content = '<p>1、充值流量包即可获得支付金额同等金额的优惠券（按实际支付金额向下取整，单笔最多获得30元优惠券）。</p>' +
+            content = '<p>1、充值流量包即可获得支付金额同等金额的优惠券（按实际支付金额向下取整，单笔最多获得30元优惠券，优惠券抵扣的部分不参与）。</p>' +
                 '<p>2、优惠券可用于下次充值，适用于话费及流量，请在有效期内使用。</p>';
         }
 
@@ -681,6 +684,22 @@ app.controller('appController', ['$scope', '$q', '$location', '$cookieStore', '$
         writebdLog($scope.category, "_CouponTips" + type, "渠道号", $scope.gh); //记录查看优惠券信息行为
     };
 
+    function set_text_value_position(obj, spos) {
+        var tobj = document.getElementById(obj);
+        if (spos < 0)
+            spos = tobj.value.length;
+        if (tobj.setSelectionRange) { //兼容火狐,谷歌
+            setTimeout(function () {
+                tobj.setSelectionRange(spos, spos);
+                tobj.focus();
+            }, 0);
+        } else if (tobj.createTextRange) { //兼容IE
+            var rng = tobj.createTextRange();
+            rng.move('character', spos);
+            rng.select();
+        }
+    }
+
     $scope.$watch('mobileView', function (n, o, $scope) {
         if (n) {
             var value = n;
@@ -695,6 +714,7 @@ app.controller('appController', ['$scope', '$q', '$location', '$cookieStore', '$
                 }
             }
             $scope.mobileView = result.join("");
+            set_text_value_position('mobileView', -1);
             $scope.mobile = value;
             $cookieStore.put('rechargeMobile', $scope.mobileView);
         } else {
@@ -753,7 +773,7 @@ app.controller('appController', ['$scope', '$q', '$location', '$cookieStore', '$
                         $scope.couponList = $filter('filter')(data.couponList, {isUsed: 0, isOverdue: 0, type: 'DK'});
 
                         MarketSvc.getFlows($scope.mobile).then(function success(data) {
-                            if(data.code == 0){
+                            if (data.code == 0) {
                                 $scope.flowList = rebuildData(tempFlowList, data);
 
                                 var _flowIndex = getDefault($scope.flowList.data);
@@ -763,13 +783,13 @@ app.controller('appController', ['$scope', '$q', '$location', '$cookieStore', '$
                                 } else {
                                     $scope.selectedFlowProd(true, $scope.flowList.data[_flowIndex], true);
                                 }
-                            }else {
+                            } else {
                                 $scope.flowList = rebuildData(tempFlowList, false);
                                 $scope.selectedFlowProd(true, $scope.flowList.data[0], true);
                             }
                         });
                         MarketSvc.getFees($scope.mobile).then(function success(data) {
-                            if(data.code == 0){
+                            if (data.code == 0) {
                                 $scope.feeList = rebuildData(tempFeeList, data);
 
                                 var _feeIndex = getDefault($scope.feeList.data);
@@ -779,7 +799,7 @@ app.controller('appController', ['$scope', '$q', '$location', '$cookieStore', '$
                                 } else {
                                     $scope.selectedFeeProd(true, $scope.feeList.data[_feeIndex], true);
                                 }
-                            }else {
+                            } else {
                                 $scope.feeList = rebuildData(tempFeeList, false);
                                 $scope.selectedFeeProd(true, $scope.feeList.data[0], true);
                             }
@@ -788,9 +808,11 @@ app.controller('appController', ['$scope', '$q', '$location', '$cookieStore', '$
                     });
                 } else {
                     $scope.flowList = rebuildData(tempFlowList, false);
-                    $scope.selectedFlowProd(true, $scope.flowList.data[0], true);
                     $scope.feeList = rebuildData(tempFeeList, false);
-                    $scope.selectedFeeProd(true, $scope.feeList.data[0], true);
+                    var _flowIndex = getDefault($scope.flowList.data);
+                    var _feeIndex = getDefault($scope.feeList.data);
+                    $scope.selectedFlowProd(true, $scope.flowList.data[_flowIndex], true);
+                    $scope.selectedFeeProd(true, $scope.feeList.data[_feeIndex], true);
                 }
             });
         });
@@ -832,4 +854,8 @@ app.controller('appController', ['$scope', '$q', '$location', '$cookieStore', '$
             $scope.mobileValid = false;
         }
     });
+}]);
+
+app.controller('appCodeController', ['$scope', function ($scope) {
+
 }]);

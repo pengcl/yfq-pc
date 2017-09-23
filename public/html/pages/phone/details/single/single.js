@@ -30,8 +30,12 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
 
     $scope.$root.pageName = 'details';
 
-    $http.jsonp("http://m.yfq.cn/product/getProDetial.html?productId=" + $routeParams.phoneId + "&activeTag=ljzma&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
+    $http.jsonp("http://sell.yfq.cn/product/getProDetial.ht?productId=" + $routeParams.phoneId + "&activeTag=ljzma&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
         $scope.phone = data;
+
+        if ($scope.phone.phoneTypes[0].fullDescription) {
+            $scope.phone.phoneTypes[0].fullDescription = $scope.phone.phoneTypes[0].fullDescription.replace(/src=\"\/upload\//gi, 'src="http://cz.gd189fq.com/backend/upload/');
+        }
 
         //seo start
         $scope.$root.pageTitle = $scope.phone.phoneTypes[0].productName + "产品页-翼分期商城";
@@ -106,7 +110,7 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
         //window.location.href = 'http://' + window.location.host + '/phs/dj/A/' + flash.productId + window.location.search;
     };
 
-    $http.jsonp('http://m.yfq.cn/product/getProList.html?activeTag=ljzma&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
+    $http.jsonp('http://sell.yfq.cn/product/getProList.ht?activeTag=ljzma&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
         $scope.singlePhones = data;
     }).error(function (data, status, headers, config) {
         console.log(status);
@@ -186,9 +190,12 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
 
     $scope.$watch('productId', function (n, o, $scope) {
         if (n != o) {
-            $http.jsonp("http://m.yfq.cn/product/getProDetial.html?productId=" + n + "&activeTag=ljzma&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
+            $http.jsonp("http://sell.yfq.cn/product/getProDetial.ht?productId=" + n + "&activeTag=ljzma&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
                 $scope.phone = data;
 
+                if ($scope.phone.phoneTypes[0].fullDescription) {
+                    $scope.phone.phoneTypes[0].fullDescription = $scope.phone.phoneTypes[0].fullDescription.replace(/src=\"\/upload\//gi, 'src="http://cz.gd189fq.com/backend/upload/');
+                }
 
                 var _colors = data.phoneTypes[0].mediaProductList;
                 var _colorIndex = getIndex(data.phoneTypes[0].mediaProductList, "name", $scope.$root.mainColor.name);
