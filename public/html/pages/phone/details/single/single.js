@@ -30,7 +30,7 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
 
     $scope.$root.pageName = 'details';
 
-    $http.jsonp("http://sell.yfq.cn/product/getProDetial.ht?productId=" + $routeParams.phoneId + "&activeTag=ljzma&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
+    $http.jsonp(cfApi.apiHost + "/product/getProDetial.ht?productId=" + $routeParams.phoneId + "&activeTag=ljzma&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
         $scope.phone = data;
 
         if ($scope.phone.phoneTypes[0].fullDescription) {
@@ -53,6 +53,22 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
          }*/
 
         $scope.payType = 0;
+
+        $scope.successUrl = "http://testpc.yfq.cn/payState/B/phone";
+
+        /*$scope.$watch('payType', function (n, o, $scope) {
+            if (n !== o) {
+                if (n == 0) {//一次性
+                    $scope.successUrl = "http://app.yfq.cn/payState/11";
+                }
+                if (n == 1) {//货到付款
+                    $scope.successUrl = "http://app.yfq.cn/payState/12";
+                }
+                if (n == 2) {//分期
+                    $scope.successUrl = "http://app.yfq.cn/payState/10";
+                }
+            }
+        });*/
 
         $http.jsonp("http://cz.gd189fq.com/yfqcz/czInterfaceController.do?messageDetail&productId=" + $routeParams.phoneId + "&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
             $scope.feedbacks = data;
@@ -110,7 +126,7 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
         //window.location.href = 'http://' + window.location.host + '/phs/dj/A/' + flash.productId + window.location.search;
     };
 
-    $http.jsonp('http://sell.yfq.cn/product/getProList.ht?activeTag=ljzma&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
+    $http.jsonp(cfApi.apiHost + '/product/getProList.ht?activeTag=ljzma&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
         $scope.singlePhones = data;
     }).error(function (data, status, headers, config) {
         console.log(status);
@@ -190,7 +206,7 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
 
     $scope.$watch('productId', function (n, o, $scope) {
         if (n != o) {
-            $http.jsonp("http://sell.yfq.cn/product/getProDetial.ht?productId=" + n + "&activeTag=ljzma&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
+            $http.jsonp(cfApi.apiHost + "/product/getProDetial.ht?productId=" + n + "&activeTag=ljzma&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
                 $scope.phone = data;
 
                 if ($scope.phone.phoneTypes[0].fullDescription) {

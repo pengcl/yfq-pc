@@ -12,6 +12,7 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
         });
 }]).controller('payStateController', ['$scope', '$location', '$cookieStore', 'MarketSvc', '$routeParams', 'OrderSvc', function ($scope, $location, $cookieStore, MarketSvc, $routeParams, OrderSvc) {
     $scope.$root.pageType = $routeParams.pageType;
+    $scope.state = $routeParams.state;
     $scope.orderNo = $routeParams.orderNo;
     $scope.orderProduct = unescape($routeParams.orderProduct);
     //console.log(unescape($scope.orderProduct));
@@ -45,12 +46,19 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
     OrderSvc.getOrder($scope.orderNo).then(function success(data) {
         console.log(data);
         $scope.order = data[0];
-        if ($scope.order.product.productname == '话费充值') {
-            $scope.rechargeDetails = $scope.order.flowPrice.productName + "话费";
-            $scope.getCoupon = getFeeCoupon($scope.order.salesOrder.amount, 30);
-        } else {
-            $scope.rechargeDetails = $scope.order.flowPrice.productName + $scope.order.flowPrice.region + "流量";
-            $scope.getCoupon = getFlowCoupon($scope.order.salesOrder.totalamount, 30);
+
+        if ($scope.state === 'phone') {
+            $scope.getCoupon = 0;
+        }
+
+        if ($scope.state === 'flow') {
+            if ($scope.order.product.productname == '话费充值') {
+                $scope.rechargeDetails = $scope.order.flowPrice.productName + "话费";
+                $scope.getCoupon = getFeeCoupon($scope.order.salesOrder.amount, 30);
+            } else {
+                $scope.rechargeDetails = $scope.order.flowPrice.productName + $scope.order.flowPrice.region + "流量";
+                $scope.getCoupon = getFlowCoupon($scope.order.salesOrder.totalamount, 30);
+            }
         }
     });
 

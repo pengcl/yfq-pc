@@ -277,7 +277,7 @@ app.factory("MarketSvc", ['$http', '$q', function ($http, $q) {
 
     service.pay = function (mobile, productId, productFlowPriceId, carrier, activityTag, channelCode, successUrl, channelUrl, couponNo, referrerId, category) {//获取订单统计 promise对象
         var d = $q.defer();
-        $http.jsonp('http://apptest.yfq.cn:8904/order/submitFlowOrder.ht?mobile=' + mobile + '&productId=' + productId + '&productFlowPriceId=' + productFlowPriceId + '&carrier=' + carrier + '&activityTag=' + activityTag + '&channelCode=' + channelCode + '&successUrl=' + successUrl + '&channelUrl=' + channelUrl + '&couponNo=' + couponNo + '&referrerId=' + referrerId + '&category=' + category + '&callback=JSON_CALLBACK').success(function (data) {
+        $http.jsonp('http://sell.yfq.cn/order/submitFlowOrder.ht?mobile=' + mobile + '&productId=' + productId + '&productFlowPriceId=' + productFlowPriceId + '&carrier=' + carrier + '&activityTag=' + activityTag + '&channelCode=' + channelCode + '&successUrl=' + successUrl + '&channelUrl=' + channelUrl + '&couponNo=' + couponNo + '&referrerId=' + referrerId + '&category=' + category + '&callback=JSON_CALLBACK').success(function (data) {
             return d.resolve(data);
         }).error(function (error) {
             d.reject(error);

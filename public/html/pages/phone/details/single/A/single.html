@@ -55,13 +55,14 @@
     <!-- /.modal-dialog -->
 </div>
 <div class="product-detail" ng-init="gotop()">
-    <form id="productDetailsForm" name="productDetailsForm" action="http://www.yfq.cn/pcardn/chooseInfo.html" method="post">
+    <form id="productDetailsForm" name="productDetailsForm" action="http://sell.yfq.cn/order/chooseInfo.ht" method="post">
         <input type="hidden" value="1" name="monthNumber" id="monthNumber">
         <input type="hidden" value="{{category}}" name="category" id="category">
         <input type="hidden" value="{{phone.activityproductId}}" ng-model="phone.productId" name="machineId" id="machineId">
         <input type="hidden" value="{{activeTag}}" ng-model="activeTag" name="activeTag" id="activeTag">
         <input type="hidden" value="{{phoneQueryUrl}}" name="phoneQueryUrl" id="phoneQueryUrl">
         <input type="hidden" value="{{phoneQueryUrl}}" name="redirectUrl" id="redirectUrl">
+        <input type="hidden" value="{{successUrl}}" name="successUrl" id="successUrl">
         <div class="ng-gh"></div>
         <div class="ng-activity"></div>
         <!--<input type="hidden" name="package" id="package" value="{{mainPackage}}"/>
@@ -187,6 +188,14 @@
                                         </div>
                                     </dd>
                                 </dl>-->
+
+                                    <!--<dl class="i-address clearfix" style="overflow: visible">
+                                        <dt>收货地址：</dt>
+                                        <dd>
+                                            <div adr></div>
+                                        </dd>
+                                    </dl>-->
+
                                 <dl class="i-paytype clearfix">
                                     <input name="payType" id="payType" ng-model="payType" value="{{payType}}" required type="hidden">
                                     <dt>付款特惠：</dt>
@@ -222,9 +231,9 @@
                             <div class="buy">
                                 <div class="pure-g">
                                     <div class="pure-u-1-4">
-                                        <a href="javascript:;" id="productBuyNow" ng-click="submitForm($event,'#productDetailsForm')" ng-class="{true:'disabled',false:''}[phone.phoneTypes[0].status == 0 || phone.ifSellOut == 1]" class="pure-button pure-button-buy">
-                                            <span ng-if="phone.phoneTypes[0].status != 0 && phone.ifSellOut !=1">去购买</span>
-                                            <span ng-if="phone.phoneTypes[0].status == 0 || phone.ifSellOut == 1">已售光</span>
+                                        <a href="javascript:;" id="productBuyNow" ng-click="submitForm($event,'#productDetailsForm')" ng-class="{true:'disabled',false:''}[phone.ifSellOut == 0]" class="pure-button pure-button-buy">
+                                            <span ng-if="phone.ifSellOut > 1">去购买</span>
+                                            <span ng-if="phone.ifSellOut == 0">已售光</span>
                                         </a>
                                     </div>
                                     <!--<div class="pure-u-1-4">-->

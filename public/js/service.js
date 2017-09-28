@@ -37,6 +37,69 @@ appServices.factory("MarketSvc", ['$http', '$q', function ($http, $q) {
     return service;
 }]);
 
+appServices.factory("AddressSvc", ['$http', '$q', function ($http, $q) {
+    var service = {};
+
+    service.getProvince = function () {//获取订单统计 promise对象
+        var d = $q.defer();
+        $http.jsonp(cfApi.apiHost + "/wap/comm/getRegion.ht?need=province&key=" + new Date() + "&callback=JSON_CALLBACK").success(function (data) {
+            var _data = [];
+            $.each(eval(data), function (i, k) {
+                _data.push(
+                    {
+                        name: "province",
+                        value: k.name
+                    }
+                );
+            });
+            return d.resolve(_data);
+        }).error(function (error) {
+            d.reject(error);
+        });
+        return d.promise;
+    };
+
+    service.getCity = function (province) {//获取订单统计 promise对象
+        var d = $q.defer();
+        $http.jsonp(cfApi.apiHost + "/wap/comm/getRegion.ht?need=city&province=" + encodeURI(encodeURI(province)) + "&key=" + new Date() + "&callback=JSON_CALLBACK").success(function (data) {
+            var _data = [];
+            $.each(eval(data), function (i, k) {
+                _data.push(
+                    {
+                        name: "city",
+                        value: k.name
+                    }
+                );
+            });
+            return d.resolve(_data);
+        }).error(function (error) {
+            d.reject(error);
+        });
+        return d.promise;
+    };
+
+    service.getDistrict = function (province, city) {//获取订单统计 promise对象
+        var d = $q.defer();
+        $http.jsonp(cfApi.apiHost + "/wap/comm/getRegion.ht?need=district&province=" + encodeURI(encodeURI(province)) + "&city=" + encodeURI(encodeURI(city)) + "&key=" + new Date() + "&callback=JSON_CALLBACK").success(function (data) {
+            var _data = [];
+            $.each(eval(data), function (i, k) {
+                _data.push(
+                    {
+                        name: "district",
+                        value: k.name
+                    }
+                );
+            });
+            return d.resolve(_data);
+        }).error(function (error) {
+            d.reject(error);
+        });
+        return d.promise;
+    };
+
+    return service;
+}]);
+
 appServices.factory("OrderSvc", ['$http', '$q', function ($http, $q) {
     var service = {};
 

@@ -43,6 +43,8 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
     $http.jsonp('http://sell.yfq.cn/product/getProList.ht?activeTag=ljzma&pt=pc&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
         $scope.singlePhones = data;
 
+        console.log(typeof ($scope.singlePhones[0].sortOrder));
+
         $scope.pkgs = data;
         $("#banner").owlCarousel({
             navigation: true, // Show next and prev buttons

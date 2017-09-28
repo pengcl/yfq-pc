@@ -181,3 +181,177 @@
     }
   }
 }
+
+#store-selector {
+  @include inline-block;
+  position: relative;
+  z-index: 3;
+  .text {
+    padding-left: 4px;
+    padding-right: 20px;
+    position: relative;
+    border: 1px solid #ccc;
+    @include box-sizing(border-box);
+    @include box-shadow(0 1px 3px #ddd inset);
+    font-size: 14px;
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+    width: 280px;
+    vertical-align: middle;
+    @include border-radius(4px);
+    color: #666;
+    b {
+      background-image: url("../images/icon.png");
+      background-repeat: no-repeat;
+      background-position: -264px -188px;
+      display: block;
+      height: 24px;
+      overflow: hidden;
+      position: absolute;
+      right: 5px;
+      top: 5px;
+      width: 17px;
+    }
+  }
+  &.hover {
+    .text {
+    }
+    .content {
+      display: block;
+    }
+  }
+  .content {
+    background: #fff;
+    border: 1px solid #cf0000;
+    @include box-shadow(0 0 5px #ddd);
+    display: none;
+    padding: 15px;
+    position: absolute;
+    top: 40px;
+    width: 390px;
+    @include box-sizing(content-box);
+    .CF-stock {
+      position: relative;
+      .tab {
+        border-bottom: 2px solid #cf0000;
+        float: left;
+        height: 25px;
+        overflow: visible;
+        width: 100%;
+        li {
+          clear: none;
+          float: left;
+          padding: 0;
+          text-align: center;
+          margin-right: 0;
+          margin-bottom: 0;
+          border: 0;
+          a {
+            border: 1px solid #ddd;
+            border-bottom: 0;
+            cursor: pointer;
+            float: left;
+            height: 23px;
+            line-height: 23px;
+            margin-right: 3px;
+            padding: 0 21px 1px 11px;
+            position: relative;
+            text-align: center;
+            color: #005aa0;
+            em {
+              line-height: 22px;
+              cursor: pointer;
+              font-size: 15px;
+              font-style: normal;
+            }
+            i {
+              background-image: url("../images/cf-stock.png");
+              background-position: 0 -35px;
+              display: block;
+              height: 5px;
+              overflow: hidden;
+              position: absolute;
+              right: 4px;
+              top: 10px;
+              width: 7px;
+            }
+          }
+          &.curr {
+            a {
+              border: 2px solid #cf0000;
+              border-bottom: 0;
+              padding: 0 20px 0 10px;
+              text-decoration: none;
+              height: 25px;
+              line-height: 22px;
+              background-color: #fff;
+              color: #333;
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+    .m {
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+    .mt {
+      cursor: default;
+      overflow: hidden;
+    }
+    .mc {
+      overflow: hidden;
+      .area-list {
+        padding-top: 5px;
+        li {
+          clear: none;
+          padding-top: 2px;
+          padding-right: 0;
+          padding-bottom: 2px;
+          padding-left: 15px;
+          float: left;
+          width: 80px;
+          margin-bottom: 0;
+          border: 0;
+          line-height: 1.2;
+          margin-right: 0;
+          &.long-area {
+            width: 170px;
+          }
+          a {
+            color: #005aa0;
+            float: left;
+            padding-left: 4px;
+            padding-right: 4px;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            font-size: 14px;
+            &:hover {
+              color: #fff;
+              background: #cf0000;
+            }
+          }
+        }
+      }
+    }
+  }
+  .close {
+    background-image: url("../images/icon.png");
+    background-position: -257px -86px;
+    height: 17px;
+    left: 412px;
+    position: absolute;
+    top: 31px;
+    width: 17px;
+    z-index: 2;
+    cursor: pointer;
+    @include opacity(1);
+  }
+}
+
+.Ptable-tips {
+  .content {
+    background-color: #fff;
+  }
+}

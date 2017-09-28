@@ -1,0 +1,50 @@
+<div class="pure-control-group">
+    <div id="store-selector" ng-class="{true:'hover',false:''}[isPickerShow]">
+        <div id="store-text" class="text address-input">
+            <div id="inputsStoreSelect" title="" ng-click="setPickerShow()">请选择送货地址</div>
+            <input type="hidden" id="receiverCity" name="receiverCity" value="">
+            <b></b>
+        </div>
+        <div class="content">
+            <div id="CF-stock" class="m CF-stock" data-widget="tabs">
+                <div class="mt">
+                    <ul class="tab">
+                        <li class="" ng-class="{true:'curr',false:''}[!address.province]">
+                            <a class="">
+                                <em ng-if="address.province" ng-bind="address.province"></em>
+                                <em ng-if="!address.province">请选择</em>
+                                <i></i>
+                            </a>
+                        </li>
+                        <li class="" ng-class="{true:'curr',false:''}[!!address.province && !address.city]">
+                            <a class="">
+                                <em ng-if="address.city" ng-bind="address.city"></em>
+                                <em ng-if="!address.city">请选择</em>
+                                <i></i>
+                            </a>
+                        </li>
+                        <li class="" ng-class="{true:'curr',false:''}[!!address.province && !!address.city]">
+                            <a class="">
+                                <em ng-if="address.district" ng-bind="address.district"></em>
+                                <em ng-if="!address.district">请选择</em>
+                                <i></i>
+                            </a>
+                        </li>
+                        <!--<li style="display: none" data-widget="tab-item" data-index="3" class=""><a class=""><em>请选择</em><i></i></a></li>-->
+                    </ul>
+                    <div class="stock-line"></div>
+                </div>
+                <div id="stock_province_item" data-widget="tab-content" data-area="0" class="mc" style="">
+                    <ul class="area-list">
+                        <li ng-class="{true:'long-area',false:''}[picker.value.length > 5]" ng-click="setPicker(picker)"
+                            ng-repeat="picker in pickers">
+                            <a>{{picker.value}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <span class="clr"></span>
+        </div>
+        <div class="close" style="display: none"></div>
+    </div>
+</div>

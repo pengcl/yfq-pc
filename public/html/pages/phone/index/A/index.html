@@ -4,7 +4,7 @@
     <div id="banner" class="owl-carousel">
         <a href="/phs/sg/{{pageType}}/456?gh={{gh}}&activity={{activity}}" ng-click="writeSelectFoods(this,456,'MYSY');"
            class="carousel-item item"><img src="/images/index/banner-1.jpg"></a>
-        <a href="/phs/sg/{{pageType}}/458?gh={{gh}}&activity={{activity}}" ng-click="writeSelectFoods(this,458,'MYSY');" has-hash="false"
+        <a href="/phs/sg/{{pageType}}/10000094272132?gh={{gh}}&activity={{activity}}" ng-click="writeSelectFoods(this,458,'MYSY');" has-hash="false"
            class="carousel-item item"><img
                 src="/images/index/banner-2.jpg"></a>
         <!--<a href="/phs/sg/{{pageType}}/258?gh={{gh}}&activity={{activity}}" has-hash="false"
@@ -22,7 +22,7 @@
                         </div>
                     </div>
                     <div class="ad-2 ad-item">
-                        <a href="#" class="img-box">
+                        <a href="/phs/sg/{{pageType}}/10000094272132?gh={{gh}}&activity={{activity}}" class="img-box">
                             <img src="/images/index/ad-1-2.jpg">
                         </a>
                     </div>
@@ -46,7 +46,7 @@
                     <div class="hot-list">
                         <ul class="product-list pure-g" style="margin-top: 5px">
                             <!--<li ng-repeat="singlePhone in singlePhones | orderBy: sortOrder" ng-if="singlePhone.salePrice >= 1500" data-order="{{singlePhone.sortOrder}}" class="pure-u-1-3" class="phone-listing" on-finish>-->
-                            <li ng-repeat="singlePhone in singlePhones | filter:{ifRecommend: 2}" class="pure-u-1-5"
+                            <li ng-repeat="singlePhone in singlePhones | orderBy: '-sortOrder' | filter:{ifRecommend: 2}" class="sort-order-{{singlePhone.sortOrder}} pure-u-1-5"
                                 class="phone-listing">
                                 <div class="box{{$index + 1}} item-box">
                                     <div class="img overlay-container">
@@ -236,7 +236,7 @@
                             <div class="banner-box-content">
                                 <div class="list-banner-bg">
                                     <div class="img-box">
-                                        <a href="/phs/sg/{{pageType}}/272?gh={{gh}}&activity={{activity}}&colorTag=红色"><img
+                                        <a href="/phs/sg/{{pageType}}/10000094272132?gh={{gh}}&activity={{activity}}"><img
                                                 class="lazy" data-original="/images/index/list-banner-2.jpg"></a>
                                     </div>
                                 </div>
@@ -247,7 +247,7 @@
                         <div class="list-phone-box">
                             <ul class="product-list pure-g">
                                 <!-- 单机循环开始 -->
-                                <li ng-repeat="singlePhone in singlePhones | filter:{brandName: 'iPhone'} | limitTo:4"
+                                <li ng-repeat="singlePhone in singlePhones | orderBy: '-sortOrder' | filter:{brandName: 'iPhone'} | limitTo:4"
                                     class="pure-u-1-4"
                                     class="phone-listing" on-finish>
                                     <div class="box{{$index + 1}} item-box">
