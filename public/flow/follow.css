@@ -1,0 +1,245 @@
+html {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    color: #666;
+    font-size: 14px
+}
+
+body {
+    background: #48538c;
+    background-image: url("images/follow/bg.png");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center bottom;
+    width: 100%;
+    min-height: 100%;
+}
+
+html, button, input, select, textarea,
+.pure-g [class *= "pure-u"] {
+    /* 自定义字体 */
+    font-family: PingFang SC, Helvetica Neue, Helvetica, Arial, Hiragino Sans GB, Microsoft Yahei, \\5FAE\8F6F\96C5\9ED1, STHeiti, \\534E\6587\7EC6\9ED1, sans-serif;
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+h1.title {
+    text-align: center;
+    margin: 56px 0 27px;
+}
+
+h1.title img {
+    display: block;
+    margin: 0 auto;
+}
+
+.header {
+    background: #fff;
+    padding: 17px 0;
+}
+
+.header .container {
+    position: relative;
+    height: 56px;
+}
+
+.header .hot-line {
+    position: absolute;
+    right: 0;
+    line-height: 20px;
+    top: 18px;
+    color: #57a3f9;
+}
+
+.main .follow {
+    width: 573px;
+    height: 563px;
+    margin-top: 10px;
+    overflow: hidden;
+    background: url("images/follow/follow-bg.png") no-repeat;
+}
+
+.main .follow .content {
+    margin: 36px 52px;
+    overflow: hidden;
+}
+
+.main .follow .content .item-list {
+    margin: 4px;
+    padding: 0;
+    list-style: none;
+}
+
+.main .follow .content .item-list .item-box {
+    width: 147px;
+    height: 140px;
+    background: url("images/follow/item-bg.png") no-repeat;
+    margin: 4px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.main .follow .content .item-list .item-box .pic {
+    margin-top: 17px;
+}
+
+.main .follow .content .item-list .item-box .pic img {
+    display: block;
+    margin: 0 auto;
+}
+
+.main .follow .content .item-list .item-box .txt {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 10px;
+    color: #df4930;
+}
+
+.main .follow .content .item-list .item-box.curr {
+    background: url("images/follow/item-bg-curr.png") no-repeat;
+}
+
+.main .follow .content .item-list .item-box.start {
+    background: url("images/follow/start.png?1") no-repeat;
+}
+
+.main .follow .content .item-list .item-box.start:hover {
+    background: url("images/follow/start-active.png?1") no-repeat;
+}
+
+.main .lucky {
+    width: 371px;
+    height: 279px;
+    overflow: hidden;
+    background: url("images/follow/luckys-bg.png") no-repeat;
+}
+
+.main .lucky .lucky-people {
+    margin-top: 94px;
+    margin-left: 20px;
+    font-size: 16px;
+    line-height: 30px;
+    height: 150px;
+    overflow: hidden;
+}
+
+.main .lucky .lucky-people ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.main .lucky .lucky-people .people {
+    color: #2d3256;
+}
+
+.main .lucky .lucky-people .people span {
+    color: #fa4e4e;
+}
+
+.main .rule {
+    width: 371px;
+    height: 236px;
+    margin-top: 30px;
+    overflow: hidden;
+    background: url("images/follow/rule-bg.png") no-repeat;
+}
+
+.main .rule .rule-list {
+    margin-top: 94px;
+    padding-right: 20px;
+}
+
+.rule-txt {
+    font-size: 16px;
+    line-height: 24px;
+    color: #2d3256;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.rule-txt dt {
+    float: left;
+    width: 24px;
+    height: 24px;
+    margin-left: 9px;
+    line-height: 24px;
+    text-align: center;
+}
+
+.rule-txt dd {
+    margin-left: 35px;
+}
+
+.footer {
+    width: 100%;
+    line-height: 20px;
+    margin: 100px 0 25px;
+}
+
+.footer a {
+    color: #fff;
+}
+
+.footer .links {
+    text-align: center;
+}
+
+.footer .links .separate {
+    margin: 0 5px;
+}
+
+.footer .links a, .footer .links span {
+    display: inline-block;
+    vertical-align: middle;
+    color: #fff;
+    font-size: 14px;
+}
+
+.footer p {
+    color: #fff;
+    text-align: center;
+    margin: 0;
+}
+
+.wrap {
+    position: relative;
+    overflow: hidden;
+}
+
+.mask {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.dialog {
+    width: 814px;
+    height: 609px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -304px;
+    margin-left: -407px;
+}
+
+.dialog .close {
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    cursor: pointer;
+}
+
+.dialog .close img {
+    display: block;
+}

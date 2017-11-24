@@ -60,39 +60,11 @@
                         </a>
                     </li>
                     <li ng-show="brandMore || filterObj.brand == '魅族' || filterObj.brand == '美图' || filterObj.brand == '乐视' || filterObj.brand == '小辣椒' || filterObj.brand == '360'" class="filter-item pure-u-1-8"></li>
-                    <li ng-show="brandMore || filterObj.brand == '魅族' || filterObj.brand == '美图' || filterObj.brand == '乐视' || filterObj.brand == '小辣椒' || filterObj.brand == '360'" class="filter-item pure-u-1-8"></li>
-                    <li class="filter-item pure-u-1-8" ng-show="brandMore || filterObj.brand == '魅族' || filterObj.brand == '美图' || filterObj.brand == '乐视' || filterObj.brand == '小辣椒' || filterObj.brand == '360'">
-                        <a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand=魅族&spec={{filterSpec}}&price={{filterPrice}}" class="filter-item-box" ng-class="{true:'curr',false:''}[filterObj.brand == '魅族']"
-                           ng-click="setFilterBrand('魅族')">
-                            魅族
-                            <ins></ins>
-                        </a>
-                    </li>
-                    <li class="filter-item pure-u-1-8" ng-show="brandMore || filterObj.brand == '魅族' || filterObj.brand == '美图' || filterObj.brand == '乐视' || filterObj.brand == '小辣椒' || filterObj.brand == '360'">
-                        <a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand=美图&spec={{filterSpec}}&price={{filterPrice}}" class="filter-item-box" ng-class="{true:'curr',false:''}[filterObj.brand == '美图']"
-                           ng-click="setFilterBrand('美图')">
-                            美图
-                            <ins></ins>
-                        </a>
-                    </li>
-                    <li class="filter-item pure-u-1-8" ng-show="brandMore || filterObj.brand == '魅族' || filterObj.brand == '美图' || filterObj.brand == '乐视' || filterObj.brand == '小辣椒' || filterObj.brand == '360'">
-                        <a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand=乐视&spec={{filterSpec}}&price={{filterPrice}}" class="filter-item-box" ng-class="{true:'curr',false:''}[filterObj.brand == '乐视']"
-                           ng-click="setFilterBrand('乐视')">
-                            乐视手机
-                            <ins></ins>
-                        </a>
-                    </li>
-                    <li class="filter-item pure-u-1-8" ng-show="brandMore || filterObj.brand == '魅族' || filterObj.brand == '美图' || filterObj.brand == '乐视' || filterObj.brand == '小辣椒' || filterObj.brand == '360'">
-                        <a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand=小辣椒&spec={{filterSpec}}&price={{filterPrice}}" class="filter-item-box" ng-class="{true:'curr',false:''}[filterObj.brand == '小辣椒']"
-                           ng-click="setFilterBrand('小辣椒')">
-                            小辣椒
-                            <ins></ins>
-                        </a>
-                    </li>
-                    <li class="filter-item pure-u-1-8" ng-show="brandMore || filterObj.brand == '魅族' || filterObj.brand == '美图' || filterObj.brand == '乐视' || filterObj.brand == '小辣椒' || filterObj.brand == '360'">
-                        <a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand=360&spec={{filterSpec}}&price={{filterPrice}}" class="filter-item-box" ng-class="{true:'curr',false:''}[filterObj.brand == '360']"
-                           ng-click="setFilterBrand('360')">
-                            360手机
+
+                    <li ng-repeat="brand in brands" class="filter-item pure-u-1-8" ng-show="brandMore">
+                        <a href="/phone/{{pageType}}/list?gh={{gh}}&activity={{activity}}&brand={{brand}}&spec={{filterSpec}}&price={{filterPrice}}&brandMore=true" class="filter-item-box" ng-class="{true:'curr',false:''}[filterObj.brand == '{{brand}}']"
+                           ng-click="setFilterBrand(brand)">
+                            {{brand}}
                             <ins></ins>
                         </a>
                     </li>
@@ -210,7 +182,7 @@
             <!-- phone-list -->
             <div class="list-box">
                 <ul class="product-list pure-g" style="margin-top: 5px">
-                    <li ng-repeat="singlePhone in mainItems | orderBy : phoneFilter"
+                    <li ng-repeat="singlePhone in mainItems"
                         class="pure-u-1-4"
                         class="phone-listing">
                         <div class="ng-list-item-box" params="params" category="category" gh="gh" activity="activity" page-type="pageType" single-phone="singlePhone"></div>

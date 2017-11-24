@@ -2382,7 +2382,7 @@ span.charging-btn:hover {
 /* line 600, ../../../sass/app.scss */
 .aboutYfq .container .weixin {
   position: absolute;
-  bottom: 80px;
+  bottom: 0px;
   right: 30px;
 }
 /* line 605, ../../../sass/app.scss */
@@ -2408,8 +2408,16 @@ span.charging-btn:hover {
   height: 25px;
   background: #f00;
 }
-
+/* line 625, ../../../sass/app.scss */
+.aboutYfq .about-list {
+  margin: 0 -15px;
+}
 /* line 627, ../../../sass/app.scss */
+.aboutYfq .about-list .about-box {
+  margin: 15px;
+}
+
+/* line 633, ../../../sass/app.scss */
 .footer-choose {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -2418,16 +2426,16 @@ span.charging-btn:hover {
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
 }
-/* line 634, ../../../sass/app.scss */
+/* line 640, ../../../sass/app.scss */
 .footer-choose a {
   color: #666;
 }
-/* line 637, ../../../sass/app.scss */
+/* line 643, ../../../sass/app.scss */
 .footer-choose div {
   padding: 5px 0;
 }
 
-/* line 643, ../../../sass/app.scss */
+/* line 649, ../../../sass/app.scss */
 .ng-rush .product-tab {
   padding-bottom: 30px;
   background: #fff;
@@ -2436,7 +2444,7 @@ span.charging-btn:hover {
   padding-right: 50px;
   position: relative;
 }
-/* line 650, ../../../sass/app.scss */
+/* line 656, ../../../sass/app.scss */
 .ng-rush .product-tab ins {
   position: absolute;
   top: 50%;
@@ -2444,15 +2452,15 @@ span.charging-btn:hover {
   height: 33px;
   margin-top: -16px;
 }
-/* line 656, ../../../sass/app.scss */
+/* line 662, ../../../sass/app.scss */
 .ng-rush .product-tab ins.prev {
   left: 20px;
 }
-/* line 659, ../../../sass/app.scss */
+/* line 665, ../../../sass/app.scss */
 .ng-rush .product-tab ins.next {
   right: 20px;
 }
-/* line 663, ../../../sass/app.scss */
+/* line 669, ../../../sass/app.scss */
 .ng-rush .product-tab .time-box {
   border: 2px solid #dcdcdc;
   padding: 10px;
@@ -2464,7 +2472,7 @@ span.charging-btn:hover {
   color: #999;
   cursor: pointer;
 }
-/* line 673, ../../../sass/app.scss */
+/* line 679, ../../../sass/app.scss */
 .ng-rush .product-tab .time-box .start-time {
   display: inline-block;
   vertical-align: middle;
@@ -2477,31 +2485,31 @@ span.charging-btn:hover {
   font-size: 24px;
   border-bottom: 2px solid #bcbcbc;
 }
-/* line 680, ../../../sass/app.scss */
+/* line 686, ../../../sass/app.scss */
 .ng-rush .product-tab .time-box .start-time em {
   font-style: normal;
   font-weight: 600;
 }
-/* line 684, ../../../sass/app.scss */
+/* line 690, ../../../sass/app.scss */
 .ng-rush .product-tab .time-box .start-time sub {
   bottom: 0;
   margin-left: 5px;
   font-size: 60%;
 }
-/* line 690, ../../../sass/app.scss */
+/* line 696, ../../../sass/app.scss */
 .ng-rush .product-tab .time-box .end-time {
   font-size: 20px;
 }
-/* line 692, ../../../sass/app.scss */
+/* line 698, ../../../sass/app.scss */
 .ng-rush .product-tab .time-box .end-time i {
   font-style: normal;
 }
-/* line 695, ../../../sass/app.scss */
+/* line 701, ../../../sass/app.scss */
 .ng-rush .product-tab .time-box .end-time sub {
   color: #999 !important;
   bottom: 0;
 }
-/* line 700, ../../../sass/app.scss */
+/* line 706, ../../../sass/app.scss */
 .ng-rush .product-tab .time-box ins {
   position: absolute;
   width: 24px;
@@ -2513,74 +2521,74 @@ span.charging-btn:hover {
   margin-left: -12px;
   display: none;
 }
-/* line 710, ../../../sass/app.scss */
+/* line 716, ../../../sass/app.scss */
 .ng-rush .product-tab .time-box ins img {
   display: block;
 }
-/* line 714, ../../../sass/app.scss */
+/* line 720, ../../../sass/app.scss */
 .ng-rush .product-tab .time-box.curr {
   border: 2px solid #f06;
   background: #fff;
   color: #333;
 }
-/* line 718, ../../../sass/app.scss */
+/* line 724, ../../../sass/app.scss */
 .ng-rush .product-tab .time-box.curr .start-time {
   border-bottom: 2px solid #f06;
 }
-/* line 721, ../../../sass/app.scss */
+/* line 727, ../../../sass/app.scss */
 .ng-rush .product-tab .time-box.curr em {
   color: #f06;
 }
-/* line 724, ../../../sass/app.scss */
+/* line 730, ../../../sass/app.scss */
 .ng-rush .product-tab .time-box.curr sub {
   color: #f06;
 }
-/* line 727, ../../../sass/app.scss */
+/* line 733, ../../../sass/app.scss */
 .ng-rush .product-tab .time-box.curr ins {
   display: block;
 }
-/* line 731, ../../../sass/app.scss */
+/* line 737, ../../../sass/app.scss */
 .ng-rush .product-tab .time-box.curr .end-time sub {
   color: #333 !important;
 }
-/* line 738, ../../../sass/app.scss */
+/* line 744, ../../../sass/app.scss */
 .ng-rush .product-list {
   margin: 0;
   padding-bottom: 50px;
   background: #fff;
 }
-/* line 742, ../../../sass/app.scss */
+/* line 748, ../../../sass/app.scss */
 .ng-rush .product-list .item-box {
   margin: 0 !important;
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
-/* line 745, ../../../sass/app.scss */
+/* line 751, ../../../sass/app.scss */
 .ng-rush .product-list .item-box.box1, .ng-rush .product-list .item-box.box2, .ng-rush .product-list .item-box.box3 {
   border-right: 1px solid #ccc !important;
 }
-/* line 748, ../../../sass/app.scss */
+/* line 754, ../../../sass/app.scss */
 .ng-rush .product-list .item-box .flag-bao {
   background: none !important;
   padding: 0 !important;
 }
-/* line 752, ../../../sass/app.scss */
+/* line 758, ../../../sass/app.scss */
 .ng-rush .product-list .item-box .price {
   border-bottom: 0 !important;
   padding-bottom: 0 !important;
 }
-/* line 755, ../../../sass/app.scss */
+/* line 761, ../../../sass/app.scss */
 .ng-rush .product-list .item-box .price h3 {
   font-size: 14px !important;
   min-height: 48px;
 }
-/* line 762, ../../../sass/app.scss */
+/* line 768, ../../../sass/app.scss */
 .ng-rush .flag-bao {
   display: none !important;
 }
 
-/* line 767, ../../../sass/app.scss */
+/* line 773, ../../../sass/app.scss */
 .flag-0 {
   background: #388ee9 none repeat scroll 0 0;
   color: #fff;
@@ -2592,7 +2600,7 @@ span.charging-btn:hover {
   top: 20px;
   z-index: 9;
 }
-/* line 777, ../../../sass/app.scss */
+/* line 783, ../../../sass/app.scss */
 .flag-0 span {
   padding: 5px 10px;
   display: inline-block;
@@ -2601,39 +2609,39 @@ span.charging-btn:hover {
   *zoom: 1;
   *display: inline;
 }
-/* line 780, ../../../sass/app.scss */
+/* line 786, ../../../sass/app.scss */
 .flag-0 span.flag-a {
   background: #cf0000;
 }
-/* line 783, ../../../sass/app.scss */
+/* line 789, ../../../sass/app.scss */
 .flag-0 span.flag-b {
   background: #388ee9;
 }
 
-/* line 790, ../../../sass/app.scss */
+/* line 796, ../../../sass/app.scss */
 #productBuyNow.disabled {
   background: #ccc;
 }
 
-/* line 795, ../../../sass/app.scss */
+/* line 801, ../../../sass/app.scss */
 .disabled {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
   opacity: 0.5;
 }
 
-/* line 799, ../../../sass/app.scss */
+/* line 805, ../../../sass/app.scss */
 .rush-buy {
   height: 40px;
   line-height: 40px;
   color: #fff;
   margin-top: 5px;
 }
-/* line 804, ../../../sass/app.scss */
+/* line 810, ../../../sass/app.scss */
 .rush-buy .rush-price {
   line-height: 40px;
   background: #ff4f73;
 }
-/* line 808, ../../../sass/app.scss */
+/* line 814, ../../../sass/app.scss */
 .rush-buy .rush-down {
   line-height: 40px;
   background-image: url("/images/index/rushBtBg.png");
@@ -2641,18 +2649,18 @@ span.charging-btn:hover {
   background-color: #ff0066;
   text-align: right;
 }
-/* line 815, ../../../sass/app.scss */
+/* line 821, ../../../sass/app.scss */
 .rush-buy em {
   color: #fff !important;
   font-size: 16px !important;
 }
-/* line 819, ../../../sass/app.scss */
+/* line 825, ../../../sass/app.scss */
 .rush-buy .rush-box {
   padding-left: 5px;
   padding-right: 5px;
 }
 
-/* line 825, ../../../sass/app.scss */
+/* line 831, ../../../sass/app.scss */
 .index-nav-sort {
   position: absolute;
   width: auto;
@@ -2661,80 +2669,80 @@ span.charging-btn:hover {
   top: 720px;
   width: 60px;
 }
-/* line 832, ../../../sass/app.scss */
+/* line 838, ../../../sass/app.scss */
 .index-nav-sort a {
   display: block;
   padding: 5px;
 }
-/* line 835, ../../../sass/app.scss */
+/* line 841, ../../../sass/app.scss */
 .index-nav-sort a span {
   display: block;
   width: 50px;
   height: 50px;
 }
-/* line 841, ../../../sass/app.scss */
+/* line 847, ../../../sass/app.scss */
 .index-nav-sort .line {
   height: 1px;
   background: #ccc;
 }
-/* line 846, ../../../sass/app.scss */
+/* line 852, ../../../sass/app.scss */
 .index-nav-sort .index-nav-sort-0 span {
   background-image: url("/images/index/index-nav-sort-1.png");
 }
-/* line 850, ../../../sass/app.scss */
+/* line 856, ../../../sass/app.scss */
 .index-nav-sort .index-nav-sort-0:hover span, .index-nav-sort .index-nav-sort-0.curr span {
   background-image: url("/images/index/index-nav-sort-1-on.png");
 }
-/* line 856, ../../../sass/app.scss */
+/* line 862, ../../../sass/app.scss */
 .index-nav-sort .index-nav-sort-1 span {
   background-image: url("/images/index/index-nav-sort-2.png");
 }
-/* line 860, ../../../sass/app.scss */
+/* line 866, ../../../sass/app.scss */
 .index-nav-sort .index-nav-sort-1:hover span, .index-nav-sort .index-nav-sort-1.curr span {
   background-image: url("/images/index/index-nav-sort-2-on.png");
 }
-/* line 866, ../../../sass/app.scss */
+/* line 872, ../../../sass/app.scss */
 .index-nav-sort .index-nav-sort-2 span {
   background-image: url("/images/index/index-nav-sort-3.png");
 }
-/* line 870, ../../../sass/app.scss */
+/* line 876, ../../../sass/app.scss */
 .index-nav-sort .index-nav-sort-2:hover span, .index-nav-sort .index-nav-sort-2.curr span {
   background-image: url("/images/index/index-nav-sort-3-on.png");
 }
-/* line 876, ../../../sass/app.scss */
+/* line 882, ../../../sass/app.scss */
 .index-nav-sort .index-nav-sort-3 span {
   background-image: url("/images/index/index-nav-sort-4.png");
 }
-/* line 880, ../../../sass/app.scss */
+/* line 886, ../../../sass/app.scss */
 .index-nav-sort .index-nav-sort-3:hover span, .index-nav-sort .index-nav-sort-3.curr span {
   background-image: url("/images/index/index-nav-sort-4-on.png");
 }
 
-/* line 887, ../../../sass/app.scss */
+/* line 893, ../../../sass/app.scss */
 .is-lift-nav-fixed {
   position: fixed;
   top: 112px;
 }
 
-/* line 892, ../../../sass/app.scss */
+/* line 898, ../../../sass/app.scss */
 .product-txt .choose-box dl.i-package-info .paytype-2 {
   display: block;
 }
-/* line 894, ../../../sass/app.scss */
+/* line 900, ../../../sass/app.scss */
 .product-txt .choose-box dl.i-package-info .paytype-2 .tooltip-arrow {
   left: 175px;
 }
 
-/* line 899, ../../../sass/app.scss */
+/* line 905, ../../../sass/app.scss */
 .product-txt .choose-box dl.i-package-info .tooltip .tooltip-arrow, .product-txt .choose-box dl.i-paytype-info .tooltip .tooltip-arrow {
   left: 175px;
 }
 
-/* line 903, ../../../sass/app.scss */
+/* line 909, ../../../sass/app.scss */
 .angular-modal.in {
   display: block;
 }
-/* line 906, ../../../sass/app.scss */
+/* line 912, ../../../sass/app.scss */
 .angular-modal.in .modal-footer .btn {
   padding: 6px 12px;
   -moz-border-radius: 4px;
@@ -2751,19 +2759,19 @@ span.charging-btn:hover {
   margin-left: 3px;
   margin-right: 3px;
 }
-/* line 915, ../../../sass/app.scss */
+/* line 921, ../../../sass/app.scss */
 .angular-modal.in .modal-footer .btn.btn-primary {
   background-color: #337ab7;
   border-color: #2e6da4;
   color: #fff;
 }
 
-/* line 925, ../../../sass/app.scss */
+/* line 931, ../../../sass/app.scss */
 .pc-payment .pay-content {
   background: #fff;
   padding-bottom: 50px;
 }
-/* line 928, ../../../sass/app.scss */
+/* line 934, ../../../sass/app.scss */
 .pc-payment .pay-content .order-pay {
   background: #fff;
   border-top: 2px solid #ccc;
@@ -2772,13 +2780,13 @@ span.charging-btn:hover {
   box-shadow: 3px 3px 3px #ccc, -3px 3px 3px #ccc;
   position: relative;
 }
-/* line 933, ../../../sass/app.scss */
+/* line 939, ../../../sass/app.scss */
 .pc-payment .pay-content .order-pay h1.label {
   position: absolute;
   top: 20px;
   left: 0;
 }
-/* line 939, ../../../sass/app.scss */
+/* line 945, ../../../sass/app.scss */
 .pc-payment .pay-content .order-info {
   padding-top: 5px;
   padding-bottom: 0px;
@@ -2786,57 +2794,57 @@ span.charging-btn:hover {
   padding-right: 15px;
   overflow: hidden;
 }
-/* line 945, ../../../sass/app.scss */
+/* line 951, ../../../sass/app.scss */
 .pc-payment .pay-content .order-info .order-no {
   color: #333;
 }
-/* line 948, ../../../sass/app.scss */
+/* line 954, ../../../sass/app.scss */
 .pc-payment .pay-content .order-info .order-date {
   color: #999;
   margin-left: 30px;
 }
-/* line 952, ../../../sass/app.scss */
+/* line 958, ../../../sass/app.scss */
 .pc-payment .pay-content .order-info .order-product {
   font-weight: bold;
 }
-/* line 956, ../../../sass/app.scss */
+/* line 962, ../../../sass/app.scss */
 .pc-payment .pay-content .pay-tabs {
   margin: 30px 0px 0px;
 }
-/* line 958, ../../../sass/app.scss */
+/* line 964, ../../../sass/app.scss */
 .pc-payment .pay-content .pay-tabs .tab-content {
   padding: 30px;
 }
-/* line 961, ../../../sass/app.scss */
+/* line 967, ../../../sass/app.scss */
 .pc-payment .pay-content .pay-tabs .tab-content .pay-list .mode-name {
   font-size: 16px;
   color: #777;
 }
-/* line 966, ../../../sass/app.scss */
+/* line 972, ../../../sass/app.scss */
 .pc-payment .pay-content .pay-tabs .tab-content .pay-list .pay-item-box.new-box {
   height: 80px;
   padding-left: 0;
   border: none;
   cursor: pointer;
 }
-/* line 971, ../../../sass/app.scss */
+/* line 977, ../../../sass/app.scss */
 .pc-payment .pay-content .pay-tabs .tab-content .pay-list .pay-item-box.new-box .pay-logo {
   display: block;
   position: static;
   width: auto;
   height: 80px;
 }
-/* line 976, ../../../sass/app.scss */
+/* line 982, ../../../sass/app.scss */
 .pc-payment .pay-content .pay-tabs .tab-content .pay-list .pay-item-box.new-box .pay-logo img {
   display: block;
   height: 100%;
   width: auto;
 }
-/* line 982, ../../../sass/app.scss */
+/* line 988, ../../../sass/app.scss */
 .pc-payment .pay-content .pay-tabs .tab-content .pay-list .pay-item-box.new-box .txt {
   display: none;
 }
-/* line 985, ../../../sass/app.scss */
+/* line 991, ../../../sass/app.scss */
 .pc-payment .pay-content .pay-tabs .tab-content .pay-list .pay-item-box.new-box .mode-select {
   display: none;
 }

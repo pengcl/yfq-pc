@@ -15,11 +15,11 @@
             <del>原价：￥<span ng-bind="singlePhone.salePrice"></span></del>
         </p>-->
         <div class="price">
-            <em>￥</em><em ng-bind="mainColor.salePrice * 0.95 | numberUp | number : 0"></em>
+            <em>￥</em><em ng-bind="mainColor.salePrice * singlePhone.discountRate | numberUp | number : 0"></em>
         </div>
     </div>
     <ul class="img-list">
-        <li class="img-item" ng-repeat="color in singlePhone.phoneTypes[0].mediaProductList">
+        <li class="img-item" ng-repeat="color in singlePhone.phoneTypes[0].mediaProductList | limitTo : 6">
             <div class="img-box" ng-class="{'curr':color == mainColor,'disabled':color.stock != 1}" ng-mouseover="selectedColor(color.stock,color)">
                 <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{color.mediaUrl}}">
             </div>

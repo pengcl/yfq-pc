@@ -109,28 +109,29 @@
                         <div class="txt-content cf-font">
                             <div class="title-box">
                                 <h1 class="title"><span ng-bind="phone.phoneTypes[0].productName"></span>
-                                    <span class="tips"><span ng-bind="mainColor.name"> </span> 国行正品 限时优惠9.5折</span>
+                                    <span class="tips"><span ng-bind="mainColor.name"> </span> 国行正品 限时优惠<span ng-bind="phone.discountRate * 100"></span>折</span>
                                 </h1>
                                 <h2 class="sub-title"><span ng-bind="mainTipsTitle"></span></h2>
                             </div>
                             <div class="price-box">
                                 <div class="price-buy">
-                                    <span class="label">95折价：</span>
+                                    <span class="label" ng-if="phone.discountRate < 1"><span ng-bind="phone.discountRate * 100"></span>折价：</span>
+                                    <span class="label">现价</span>
                                     <em class="yuan">￥</em><em
-                                        ng-bind="mainColor.salePrice * 0.95 | numberUp |number : 0"></em>
+                                        ng-bind="mainColor.salePrice * phone.discountRate | numberUp |number : 0"></em>
                                     <del>
                                         <span class="label">原价：</span>
                                         <span class="yuan">￥</span><span ng-bind="mainColor.salePrice | number : 0"></span>
                                     </del>
                                     <div class="bijia" ng-repeat="channelPrice in mainColor.channelPrice" ng-if="channelPrice.source == 'jd'"><span>某东价：</span><em>￥</em><em ng-bind="channelPrice.dayPrice"></em></div>
                                 </div>
-                                <div id="productTips">
-                                    <p>全场限时特惠9.5折，最高降￥400！爆款机型12期免息分期！享更多优惠，关注“翼分期商城”公众号。</p>
+                                <div id="productTips" ng-if="phone.discountRate < 1">
+                                    <p>全场限时特惠<span ng-bind="phone.discountRate * 100"></span>折，最高降￥400！爆款机型12期免息分期！享更多优惠，关注“翼分期商城”公众号。</p>
                                 </div>
                             </div>
                             <div class="choose-box">
                                 <div class="stats">
-                                    <dl id="phoneType" class="i-phonetype clearfix">
+                                    <dl id="phoneType" class="i-phonetype clearfix" ng-if="phone.memoryProducts">
                                         <dt>
                                             <ins></ins>
                                             规格：
@@ -203,7 +204,8 @@
                                         <ul class="paytype item-list">
                                             <li ng-class="{true:'curr',false:''}[payType == 0]" ng-click="setPayType($event,0)">
                                                 一次性付款
-                                                <span>官网价享95折</span>
+                                                <span ng-if="phone.discountRate < 1">官网价享<i ng-bind="phone.discountRate * 100"></i>折</span>
+                                                <span ng-if="phone.discountRate == 1">官网优惠价</span>
                                             </li>
                                             <li style="text-align: center" ng-if="mainColor.salePrice >= 1000" ng-class="{true:'curr',false:''}[payType == 2]" ng-click="setPayType($event,2)">
                                                 分期申请

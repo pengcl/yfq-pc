@@ -1,0 +1,461 @@
+<div class="main-index pay-state">
+    <div class="container">
+
+        <h2 style="margin-top: 20px;padding-left: 30px">报名登记表</h2>
+
+        <div id="productDetailTabs" class="cf-tab" style="margin-top: 30px;margin-bottom: 30px">
+            <div class="cf-tab-nav">
+                <ul class="clearfix" style="padding-left:15px;">
+                    <li class="tab-nav active" ng-click="getContent(0)"><a href="#">体育院校</a></li>
+                    <li class="tab-nav" ng-click="getContent(1)"><a href="#">退伍兵</a></li>
+                </ul>
+            </div>
+            <div class="cf-tab-container" style="padding:10px 30px">
+                <ul class="cf-content">
+                    <li role="tabpanel" style="display: block;" class="tab-content">
+                        <form name="sportsResume" class="pure-form pure-form-stacked"
+                              action="http://sell.yfq.cn/wap/comm/installRegistration.ht" style="margin-top: 20px">
+                            <input name="registerType" value="common" type="hidden">
+                            <fieldset>
+                                <legend style="margin-top: 20px;font-size: 18px;font-weight: bold">基本信息</legend>
+
+                                <div class="pure-g">
+                                    <div class="pure-u-1-4">
+                                        <label>姓名</label>
+                                        <input ng-class="{true:'success',false:'error'}[sportsResume.name.$valid]"
+                                               name="name" ng-model="name" class="pure-u-23-24" ng-minlength="2" type="text" required>
+                                    </div>
+
+                                    <div class="pure-u-1-4">
+                                        <label>性别</label>
+                                        <select name="sex" ng-model="sex" class="pure-u-23-24" ng-minlength="1" ng-maxlength="1" required>
+                                            <option value='' disabled selected style='display:none;'>请选择</option>
+                                            <option value="1">男</option>
+                                            <option value="0">女</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="pure-u-1-4">
+                                        <label>出生年月</label>
+                                        <input name="birth" type="hidden">
+                                        <div class="pure-u-23-24">
+                                            <div class="pure-g">
+                                                <select name="year" ng-minlength="4" ng-maxlength="4"  ng-model="year" class="pure-u-1-2" required>
+                                                    <option value='' disabled selected style='display:none;'>请选择
+                                                    </option>
+                                                    <option value="1970">1970年</option>
+                                                    <option value="1970">1971年</option>
+                                                    <option value="1970">1972年</option>
+                                                    <option value="1970">1973年</option>
+                                                    <option value="1970">1974年</option>
+                                                    <option value="1970">1975年</option>
+                                                    <option value="1970">1976年</option>
+                                                    <option value="1970">1977年</option>
+                                                    <option value="1970">1978年</option>
+                                                    <option value="1970">1979年</option>
+                                                    <option value="1970">1980年</option>
+                                                    <option value="1970">1981年</option>
+                                                    <option value="1970">1982年</option>
+                                                    <option value="1970">1983年</option>
+                                                    <option value="1970">1984年</option>
+                                                    <option value="1970">1985年</option>
+                                                    <option value="1970">1986年</option>
+                                                    <option value="1970">1987年</option>
+                                                    <option value="1970">1988年</option>
+                                                    <option value="1970">1989年</option>
+                                                    <option value="1970">1990年</option>
+                                                    <option value="1970">1991年</option>
+                                                    <option value="1970">1992年</option>
+                                                    <option value="1970">1993年</option>
+                                                    <option value="1970">1994年</option>
+                                                    <option value="1970">1995年</option>
+                                                    <option value="1970">1996年</option>
+                                                    <option value="1970">1997年</option>
+                                                    <option value="1970">1998年</option>
+                                                    <option value="1970">1999年</option>
+                                                </select>
+                                                <select name="month" ng-model="month" ng-minlength="2" ng-maxlength="2" class="pure-u-1-2" required>
+                                                    <option value='' disabled selected style='display:none;'>请选择
+                                                    </option>
+                                                    <option value="01">1月</option>
+                                                    <option value="02">2月</option>
+                                                    <option value="03">3月</option>
+                                                    <option value="04">4月</option>
+                                                    <option value="05">5月</option>
+                                                    <option value="06">6月</option>
+                                                    <option value="07">7月</option>
+                                                    <option value="08">8月</option>
+                                                    <option value="09">9月</option>
+                                                    <option value="10">10月</option>
+                                                    <option value="11">11月</option>
+                                                    <option value="12">22月</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="pure-u-1-4">
+                                        <label>政治面貌</label>
+                                        <input name="politicalClimate" ng-model="politicalClimate" class="pure-u-23-24"
+                                               type="text" required>
+                                    </div>
+
+                                    <div class="pure-u-1-4">
+                                        <label>名族</label>
+                                        <input name="nation" ng-model="nation" class="pure-u-23-24" type="text"
+                                               required>
+                                    </div>
+
+                                    <div class="pure-u-1-4">
+                                        <label>学历</label>
+                                        <input name="education" ng-model="education" class="pure-u-23-24" type="text"
+                                               required>
+                                    </div>
+
+                                    <div class="pure-u-1-4">
+                                        <label>专业</label>
+                                        <input name="major" ng-model="major" class="pure-u-23-24" type="text"
+                                               required>
+                                    </div>
+
+                                    <div class="pure-u-1-4">
+                                        <label>毕业时间</label>
+                                        <input name="graduationTime" ng-model="graduationTime" class="pure-u-23-24"
+                                               type="text" required>
+                                    </div>
+
+                                    <div class="pure-u-1-4">
+                                        <label>户口性质</label>
+                                        <select name="birthplaceType" ng-model="birthplaceType" class="pure-u-23-24"
+                                                required>
+                                            <option value='' disabled selected style='display:none;'>请选择</option>
+                                            <option value="0">城镇</option>
+                                            <option value="1">农村</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="pure-u-1-4">
+                                        <label>毕业院校</label>
+                                        <input name="graduationPlace" ng-model="graduationPlace" class="pure-u-23-24"
+                                               type="text" required>
+                                    </div>
+
+                                    <div class="pure-u-1-3">
+                                        <label>户籍地</label>
+                                        <input name="birthplace" ng-model="birthplace" class="pure-u-23-24" type="text"
+                                               required>
+                                    </div>
+
+                                    <div class="pure-u-1-3">
+                                        <label>驾照类型</label>
+                                        <input name="drivingLicence" ng-model="drivingLicence" class="pure-u-23-24"
+                                               type="text" required>
+                                    </div>
+
+                                    <div class="pure-u-1-3">
+                                        <label>手机电话</label>
+                                        <input name="mobile" ng-model="mobile" class="pure-u-23-24" type="text"
+                                               required>
+                                    </div>
+
+                                    <!--<div class="pure-u-1-3">
+                                        <label for="state">State</label>
+                                        <select id="state" class="pure-input-1-2">
+                                            <option>AL</option>
+                                            <option>CA</option>
+                                            <option>IL</option>
+                                        </select>
+                                    </div>-->
+                                </div>
+
+                                <legend style="margin-top: 20px;font-size: 18px;font-weight: bold">体能指标</legend>
+
+                                <div class="pure-g">
+                                    <div class="pure-u-1-4">
+                                        <label>俯卧撑(个/分钟)</label>
+                                        <input name="pushUp" ng-model="pushUp" class="pure-u-23-24" type="number"
+                                               required>
+                                    </div>
+
+                                    <div class="pure-u-1-4">
+                                        <label>引体向上(个/分钟)</label>
+                                        <input name="pullUps" ng-model="pullUps" class="pure-u-23-24" type="number"
+                                               required>
+                                    </div>
+
+                                    <div class="pure-u-1-4">
+                                        <label>仰卧起坐(个/分钟)</label>
+                                        <input name="sitUp" ng-model="sitUp" class="pure-u-23-24" type="number"
+                                               required>
+                                    </div>
+
+                                    <div class="pure-u-1-4">
+                                        <label>100米短跑(秒)</label>
+                                        <input name="hundredMDash" ng-model="hundredMDash" class="pure-u-23-24"
+                                               type="number" required>
+                                    </div>
+
+                                    <div class="pure-u-1-4">
+                                        <label>3000米长跑(秒)</label>
+                                        <input name="thousandMDash" ng-model="thousandMDash" class="pure-u-23-24"
+                                               type="number" required>
+                                    </div>
+
+                                    <div class="pure-u-1-4">
+                                        <label>有何（体育）特长</label>
+                                        <input name="specialty" ng-model="specialty" class="pure-u-23-24" type="text"
+                                               required>
+                                    </div>
+
+                                    <div class="pure-u-1-2">
+                                        <label>获得过何种荣誉或证书</label>
+                                        <input name="certificate" ng-model="certificate" class="pure-u-23-24"
+                                               type="text" required>
+                                    </div>
+
+                                    <div class="pure-u-1-4">
+                                        <label>是否有传染性、心脏或精神性疾病</label>
+                                        <select name="infections" ng-model="infections" class="pure-u-23-24"
+                                                required>
+                                            <option value='' disabled selected style='display:none;'>请选择</option>
+                                            <option value="是">是</option>
+                                            <option value="否">否</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <label class="pure-checkbox" ng-class="{true:'success',false:'error'}[sportsResume.userPromise.$valid]">
+                                    <input type="checkbox" name="userPromise" ng-model="userPromise" required>
+                                    本人保证以上所填资料和信息皆为真实有效，本人身体健康且无传染性或精神性疾病；如有虚报或故意隐瞒，公司可不予录用或解除劳动关系并不给予任何经济补偿，本人自行承担由此引起的法律责任。
+                                </label>
+
+                                <button type="submit" ng-disabled="sportsResume.$invalid" class="pure-button pure-button-primary">提交</button>
+                            </fieldset>
+                        </form>
+                    </li>
+                    <li role="tabpanel" style="display: none;" class="tab-content">
+                        <form name="veteransResume" class="pure-form pure-form-stacked"
+                              action="http://sell.yfq.cn/wap/comm/installRegistration.ht" style="margin-top: 20px">
+                            <input name="registerType" value="soldier" type="hidden">
+                            <fieldset>
+                                <legend style="margin-top: 20px;font-size: 18px;font-weight: bold">基本信息</legend>
+
+                                <div class="pure-g">
+                                    <div class="pure-u-1-4">
+                                        <label>姓名</label>
+                                        <input name="name" class="pure-u-23-24" type="text" required>
+                                    </div>
+
+                                    <div class="pure-u-1-4">
+                                        <label>性别</label>
+                                        <select name="sex" class="pure-u-23-24" required>
+                                            <option value='' disabled selected style='display:none;'>请选择</option>
+                                            <option value="1">男</option>
+                                            <option value="0">女</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="pure-u-1-4">
+                                        <label>出生年月</label>
+                                        <input name="birth" type="hidden">
+                                        <div class="pure-u-23-24">
+                                            <div class="pure-g">
+                                                <select name="year" class="pure-u-1-2" required>
+                                                    <option value='' disabled selected style='display:none;'>请选择
+                                                    </option>
+                                                    <option value="1970">1970年</option>
+                                                    <option value="1970">1971年</option>
+                                                    <option value="1970">1972年</option>
+                                                    <option value="1970">1973年</option>
+                                                    <option value="1970">1974年</option>
+                                                    <option value="1970">1975年</option>
+                                                    <option value="1970">1976年</option>
+                                                    <option value="1970">1977年</option>
+                                                    <option value="1970">1978年</option>
+                                                    <option value="1970">1979年</option>
+                                                    <option value="1970">1980年</option>
+                                                    <option value="1970">1981年</option>
+                                                    <option value="1970">1982年</option>
+                                                    <option value="1970">1983年</option>
+                                                    <option value="1970">1984年</option>
+                                                    <option value="1970">1985年</option>
+                                                    <option value="1970">1986年</option>
+                                                    <option value="1970">1987年</option>
+                                                    <option value="1970">1988年</option>
+                                                    <option value="1970">1989年</option>
+                                                    <option value="1970">1990年</option>
+                                                    <option value="1970">1991年</option>
+                                                    <option value="1970">1992年</option>
+                                                    <option value="1970">1993年</option>
+                                                    <option value="1970">1994年</option>
+                                                    <option value="1970">1995年</option>
+                                                    <option value="1970">1996年</option>
+                                                    <option value="1970">1997年</option>
+                                                    <option value="1970">1998年</option>
+                                                    <option value="1970">1999年</option>
+                                                </select>
+                                                <select name="month" class="pure-u-1-2" required>
+                                                    <option value='' disabled selected style='display:none;'>请选择
+                                                    </option>
+                                                    <option value="01">1月</option>
+                                                    <option value="02">2月</option>
+                                                    <option value="03">3月</option>
+                                                    <option value="04">4月</option>
+                                                    <option value="05">5月</option>
+                                                    <option value="06">6月</option>
+                                                    <option value="07">7月</option>
+                                                    <option value="08">8月</option>
+                                                    <option value="09">9月</option>
+                                                    <option value="10">10月</option>
+                                                    <option value="11">11月</option>
+                                                    <option value="12">22月</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="pure-u-1-4">
+                                        <label>政治面貌</label>
+                                        <input name="politicalClimate" class="pure-u-23-24" type="text" required>
+                                    </div>
+
+                                    <div class="pure-u-1-4">
+                                        <label>名族</label>
+                                        <input name="nation" class="pure-u-23-24" type="text" required>
+                                    </div>
+
+                                    <div class="pure-u-1-4">
+                                        <label>学历</label>
+                                        <input name="education" class="pure-u-23-24" type="text" required>
+                                    </div>
+
+                                    <div class="pure-u-1-4">
+                                        <label>专业</label>
+                                        <input name="major" class="pure-u-23-24" type="text" required>
+                                    </div>
+
+                                    <div class="pure-u-1-4">
+                                        <label>退役时间</label>
+                                        <input name="retirementTime" class="pure-u-23-24" type="text" required>
+                                    </div>
+
+                                    <div class="pure-u-1-4">
+                                        <label>户口性质</label>
+                                        <select name="birthplaceType" class="pure-u-23-24" required>
+                                            <option value='' disabled selected style='display:none;'>请选择</option>
+                                            <option value="城镇">城镇</option>
+                                            <option value="农村">农村</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="pure-u-1-4">
+                                        <label>原服役部队</label>
+                                        <input name="armyServePlace" class="pure-u-23-24" type="text" required>
+                                    </div>
+
+                                    <div class="pure-u-1-3">
+                                        <label>户籍地</label>
+                                        <input name="birthplace" class="pure-u-23-24" type="text" required>
+                                    </div>
+
+                                    <div class="pure-u-1-3">
+                                        <label>驾照类型</label>
+                                        <input name="drivingLicence" class="pure-u-23-24" type="text" required>
+                                    </div>
+
+                                    <div class="pure-u-1-3">
+                                        <label>手机电话</label>
+                                        <input name="mobile" class="pure-u-23-24" type="text" required>
+                                    </div>
+
+                                    <!--<div class="pure-u-1-3">
+                                        <label for="state">State</label>
+                                        <select id="state" class="pure-input-1-2">
+                                            <option>AL</option>
+                                            <option>CA</option>
+                                            <option>IL</option>
+                                        </select>
+                                    </div>-->
+                                </div>
+
+                                <legend style="margin-top: 20px;font-size: 18px;font-weight: bold">体能指标</legend>
+
+                                <div class="pure-g">
+                                    <div class="pure-u-1-4">
+                                        <label>俯卧撑(个/分钟)</label>
+                                        <input name="pushUp" class="pure-u-23-24" type="text" required>
+                                    </div>
+
+                                    <div class="pure-u-1-4">
+                                        <label>引体向上(个/分钟)</label>
+                                        <input name="pullUps" class="pure-u-23-24" type="text" required>
+                                    </div>
+
+                                    <div class="pure-u-1-4">
+                                        <label>仰卧起坐(个/分钟)</label>
+                                        <input name="sitUp" class="pure-u-23-24" type="text" required>
+                                    </div>
+
+                                    <div class="pure-u-1-4">
+                                        <label>100米短跑(秒)</label>
+                                        <input name="hundredMDash" class="pure-u-23-24" type="text" required>
+                                    </div>
+
+                                    <div class="pure-u-1-4">
+                                        <label>3000米长跑(秒)</label>
+                                        <input name="thousandMDash" class="pure-u-23-24" type="text" required>
+                                    </div>
+
+                                    <div class="pure-u-1-4">
+                                        <label>有何（体育）特长</label>
+                                        <input name="specialty" class="pure-u-23-24" type="text" required>
+                                    </div>
+
+                                    <div class="pure-u-1-2">
+                                        <label>获得过何种荣誉或证书</label>
+                                        <input name="certificate" class="pure-u-23-24" type="text" required>
+                                    </div>
+
+                                    <div class="pure-u-1-4">
+                                        <label>是否有传染性、心脏或精神性疾病</label>
+                                        <select name="infections" class="pure-u-23-24" required>
+                                            <option value='' disabled selected style='display:none;'>请选择</option>
+                                            <option value="是">是</option>
+                                            <option value="否">否</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <label class="pure-checkbox">
+                                    <input type="checkbox">
+                                    本人保证以上所填资料和信息皆为真实有效，本人身体健康且无传染性或精神性疾病；如有虚报或故意隐瞒，公司可不予录用或解除劳动关系并不给予任何经济补偿，本人自行承担由此引起的法律责任。
+                                </label>
+
+                                <button ng-disabled="$veteransResume" type="submit"
+                                        class="pure-button pure-button-primary">提交
+                                </button>
+                            </fieldset>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!--<div class="msg-box" style="padding-top: 0">
+            <div class="msg-box-title"
+                 style="padding: 10px 30px;line-height: 30px;font-size: 18px;background: #fff1e7;color: #ff6700;border-bottom: 0;margin: 0 -30px;position: relative">
+                <ins style="position: absolute;left: 0;top: 0;width: 3px;background: #ff6700;height: 100%"></ins>
+                报名登记表
+            </div>
+
+            <label class="pure-radio">
+                <input type="radio" name="optionsRadios" value="体育院校">
+                体育院校
+            </label>
+            <label class="pure-radio">
+                <input type="radio" name="optionsRadios" value="退伍兵">
+                退伍兵
+            </label>
+        </div>-->
+    </div>
+</div>

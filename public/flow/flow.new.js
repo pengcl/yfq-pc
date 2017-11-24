@@ -347,30 +347,30 @@ app.factory("CouponSvc", ['$http', '$q', function ($http, $q) {
             };
 
             /*if (memberId != '0') {*/
-                $.each(data[0].couponList, function (i, k) {
-                    var isOverdue;
-                    if (k.validEndTime.time - Date.parse(new Date()) >= 0) {//没过期
-                        isOverdue = 0;
-                    } else {//已过期
-                        isOverdue = 1;
-                        isOverdueCount = isOverdueCount + 1;
-                    }
-                    if (k.isUsed == 1) {
-                        isUsedCount = isUsedCount + 1
-                    }
-                    var obj = {
-                        couponNo: k.couponNo,
-                        activeUsername: k.activeUsername,
-                        couponBatchName: k.couponBatchName,
-                        validStartTime: k.validStartTime.time,
-                        validEndTime: k.validEndTime.time,
-                        isUsed: k.isUsed,
-                        callbackUrl: k.callbackUrl,
-                        type: k.couponBatchType,
-                        isOverdue: isOverdue
-                    };
-                    couponList.couponList.push(obj);
-                });
+            $.each(data[0].couponList, function (i, k) {
+                var isOverdue;
+                if (k.validEndTime.time - Date.parse(new Date()) >= 0) {//没过期
+                    isOverdue = 0;
+                } else {//已过期
+                    isOverdue = 1;
+                    isOverdueCount = isOverdueCount + 1;
+                }
+                if (k.isUsed == 1) {
+                    isUsedCount = isUsedCount + 1
+                }
+                var obj = {
+                    couponNo: k.couponNo,
+                    activeUsername: k.activeUsername,
+                    couponBatchName: k.couponBatchName,
+                    validStartTime: k.validStartTime.time,
+                    validEndTime: k.validEndTime.time,
+                    isUsed: k.isUsed,
+                    callbackUrl: k.callbackUrl,
+                    type: k.couponBatchType,
+                    isOverdue: isOverdue
+                };
+                couponList.couponList.push(obj);
+            });
             /*}*/
 
             couponList.isOverdueCount = isOverdueCount;
@@ -540,7 +540,7 @@ app.controller('appController', ['$scope', '$q', '$location', '$cookieStore', '$
     };
 
     $scope.isMore = true;
-  //是否属于默认选中商品
+    //是否属于默认选中商品
     $scope.isRobot = true;
 
     $scope.selectedFlowProd = function (checked, product, isMore, e) {
@@ -581,10 +581,9 @@ app.controller('appController', ['$scope', '$q', '$location', '$cookieStore', '$
         }
 
         $scope.regionFlowProduct = product.regionProducts[0];
-        if(e)
-        {
-        	$scope.isRobot = false;
-        	writebdLog($scope.category, "_SelectPackage" + $scope.productType + product.sortNo + 'M', "渠道号", $scope.gh);
+        if (e) {
+            $scope.isRobot = false;
+            writebdLog($scope.category, "_SelectPackage" + $scope.productType + product.sortNo + 'M', "渠道号", $scope.gh);
         }
     };
 
@@ -615,10 +614,9 @@ app.controller('appController', ['$scope', '$q', '$location', '$cookieStore', '$
 
         $scope.regionFeeProduct = product.regionProducts[0];
 
-        if(e)
-        {
-        	$scope.isRobot = false;
-        	writebdLog($scope.category, "_SelectPackage" + $scope.productType + product.sortNo + 'M', "渠道号", $scope.gh);
+        if (e) {
+            $scope.isRobot = false;
+            writebdLog($scope.category, "_SelectPackage" + $scope.productType + product.sortNo + 'M', "渠道号", $scope.gh);
         }
     };
 
@@ -654,9 +652,8 @@ app.controller('appController', ['$scope', '$q', '$location', '$cookieStore', '$
                     window.location.href = data.payUrl;
                     writebdLog($scope.category, "_BuyNow" + $scope.productType, "渠道号", $scope.gh);
                     //默认选中商品，点击下单时统计选择的商品
-                    if($scope.isRobot)
-                    {
-                    	writebdLog($scope.category, "_SelectPackage" + $scope.productType + product.sortNo + 'M', "渠道号", $scope.gh);
+                    if ($scope.isRobot) {
+                        writebdLog($scope.category, "_SelectPackage" + $scope.productType + product.sortNo + 'M', "渠道号", $scope.gh);
                     }
                 } else {
                     $scope.alert = {
@@ -758,15 +755,19 @@ app.controller('appController', ['$scope', '$q', '$location', '$cookieStore', '$
     var tempFlowList, tempFeeList;
 
     var getDefault = function (data) {
-        var index = 0;
+        var index = "";
         $.each(data, function (i, k) {
             var prodName = k.productName.substr(0, k.productName.length - 1);
-            if (k.stock && prodName >= 100) {
-                index = i;
-                return false;
+            if (k.stock) {
+                if (index == "") {
+                    index = i;
+                }
+                if (prodName >= 100) {
+                    index = i;
+                    return false;
+                }
             }
         });
-
         return index;
     };
 
@@ -792,7 +793,9 @@ app.controller('appController', ['$scope', '$q', '$location', '$cookieStore', '$
                                 if (_flowIndex > 6) {
                                     $scope.selectedFlowProd(true, $scope.flowList.data[_flowIndex], false);
                                 } else {
-                                    $scope.selectedFlowProd(true, $scope.flowList.data[_flowIndex], true);
+                                    if(_flowIndex !== ""){
+                                        $scope.selectedFlowProd(true, $scope.flowList.data[_flowIndex], true);
+                                    }
                                 }
                             } else {
                                 $scope.flowList = rebuildData(tempFlowList, false);
@@ -808,7 +811,9 @@ app.controller('appController', ['$scope', '$q', '$location', '$cookieStore', '$
                                 if (_feeIndex > 6) {
                                     $scope.selectedFeeProd(true, $scope.feeList.data[_feeIndex], false);
                                 } else {
-                                    $scope.selectedFeeProd(true, $scope.feeList.data[_feeIndex], true);
+                                    if(_flowIndex !== ""){
+                                        $scope.selectedFeeProd(true, $scope.feeList.data[_feeIndex], true);
+                                    }
                                 }
                             } else {
                                 $scope.feeList = rebuildData(tempFeeList, false);
@@ -869,12 +874,12 @@ app.controller('appController', ['$scope', '$q', '$location', '$cookieStore', '$
 
 app.controller('appCodeController', ['$scope', function ($scope) {
 
-	 if (getUrlParam('gh')) {
+    if (getUrlParam('gh')) {
         $scope.gh = getUrlParam('gh');
-     } else {
+    } else {
         $scope.gh = "";
-     }
-	
-	 $scope.category = "yfqmall_GiveFlow_A";
-	 writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
+    }
+
+    $scope.category = "yfqmall_GiveFlow_A";
+    writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
 }]);

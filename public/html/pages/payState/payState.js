@@ -43,8 +43,16 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
 
     $scope.rechargeDetails = "";
 
+    $scope.goToMall = function (state) {
+        if (state === 'flow') {
+            $scope.tipsShow = true;
+        }
+        if (state === 'phone') {
+            window.location.href = "http://mall.yfq.cn";
+        }
+    };
+
     OrderSvc.getOrder($scope.orderNo).then(function success(data) {
-        console.log(data);
         $scope.order = data[0];
 
         if ($scope.state === 'phone') {

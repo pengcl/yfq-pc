@@ -31,7 +31,7 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
     } else {
         $scope.$root.params = window.location.search;
     }
-    $scope.gh=$location.search().gh;
+    $scope.gh = $location.search().gh;
 
     //统计
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
@@ -61,7 +61,12 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
         $scope.$root.filterPrice = $.parseJSON(unescape($location.search().price));
     }
 
-    $scope.brandMore = false;
+    if (!!$location.search().brandMore) {
+        $scope.brandMore = $.parseJSON(unescape($location.search().brandMore));
+    }else {
+        $scope.brandMore = false;
+    }
+
     $scope.showBrandMore = function (state) {
         $scope.brandMore = state;
     };
@@ -129,6 +134,14 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
     $http.jsonp('http://sell.yfq.cn/product/getProDetailList.ht?activeTag=ljzma&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
 
         $scope.singlePhones = data;
+        var trimBrands = ["iPhone", "华为", "OPPO", "vivo", "小米"];
+        var brands = [];
+        $.each(data, function (i, k) {
+            if (brands.indexOf(k.brandName) === -1 && trimBrands.indexOf(k.brandName) === -1) {
+                brands.push(k.brandName);
+            }
+        });
+        $scope.brands = brands;
         //$scope.filterItems = $filter('phoneListFilter')(data, $scope.$root.filterBrand, $scope.filterSpec, $scope.$root.filterPrice, $scope.filterSellOut);
 
         $scope.dataInit();
@@ -165,7 +178,21 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
 
     $scope.setPhoneFilter = function (keyWord) {
         $scope.phoneFilter = keyWord;
-        writebdLog($scope.category, "_" + keyWord.replace('-',''), "渠道号", $scope.gh);//排序
+
+        if (keyWord.indexOf("-") === -1) {
+            $scope.singlePhones = $scope.singlePhones.sort(function (a, b) {
+                return b[keyWord] - a[keyWord];
+            });
+        } else {
+            $scope.singlePhones = $scope.singlePhones.sort(function (a, b) {
+                return a[keyWord.substring(1)] - b[keyWord.substring(1)];
+            });
+        }
+
+        /*console.log($scope.singlePhones[0].salePrice, $scope.singlePhones[0].activityproductId, $scope.singlePhones[0].commentNum);*/
+
+        $scope.dataInit();
+        writebdLog($scope.category, "_" + keyWord.replace('-', ''), "渠道号", $scope.gh);//排序
     };
 
     $scope.ftClose = function () {
@@ -186,5 +213,5 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
             effect: "fadeIn"
         });
     });
-    
+
 }]);

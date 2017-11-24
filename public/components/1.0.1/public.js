@@ -154,18 +154,19 @@ function writebdLog(category, action, opt_label, opt_value) {//category项目，
 
 //美恰在线客服
 function getMeiqia() {
-    (function (m, ei, q, i, a, j, s) {
-        m[a] = m[a] || function () {
-                (m[a].a = m[a].a || []).push(arguments)
-            };
+    (function(m, ei, q, i, a, j, s) {
+        m[i] = m[i] || function() {
+            (m[i].a = m[i].a || []).push(arguments)
+        };
         j = ei.createElement(q),
             s = ei.getElementsByTagName(q)[0];
         j.async = true;
         j.charset = 'UTF-8';
-        j.src = i + '?v=' + new Date().getUTCDate();
+        j.src = 'https://static.meiqia.com/dist/meiqia.js?_=t';
         s.parentNode.insertBefore(j, s);
-    })(window, document, 'script', '//static.meiqia.com/dist/meiqia.js', '_MEIQIA');
+    })(window, document, 'script', '_MEIQIA');
     _MEIQIA('entId', 27864);
+    _MEIQIA('fallback', 1);
     _MEIQIA('withoutBtn');
 };
 
@@ -621,7 +622,7 @@ appFilters.filter('phoneListFilter', function () {
                 return rest;
             } else {
                 $.each(rest, function (i, k) {
-                    if (k.ifSellOut == 0) {
+                    if (k.ifSellOut > 0) {
                         _phones.push(k);
                     }
                 });
@@ -665,7 +666,7 @@ appServices.factory("MarketSvc", ['$http', '$q', function ($http, $q) {
     var service = {};
     service.getFlows = function (mobile) {//获取订单统计 promise对象
         var d = $q.defer();
-        $http.jsonp('http://sell.yfq.cn/product/findProductFlows.ht?mobile=' + mobile + "&callback=JSON_CALLBACK").success(function (data) {
+        $http.jsonp(cfApi.apiHost + '/product/findProductFlows.ht?mobile=' + mobile + "&callback=JSON_CALLBACK").success(function (data) {
             return d.resolve(data);
         }).error(function (error) {
             d.reject(error);
@@ -675,8 +676,71 @@ appServices.factory("MarketSvc", ['$http', '$q', function ($http, $q) {
 
     service.pay = function (mobile, productId, productFlowPriceId, carrier, activityTag, channelCode, successUrl) {//获取订单统计 promise对象
         var d = $q.defer();
-        $http.jsonp('http://sell.yfq.cn/order/submitFlowOrder.ht?mobile=' + mobile + '&productId=' + productId + '&productFlowPriceId=' + productFlowPriceId + '&carrier=' + carrier + '&activityTag=' + activityTag + '&channelCode=' + channelCode + '&successUrl=' + successUrl + '&callback=JSON_CALLBACK').success(function (data) {
+        $http.jsonp(cfApi.apiHost + '/order/submitFlowOrder.ht?mobile=' + mobile + '&productId=' + productId + '&productFlowPriceId=' + productFlowPriceId + '&carrier=' + carrier + '&activityTag=' + activityTag + '&channelCode=' + channelCode + '&successUrl=' + successUrl + '&callback=JSON_CALLBACK').success(function (data) {
             return d.resolve(data);
+        }).error(function (error) {
+            d.reject(error);
+        });
+        return d.promise;
+    };
+
+    return service;
+}]);
+
+appServices.factory("AddressSvc", ['$http', '$q', function ($http, $q) {
+    var service = {};
+
+    service.getProvince = function () {//获取订单统计 promise对象
+        var d = $q.defer();
+        $http.jsonp(cfApi.apiHost + "/wap/comm/getRegion.ht?need=province&key=" + new Date() + "&callback=JSON_CALLBACK").success(function (data) {
+            var _data = [];
+            $.each(eval(data), function (i, k) {
+                _data.push(
+                    {
+                        name: "province",
+                        value: k.name
+                    }
+                );
+            });
+            return d.resolve(_data);
+        }).error(function (error) {
+            d.reject(error);
+        });
+        return d.promise;
+    };
+
+    service.getCity = function (province) {//获取订单统计 promise对象
+        var d = $q.defer();
+        $http.jsonp(cfApi.apiHost + "/wap/comm/getRegion.ht?need=city&province=" + encodeURI(encodeURI(province)) + "&key=" + new Date() + "&callback=JSON_CALLBACK").success(function (data) {
+            var _data = [];
+            $.each(eval(data), function (i, k) {
+                _data.push(
+                    {
+                        name: "city",
+                        value: k.name
+                    }
+                );
+            });
+            return d.resolve(_data);
+        }).error(function (error) {
+            d.reject(error);
+        });
+        return d.promise;
+    };
+
+    service.getDistrict = function (province, city) {//获取订单统计 promise对象
+        var d = $q.defer();
+        $http.jsonp(cfApi.apiHost + "/wap/comm/getRegion.ht?need=district&province=" + encodeURI(encodeURI(province)) + "&city=" + encodeURI(encodeURI(city)) + "&key=" + new Date() + "&callback=JSON_CALLBACK").success(function (data) {
+            var _data = [];
+            $.each(eval(data), function (i, k) {
+                _data.push(
+                    {
+                        name: "district",
+                        value: k.name
+                    }
+                );
+            });
+            return d.resolve(_data);
         }).error(function (error) {
             d.reject(error);
         });
@@ -691,7 +755,7 @@ appServices.factory("OrderSvc", ['$http', '$q', function ($http, $q) {
 
     service.getCounts = function (receiverMobile) {//获取订单统计 promise对象
         var d = $q.defer();
-        $http.jsonp('http://sell.yfq.cn/product/findOrderStatusCounts.ht?receiverMobile=' + receiverMobile + '&callback=JSON_CALLBACK').success(function (data) {
+        $http.jsonp(cfApi.apiHost + '/product/findOrderStatusCounts.ht?receiverMobile=' + receiverMobile + '&callback=JSON_CALLBACK').success(function (data) {
             return d.resolve(data);
         }).error(function (error) {
             d.reject(error);
@@ -701,7 +765,7 @@ appServices.factory("OrderSvc", ['$http', '$q', function ($http, $q) {
 
     service.getOrderList = function (receiverMobile, orderStatus) {//获取订单列表 promise对象
         var d = $q.defer();
-        $http.jsonp('http://sell.yfq.cn/product/searchOrders.ht?receiverMobile=' + receiverMobile + '&orderStatus=' + orderStatus + '&callback=JSON_CALLBACK').success(function (data) {
+        $http.jsonp(cfApi.apiHost + '/product/searchOrders.ht?receiverMobile=' + receiverMobile + '&orderStatus=' + orderStatus + '&callback=JSON_CALLBACK').success(function (data) {
             return d.resolve(data);
         }).error(function (error) {
             d.reject(error);
@@ -711,7 +775,7 @@ appServices.factory("OrderSvc", ['$http', '$q', function ($http, $q) {
 
     service.getOrder = function (orderNo) {
         var d = $q.defer();
-        $http.jsonp('http://sell.yfq.cn/order/getSalesOrder.ht?orderNo=' + orderNo + '&callback=JSON_CALLBACK').success(function (data) {
+        $http.jsonp(cfApi.apiHost + '/order/getSalesOrder.ht?orderNo=' + orderNo + '&callback=JSON_CALLBACK').success(function (data) {
             return d.resolve(data);
         }).error(function (error) {
             d.reject(error);
@@ -721,7 +785,7 @@ appServices.factory("OrderSvc", ['$http', '$q', function ($http, $q) {
 
     service.getLogistics = function (orderNo) {//获取订单统计 promise对象
         var d = $q.defer();
-        $http.jsonp('http://sell.yfq.cn/product/findLogistics.ht?orderNo=' + orderNo + '&callback=JSON_CALLBACK').success(function (data) {
+        $http.jsonp(cfApi.apiHost + '/product/findLogistics.ht?orderNo=' + orderNo + '&callback=JSON_CALLBACK').success(function (data) {
             return d.resolve(data);
         }).error(function (error) {
             d.reject(error);
@@ -741,6 +805,108 @@ app.directive("ngActivity", ['$location', function ($location) {
         templateUrl: "modules/activity/activity.html",
         link: function (scope, element, attrs) {
             scope.activity = $location.search().activity;
+        }
+    };
+}]);
+'use strict';
+
+app.directive("adr", ["$timeout", "AddressSvc", function ($timeout, AddressSvc) {
+    return {
+        restrict: 'EA',
+        templateUrl: "modules/adr/adr.html",
+        link: function (scope, element, attrs) {
+
+            scope.address = {};
+
+            AddressSvc.getProvince().then(function success(data) {//页面载入时获取[{省}]数据
+                /*scope.inputPickerData = {
+                    tag: 'address',
+                    data: data
+                };*/
+
+                scope.pickers = data;
+            });
+
+            scope.setPicker = function (picker) {//选定数据
+                scope.picker = picker;
+
+                console.log(picker);
+
+                if (picker.name === 'province') {//监听picker控件传出的值{name<province>,value<string>}
+                    scope.address.province = picker.value;
+                    console.log(picker.value);
+                    AddressSvc.getCity(picker.value).then(function success(data) {
+                        scope.pickers = data;
+                    });
+                }
+                if (picker.name === 'city') {//监听picker控件传出的值{name<city>,value<string>}
+                    scope.address.city = picker.value;
+                    AddressSvc.getDistrict(scope.address.province, picker.value).then(function success(data) {
+                        scope.pickers = data;
+                    });
+                }
+                if (picker.name === 'district') {//监听picker控件传出的值{name<district>,value<string>}
+                    scope.isPickerShow = false;//隐藏picker空间
+                    scope.address.district = picker.value;//设置district值
+                    AddressSvc.getProvince().then(function success(data) {//初始化为[{省}]数据
+                        scope.pickers = data;
+                    });
+                }
+            };
+
+            scope.setPickerShow = function () {//设置是否显示picker控件
+                scope.isPickerShow = true;
+            };
+
+            scope.setPickerHide = function (state) {//设置隐藏显示picker状态
+                scope.$root.isPickerShow = false;
+            };
+
+            /*scope.$watch('outputPickerData', function (n, o, scope) {//监听picker控件传出的值{name<string>,value<string>}
+                if (n !== o && n != undefined) {
+
+                    if (n.tag !== 'address') {
+                        return false;
+                    }
+
+                    if (n.data.name === 'province') {//监听picker控件传出的值{name<province>,value<string>}
+                        scope.userInfo.address.province = n.data.value;
+                        AddressSvc.getCity(n.data.value).then(function success(data) {
+                            scope.inputPickerData = {
+                                tag: 'address',
+                                data: data
+                            };
+                        });
+                    }
+                    if (n.data.name === 'city') {//监听picker控件传出的值{name<city>,value<string>}
+                        scope.userInfo.address.city = n.data.value;
+                        AddressSvc.getDistrict(scope.userInfo.address.province, n.data.value).then(function success(data) {
+                            scope.inputPickerData = {
+                                tag: 'address',
+                                data: data
+                            };
+                        });
+                    }
+                    if (n.data.name === 'district') {//监听picker控件传出的值{name<district>,value<string>}
+                        scope.isPickerShow = false;//隐藏picker空间
+                        scope.userInfo.address.district = n.data.value;//设置district值
+                        AddressSvc.getProvince().then(function success(data) {//初始化为[{省}]数据
+                            scope.inputPickerData = {
+                                tag: 'address',
+                                data: data
+                            };
+                        });
+                    }
+                }
+            }, true);*/
+
+            /*scope.$watch('userInfo.address', function (n, o, scope) {
+                $timeout(function () {
+                    if (scope.newAddressForm.receiverProvince.$valid && scope.newAddressForm.receiverCity.$valid && scope.newAddressForm.receiverDistrict.$valid) {
+                        scope.receiverAddress = scope.userInfo.address.province + scope.userInfo.address.city + scope.userInfo.address.district;
+                    }
+                });
+            }, true);*/
         }
     };
 }]);
@@ -1512,6 +1678,47 @@ app.directive("userTrack", ['$location', function ($location) {
         }
     };
 }]);
+"use strict";
+
+app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+
+    // 设定路由
+    $routeProvider
+        .when('/yfq/:pageType/abs', { //app首页
+                templateUrl: 'pages/aboutUs/index.html',
+                controller: "aboutUsController"
+            }
+        );
+}]).controller('aboutUsController', ['$scope', '$routeParams', function ($scope, $routeParams) {
+    $scope.$root.pageType = $routeParams.pageType;
+    $scope.$root.params = window.location.search;
+}]);
+"use strict";
+
+app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+
+    // 设定路由
+    $routeProvider
+        .when('/error/:status', { //app首页
+            templateUrl: function ($routeParams) {
+                return "pages/error/error.html";
+            },
+            controller: "errorStateController"
+        });
+}]).controller('errorStateController', ['$scope', '$location', '$cookieStore', 'MarketSvc', '$routeParams', 'OrderSvc', function ($scope, $location, $cookieStore, MarketSvc, $routeParams, OrderSvc) {
+    $scope.errorStatus = $routeParams.status;
+
+    if ($location.search()) {
+        $scope.errorData = $location.search();
+    }
+
+    $scope.getContent = function () {
+        getMeiqia();
+        //scope.$root.dialog.open("","咨询请关注微信公众号<br><em>“翼分期商城”</em>");
+        _MEIQIA('showPanel');
+    };
+
+}]);
 /*
 "use strict";
 
@@ -1614,6 +1821,23 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
 
     // 设定路由
     $routeProvider
+        .when('/form/resume', { //app首页
+            templateUrl: function ($routeParams) {
+                return "pages/form/form.html";
+            },
+            controller: "resumeController"
+        });
+}]).controller('resumeController', ['$scope', function ($scope) {
+
+
+}]);
+
+"use strict";
+
+app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+
+    // 设定路由
+    $routeProvider
         .when('/payState/:pageType/:state', { //app首页
             templateUrl: function ($routeParams) {
                 return "pages/payState/payState.html";
@@ -1622,6 +1846,7 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
         });
 }]).controller('payStateController', ['$scope', '$location', '$cookieStore', 'MarketSvc', '$routeParams', 'OrderSvc', function ($scope, $location, $cookieStore, MarketSvc, $routeParams, OrderSvc) {
     $scope.$root.pageType = $routeParams.pageType;
+    $scope.state = $routeParams.state;
     $scope.orderNo = $routeParams.orderNo;
     $scope.orderProduct = unescape($routeParams.orderProduct);
     //console.log(unescape($scope.orderProduct));
@@ -1650,30 +1875,35 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
         }
     }
 
+    $scope.rechargeDetails = "";
+
+    $scope.goToMall = function (state) {
+        if (state === 'flow') {
+            $scope.tipsShow = true;
+        }
+        if (state === 'phone') {
+            window.location.href = "http://mall.yfq.cn";
+        }
+    };
+
     OrderSvc.getOrder($scope.orderNo).then(function success(data) {
         $scope.order = data[0];
-        if ($scope.order.product.productname == '话费充值') {
-            $scope.getCoupon = getFeeCoupon($scope.order.salesOrder.paidamount, 30);
-        } else {
-            $scope.getCoupon = getFlowCoupon($scope.order.salesOrder.paidamount, 30);
+
+        if ($scope.state === 'phone') {
+            $scope.getCoupon = 0;
+        }
+
+        if ($scope.state === 'flow') {
+            if ($scope.order.product.productname == '话费充值') {
+                $scope.rechargeDetails = $scope.order.flowPrice.productName + "话费";
+                $scope.getCoupon = getFeeCoupon($scope.order.salesOrder.amount, 30);
+            } else {
+                $scope.rechargeDetails = $scope.order.flowPrice.productName + $scope.order.flowPrice.region + "流量";
+                $scope.getCoupon = getFlowCoupon($scope.order.salesOrder.totalamount, 30);
+            }
         }
     });
 
-}]);
-"use strict";
-
-app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
-
-    // 设定路由
-    $routeProvider
-        .when('/yfq/:pageType/abs', { //app首页
-                templateUrl: 'pages/aboutUs/index.html',
-                controller: "aboutUsController"
-            }
-        );
-}]).controller('aboutUsController', ['$scope', '$routeParams', function ($scope, $routeParams) {
-    $scope.$root.pageType = $routeParams.pageType;
-    $scope.$root.params = window.location.search;
 }]);
 'use strict';
 
@@ -1915,8 +2145,10 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
         writebdLog($scope.category, "_CustConsult", "渠道号", $scope.gh);//客服咨询
     };
 
-    $http.jsonp('http://m.yfq.cn/product/getProList.html?activeTag=ljzma&pt=pc&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
+    $http.jsonp('http://sell.yfq.cn/product/getProList.ht?activeTag=ljzma&pt=pc&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
         $scope.singlePhones = data;
+
+        console.log(typeof ($scope.singlePhones[0].sortOrder));
 
         $scope.pkgs = data;
         $("#banner").owlCarousel({
@@ -2037,7 +2269,7 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
     } else {
         $scope.$root.params = window.location.search;
     }
-    $scope.gh=$location.search().gh;
+    $scope.gh = $location.search().gh;
 
     //统计
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
@@ -2067,7 +2299,12 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
         $scope.$root.filterPrice = $.parseJSON(unescape($location.search().price));
     }
 
-    $scope.brandMore = false;
+    if (!!$location.search().brandMore) {
+        $scope.brandMore = $.parseJSON(unescape($location.search().brandMore));
+    }else {
+        $scope.brandMore = false;
+    }
+
     $scope.showBrandMore = function (state) {
         $scope.brandMore = state;
     };
@@ -2132,9 +2369,17 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
     };
 
 
-    $http.jsonp('http://m.yfq.cn/product/getProDetailList.html?activeTag=ljzma&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
+    $http.jsonp('http://sell.yfq.cn/product/getProDetailList.ht?activeTag=ljzma&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
 
         $scope.singlePhones = data;
+        var trimBrands = ["iPhone", "华为", "OPPO", "vivo", "小米"];
+        var brands = [];
+        $.each(data, function (i, k) {
+            if (brands.indexOf(k.brandName) === -1 && trimBrands.indexOf(k.brandName) === -1) {
+                brands.push(k.brandName);
+            }
+        });
+        $scope.brands = brands;
         //$scope.filterItems = $filter('phoneListFilter')(data, $scope.$root.filterBrand, $scope.filterSpec, $scope.$root.filterPrice, $scope.filterSellOut);
 
         $scope.dataInit();
@@ -2171,7 +2416,21 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
 
     $scope.setPhoneFilter = function (keyWord) {
         $scope.phoneFilter = keyWord;
-        writebdLog($scope.category, "_" + keyWord.replace('-',''), "渠道号", $scope.gh);//排序
+
+        if (keyWord.indexOf("-") === -1) {
+            $scope.singlePhones = $scope.singlePhones.sort(function (a, b) {
+                return b[keyWord] - a[keyWord];
+            });
+        } else {
+            $scope.singlePhones = $scope.singlePhones.sort(function (a, b) {
+                return a[keyWord.substring(1)] - b[keyWord.substring(1)];
+            });
+        }
+
+        /*console.log($scope.singlePhones[0].salePrice, $scope.singlePhones[0].activityproductId, $scope.singlePhones[0].commentNum);*/
+
+        $scope.dataInit();
+        writebdLog($scope.category, "_" + keyWord.replace('-', ''), "渠道号", $scope.gh);//排序
     };
 
     $scope.ftClose = function () {
@@ -2192,7 +2451,7 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
             effect: "fadeIn"
         });
     });
-    
+
 }]);
 "use strict";
 
@@ -2440,8 +2699,12 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
 
     $scope.$root.pageName = 'details';
 
-    $http.jsonp("http://m.yfq.cn/product/getProDetial.html?productId=" + $routeParams.phoneId + "&activeTag=ljzma&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
+    $http.jsonp(cfApi.apiHost + "/product/getProDetial.ht?productId=" + $routeParams.phoneId + "&activeTag=ljzma&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
         $scope.phone = data;
+
+        if ($scope.phone.phoneTypes[0].fullDescription) {
+            $scope.phone.phoneTypes[0].fullDescription = $scope.phone.phoneTypes[0].fullDescription.replace(/src=\"\/upload\//gi, 'src="http://cz.gd189fq.com/backend/upload/');
+        }
 
         //seo start
         $scope.$root.pageTitle = $scope.phone.phoneTypes[0].productName + "产品页-翼分期商城";
@@ -2459,6 +2722,22 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
          }*/
 
         $scope.payType = 0;
+
+        $scope.successUrl = "http://mall.yfq.cn/payState/B/phone";
+
+        /*$scope.$watch('payType', function (n, o, $scope) {
+            if (n !== o) {
+                if (n == 0) {//一次性
+                    $scope.successUrl = "http://app.yfq.cn/payState/11";
+                }
+                if (n == 1) {//货到付款
+                    $scope.successUrl = "http://app.yfq.cn/payState/12";
+                }
+                if (n == 2) {//分期
+                    $scope.successUrl = "http://app.yfq.cn/payState/10";
+                }
+            }
+        });*/
 
         $http.jsonp("http://cz.gd189fq.com/yfqcz/czInterfaceController.do?messageDetail&productId=" + $routeParams.phoneId + "&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
             $scope.feedbacks = data;
@@ -2516,7 +2795,7 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
         //window.location.href = 'http://' + window.location.host + '/phs/dj/A/' + flash.productId + window.location.search;
     };
 
-    $http.jsonp('http://m.yfq.cn/product/getProList.html?activeTag=ljzma&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
+    $http.jsonp(cfApi.apiHost + '/product/getProList.ht?activeTag=ljzma&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
         $scope.singlePhones = data;
     }).error(function (data, status, headers, config) {
         console.log(status);
@@ -2596,9 +2875,12 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
 
     $scope.$watch('productId', function (n, o, $scope) {
         if (n != o) {
-            $http.jsonp("http://m.yfq.cn/product/getProDetial.html?productId=" + n + "&activeTag=ljzma&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
+            $http.jsonp(cfApi.apiHost + "/product/getProDetial.ht?productId=" + n + "&activeTag=ljzma&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
                 $scope.phone = data;
 
+                if ($scope.phone.phoneTypes[0].fullDescription) {
+                    $scope.phone.phoneTypes[0].fullDescription = $scope.phone.phoneTypes[0].fullDescription.replace(/src=\"\/upload\//gi, 'src="http://cz.gd189fq.com/backend/upload/');
+                }
 
                 var _colors = data.phoneTypes[0].mediaProductList;
                 var _colorIndex = getIndex(data.phoneTypes[0].mediaProductList, "name", $scope.$root.mainColor.name);

@@ -599,7 +599,7 @@
     position: relative;
     .weixin {
       position: absolute;
-      bottom: 80px;
+      bottom: 0px;
       right: 30px;
     }
     p {
@@ -620,6 +620,12 @@
         height: 25px;
         background: #f00;
       }
+    }
+  }
+  .about-list {
+    margin: 0 -15px;
+    .about-box {
+      margin: 15px;
     }
   }
 }
@@ -904,13 +910,13 @@
   display: block;
   .modal-footer {
     .btn {
-      padding:6px 12px;
+      padding: 6px 12px;
       @include border-radius(4px);
       @include inline-block;
       background: #fff;
       color: #333;
       border: 1px solid #ccc;
-      margin-left:3px;
+      margin-left: 3px;
       margin-right: 3px;
       &.btn-primary {
         background-color: #337ab7;
@@ -928,11 +934,11 @@
     .order-pay {
       background: #fff;
       border-top: 2px solid #ccc;
-      @include box-shadow(3px 3px 3px #ccc,-3px 3px 3px #ccc);
+      @include box-shadow(3px 3px 3px #ccc, -3px 3px 3px #ccc);
       position: relative;
       h1.label {
         position: absolute;
-        top:20px;
+        top: 20px;
         left: 0;
       }
     }
@@ -954,9 +960,9 @@
       }
     }
     .pay-tabs {
-      margin:30px 0px 0px;
+      margin: 30px 0px 0px;
       .tab-content {
-        padding:30px;
+        padding: 30px;
         .pay-list {
           .mode-name {
             font-size: 16px;
@@ -966,7 +972,7 @@
             &.new-box {
               height: 80px;
               padding-left: 0;
-              border:none;
+              border: none;
               cursor: pointer;
               .pay-logo {
                 display: block;

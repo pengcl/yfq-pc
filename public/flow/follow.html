@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en" id="ng-app" ng-app="app" ng-controller="appController">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="utf-8">
+    <title>365领流量</title>
+    <meta name="keywords" content="{{pageKeywords}}">
+    <meta name="description"
+          content="传飞翼分期商城是中国电信唯一指定分期平台，提供手机、平板、笔记本、数码相机等3C类产品分期购物服务，分期购机价和手续费都是全网最低，上线至今赢得客户的一致好评与信赖！产品都是正品国行，分期手续便捷，还款方式灵活。咨询热线：020-85599918。"
+          ng-if="!pageDescription">
+    <meta name="description" content="{{pageDescription}}" ng-if="pageDescription">
+    <link rel="stylesheet" href="//cdn.bootcss.com/normalize/4.2.0/normalize.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="follow.css?2">
+    <!--<script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6cf88403be49ddf2999f1605a4740709";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>-->
+</head>
+<body class="flow" ng-cloak class="ng-cloak">
+<!--<script>
+    !(function(c,b,d,a){c[a]||(c[a]={});c[a].config={pid:"jaxuo2s4aj@5acf3ff8160165e"};
+        with(b)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("crossorigin","",src=d)
+    })(window,document,"https://retcode.alicdn.com/retcode/bl.js","__bl");
+</script>-->
+<div class="wrap">
+    <div class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="images/follow/logo.png">
+            </div>
+            <div class="hot-line">
+                咨询热线：020-85599918
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="container">
+            <h1 class="title">
+                <img src="images/follow/title.png">
+            </h1>
+            <div class="pure-g" style="margin-left: 100px;margin-right: 100px">
+                <div class="pure-u-7-12">
+                    <div class="follow">
+                        <div class="content">
+                            <ul class="item-list pure-g">
+                                <li class="item pure-u-1-3">
+                                    <div id="roulette-0" class="curr item-box">
+                                        <div class="pic">
+                                            <img src="images/follow/10M.png">
+                                        </div>
+                                        <div class="txt">10MB流量</div>
+                                    </div>
+                                </li>
+                                <li class="item pure-u-1-3">
+                                    <div id="roulette-1" class="item-box">
+                                        <div class="pic">
+                                            <img src="images/follow/3M.png">
+                                        </div>
+                                        <div class="txt">3MB流量</div>
+                                    </div>
+                                </li>
+                                <li class="item pure-u-1-3">
+                                    <div id="roulette-2" class="item-box">
+                                        <div class="pic">
+                                            <img src="images/follow/1M.png">
+                                        </div>
+                                        <div class="txt">1MB流量</div>
+                                    </div>
+                                </li>
+                                <li class="item pure-u-1-3">
+                                    <div id="roulette-7" class="item-box">
+                                        <div class="pic">
+                                            <img src="images/follow/2M.png">
+                                        </div>
+                                        <div class="txt">2MB流量</div>
+                                    </div>
+                                </li>
+                                <li class="item pure-u-1-3">
+                                    <div ng-click="start()" id="roulette-8" class="start item-box"></div>
+                                </li>
+                                <li class="item pure-u-1-3">
+                                    <div id="roulette-3" class="item-box">
+                                        <div class="pic">
+                                            <img src="images/follow/100M.png">
+                                        </div>
+                                        <div class="txt">100MB流量</div>
+                                    </div>
+                                </li>
+                                <li class="item pure-u-1-3">
+                                    <div id="roulette-6" class="item-box">
+                                        <div class="pic">
+                                            <img src="images/follow/20M.png">
+                                        </div>
+                                        <div class="txt">20MB流量</div>
+                                    </div>
+                                </li>
+                                <li class="item pure-u-1-3">
+                                    <div id="roulette-5" class="item-box">
+                                        <div class="pic">
+                                            <img src="images/follow/5M.png">
+                                        </div>
+                                        <div class="txt">5MB流量</div>
+                                    </div>
+                                </li>
+                                <li class="item pure-u-1-3">
+                                    <div id="roulette-4" class="item-box">
+                                        <div class="pic">
+                                            <img src="images/follow/30M.png">
+                                        </div>
+                                        <div class="txt">30MB流量</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="pure-u-5-12">
+                    <div class="lucky" style="margin-left: 45px">
+                        <div id="scrollDiv" class="lucky-people">
+                            <ul class="peoples">
+                                <li class="people">恭喜广东的朋友<span>成功抽中30MB流量！</span></li>
+                                <li class="people">恭喜北京的朋友<span>成功抽中100MB流量！</span></li>
+                                <li class="people">恭喜上海的朋友<span>成功抽中20MB流量！</span></li>
+                                <li class="people">恭喜重庆的朋友<span>成功抽中30MB流量！</span></li>
+                                <li class="people">恭喜深圳的朋友<span>成功抽中5MB流量！</span></li>
+                                <li class="people">恭喜重庆的朋友<span>成功抽中30MB流量！</span></li>
+                                <li class="people">恭喜上海的朋友<span>成功抽中100MB流量！</span></li>
+                                <li class="people">恭喜广东的朋友<span>成功抽中30MB流量！</span></li>
+                                <li class="people">恭喜北京的朋友<span>成功抽中10MB流量！</span></li>
+                                <li class="people">恭喜重庆的朋友<span>成功抽中20MB流量！</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="rule" style="margin-left: 45px">
+                        <div class="rule-list">
+                            <dl class="rule-txt">
+                                <dt>1.</dt>
+                                <dd>每位用户限抽一次，百分百中奖！</dd>
+                            </dl>
+                            <dl class="rule-txt">
+                                <dt>2.</dt>
+                                <dd>奖品为全国手机流量，三网通用的哦！</dd>
+                            </dl>
+                            <dl class="rule-txt">
+                                <dt>3.</dt>
+                                <dd>抽中的流量请关注公众号“365领流量”进行提取。流量多多，机会多多！</dd>
+                            </dl>
+                            <dl class="rule-txt">
+                                <dt>4.</dt>
+                                <dd>活动最终解释权由365领流量拥有</dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container">
+            <div class="links">
+                <span>友情链接：</span>
+                <a href="http://www.189.cn/" target="_blank">中国电信</a><span class="separate">|</span>
+                <a href="http://www.boc.cn/" target="_blank">中国银行</a><span class="separate">|</span>
+                <a href="http://www.ccb.com/" target="_blank">中国建设银行</a><span class="separate">|</span>
+                <a href="http://www.apple.com/" target="_blank">苹果官网</a><span class="separate">|</span>
+                <a href="http://www.huawei.com/" target="_blank">华为官网</a><span class="separate">|</span>
+                <a href="https://www.vivo.com.cn/" target="_blank">VIVO官网</a><span class="separate">|</span>
+                <a href="https://www.mi.com/" target="_blank">小米手机</a><span class="separate">|</span>
+                <a href="http://www.ifeng.com/" target="_blank">凤凰网</a><span class="separate">|</span>
+                <a href="http://www.ycwb.com/" target="_blank">金羊网</a>
+            </div>
+            <p>©2003-2017 广州传飞通讯设备有限公司 版权所有 <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank">粤ICP备13041721号-3</a></p>
+        </div>
+    </div>
+
+    <div class="mask" ng-if="award == true"></div>
+    <div class="dialog" ng-if="award == true">
+        <img src="images/follow/dialog.png">
+        <!--<span class="close" ng-click="close()">
+            <img src="images/follow/close.png">
+        </span>-->
+    </div>
+</div>
+<script src="//cdn.bootcss.com/json2/20160511/json2.min.js"></script>
+<script src="//cdn.bootcss.com/angular.js/1.2.19/angular.min.js"></script>
+<script src="//cdn.bootcss.com/angular.js/1.2.19/angular-cookies.min.js"></script>
+<script src="//cdn.bootcss.com/angular.js/1.2.19/angular-animate.min.js"></script>
+<script src="//apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
+<!--<script src="/bower_components/velocity/velocity.min.js"></script>-->
+<script>
+    var tampTime = new Date().getTime();
+    document.write("<script src='//mall.yfq.cn/components/apiConfig.js?" + tampTime + "'><\/script>");
+    document.write("<script src='follow.js?23" + tampTime + "'><\/script>");
+</script>
+
+<script>
+    (function ($) {
+        $.fn.extend({
+            Scroll: function (opt, callback) {
+                //参数初始化
+                if (!opt) var opt = {};
+                var _this = this.eq(0).find("ul:first");
+                var lineH = _this.find("li:first").height(), //获取行高
+                    line = opt.line ? parseInt(opt.line, 10) : parseInt(this.height() / lineH, 10), //每次滚动的行数，默认为一屏，即父容器高度
+                    speed = opt.speed ? parseInt(opt.speed, 10) : 500, //卷动速度，数值越大，速度越慢（毫秒）
+                    timer = opt.timer ? parseInt(opt.timer, 10) : 3000; //滚动的时间间隔（毫秒）
+                if (line == 0) line = 1;
+                var upHeight = 0 - line * lineH;
+                //滚动函数
+                scrollUp = function () {
+                    _this.animate({
+                        marginTop: upHeight
+                    }, speed, function () {
+                        for (i = 1; i <= line; i++) {
+                            _this.find("li:first").appendTo(_this);
+                        }
+                        _this.css({marginTop: 0});
+                    });
+                };
+                //鼠标事件绑定
+                _this.hover(function () {
+                    clearInterval(timerID);
+                }, function () {
+                    timerID = setInterval("scrollUp()", timer);
+                }).mouseout();
+            }
+        })
+    })(jQuery);
+    $(document).ready(function () {
+        $("#scrollDiv").Scroll({line: 1, speed: 2000, timer: 1000});
+    });
+</script>
+</body>
+</html>

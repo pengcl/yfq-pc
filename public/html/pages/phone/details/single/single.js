@@ -54,7 +54,7 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
 
         $scope.payType = 0;
 
-        $scope.successUrl = "http://testpc.yfq.cn/payState/B/phone";
+        $scope.successUrl = "http://mall.yfq.cn/payState/B/phone";
 
         /*$scope.$watch('payType', function (n, o, $scope) {
             if (n !== o) {

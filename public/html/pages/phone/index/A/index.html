@@ -4,6 +4,8 @@
     <div id="banner" class="owl-carousel">
         <a href="/phs/sg/{{pageType}}/456?gh={{gh}}&activity={{activity}}" ng-click="writeSelectFoods(this,456,'MYSY');"
            class="carousel-item item"><img src="/images/index/banner-1.jpg"></a>
+        <a href="/phs/sg/{{pageType}}/10000095429375?gh={{gh}}&activity={{activity}}" ng-click="writeSelectFoods(this,456,'MYSY');"
+           class="carousel-item item"><img src="/images/index/AGMX2.jpg"></a>
         <a href="/phs/sg/{{pageType}}/10000094272132?gh={{gh}}&activity={{activity}}" ng-click="writeSelectFoods(this,458,'MYSY');" has-hash="false"
            class="carousel-item item"><img
                 src="/images/index/banner-2.jpg"></a>
@@ -32,7 +34,7 @@
                         </a>
                     </div>
                     <div class="ad-4 ad-item">
-                        <a href="#" class="img-box">
+                        <a href="/phs/sg/{{pageType}}/460?gh={{gh}}&activity={{activity}}" class="img-box">
                             <img src="/images/index/ad-1-4.jpg">
                         </a>
                     </div>
@@ -65,7 +67,7 @@
                                             <del>原价：￥<span ng-bind="singlePhone.salePrice"></span></del>
                                         </p>-->
                                         <div class="price">
-                                            <em>￥</em><em ng-bind="singlePhone.salePrice * 0.95 | numberUp"></em>
+                                            <em>￥</em><em ng-bind="singlePhone.salePrice * singlePhone.discountRate | numberUp"></em>
                                         </div>
                                     </div>
                                     <span class="line-right"></span>
@@ -190,7 +192,7 @@
                         <div class="list-phone-box">
                             <ul class="product-list pure-g">
                                 <!-- 单机循环开始 -->
-                                <li ng-repeat="singlePhone in singlePhones | priceQuery : priceArea | limitTo:8"
+                                <li ng-repeat="singlePhone in singlePhones | orderBy: '-sortOrder' | priceQuery : priceArea | limitTo:8"
                                     class="pure-u-1-4"
                                     class="phone-listing">
                                     <div class="box{{$index + 1}} item-box">
@@ -211,7 +213,7 @@
                                             </p>
                                             <div class="price">
                                                 <em>￥</em><em
-                                                    ng-bind="singlePhone.salePrice * 0.95 | numberUp | number : 0"></em>
+                                                    ng-bind="singlePhone.salePrice * singlePhone.discountRate | numberUp | number : 0"></em>
                                             </div>
                                         </div>
                                     </div>
@@ -263,12 +265,12 @@
                                                     href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}?gh={{gh}}&activity={{activity}}"
                                                     ng-click="writeSelectFoods(this,singlePhone.activityproductId,'BKDJ');">{{singlePhone.productName}}</a><span>已售：{{phone.sold}}</span>
                                             </h3>
-                                            <p class="sub-title">
-                                                全场限时特惠9.5折
+                                            <p class="sub-title" ng-if="singlePhone.discountRate < 1">
+                                                全场限时特惠<span ng-bind="singlePhone.discountRate * 100"></span>折
                                             </p>
                                             <div class="price">
                                                 <em>￥</em><em
-                                                    ng-bind="singlePhone.salePrice * 0.95 | numberUp | number : 0"></em>
+                                                    ng-bind="singlePhone.salePrice * singlePhone.discountRate | numberUp | number : 0"></em>
                                             </div>
                                         </div>
                                     </div>
@@ -320,12 +322,12 @@
                                                     href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}?gh={{gh}}&activity={{activity}}"
                                                     ng-click="writeSelectFoods(this,singlePhone.activityproductId,'BKDJ');">{{singlePhone.productName}}</a><span>已售：{{phone.sold}}</span>
                                             </h3>
-                                            <p class="sub-title">
-                                                全场限时特惠9.5折
+                                            <p class="sub-title" ng-if="singlePhone.discountRate < 1">
+                                                全场限时特惠<span ng-bind="singlePhone.discountRate * 100"></span>折
                                             </p>
                                             <div class="price">
                                                 <em>￥</em><em
-                                                    ng-bind="singlePhone.salePrice * 0.95 | numberUp | number : 0"></em>
+                                                    ng-bind="singlePhone.salePrice * singlePhone.discountRate | numberUp | number : 0"></em>
                                             </div>
                                         </div>
                                     </div>
@@ -377,12 +379,12 @@
                                                     href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}?gh={{gh}}&activity={{activity}}"
                                                     ng-click="writeSelectFoods(this,singlePhone.activityproductId,'BKDJ');">{{singlePhone.productName}}</a><span>已售：{{phone.sold}}</span>
                                             </h3>
-                                            <p class="sub-title">
-                                                全场限时特惠9.5折
+                                            <p class="sub-title" ng-if="singlePhone.discountRate < 1">
+                                                全场限时特惠<span ng-bind="singlePhone.discountRate * 100"></span>折
                                             </p>
                                             <div class="price">
                                                 <em>￥</em><em
-                                                    ng-bind="singlePhone.salePrice * 0.95 | numberUp | number : 0"></em>
+                                                    ng-bind="singlePhone.salePrice * singlePhone.discountRate | numberUp | number : 0"></em>
                                             </div>
                                         </div>
                                     </div>
@@ -434,12 +436,12 @@
                                                     href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}?gh={{gh}}&activity={{activity}}"
                                                     ng-click="writeSelectFoods(this,singlePhone.activityproductId,'BKDJ');">{{singlePhone.productName}}</a><span>已售：{{phone.sold}}</span>
                                             </h3>
-                                            <p class="sub-title">
-                                                全场限时特惠9.5折
+                                            <p class="sub-title" ng-if="singlePhone.discountRate < 1">
+                                                全场限时特惠<span ng-bind="singlePhone.discountRate * 100"></span>折
                                             </p>
                                             <div class="price">
                                                 <em>￥</em><em
-                                                    ng-bind="singlePhone.salePrice * 0.95 | numberUp | number : 0"></em>
+                                                    ng-bind="singlePhone.salePrice * singlePhone.discountRate | numberUp | number : 0"></em>
                                             </div>
                                         </div>
                                     </div>
@@ -491,12 +493,12 @@
                                                     href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}?gh={{gh}}&activity={{activity}}"
                                                     ng-click="writeSelectFoods(this,singlePhone.activityproductId,'BKDJ');">{{singlePhone.productName}}</a><span>已售：{{phone.sold}}</span>
                                             </h3>
-                                            <p class="sub-title">
-                                                全场限时特惠9.5折
+                                            <p class="sub-title" ng-if="singlePhone.discountRate < 1">
+                                                全场限时特惠<span ng-bind="singlePhone.discountRate * 100"></span>折
                                             </p>
                                             <div class="price">
                                                 <em>￥</em><em
-                                                    ng-bind="singlePhone.salePrice * 0.95 | numberUp | number : 0"></em>
+                                                    ng-bind="singlePhone.salePrice * singlePhone.discountRate | numberUp | number : 0"></em>
                                             </div>
                                         </div>
                                     </div>

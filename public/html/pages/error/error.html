@@ -1,0 +1,59 @@
+<div class="main-index pay-state">
+    <div class="container">
+
+        <div class="msg-box" style="text-align: center;padding-top: 0">
+            <div class="msg-box-title"
+                 style="padding: 10px 30px;line-height: 30px;font-size: 18px;background: #fff1e7;color: #ff6700;border-bottom: 0;margin: 0 -30px;position: relative">
+                <ins style="position: absolute;left: 0;top: 0;width: 3px;background: #ff6700;height: 100%"></ins>
+                系统提示
+            </div>
+            <div class="msg-box-msg" style="padding-top: 50px;padding-bottom: 50px;padding-left: 130px">
+                <span class="msg-icon" style="left: 20px; top: 50%;margin-top: -40px">
+                    <img src="/images/error-icon.png">
+                </span>
+                <div class="msg-box-msg-txt" style="padding: 0;">
+                    <h2 style="font-size: 20px;line-height: 1em;font-weight: 400;margin-bottom: 10px">
+                        <span ng-bind="errorData.title" ng-if="errorStatus=='server'"></span>
+                    </h2>
+                    <p ng-bind="errorData.content"></p>
+                </div>
+            </div>
+            <div class="msg-box-desc">
+                <div class="img-box" style="width: 256px;height: 256px;margin: 30px auto 20px">
+                    <img src="/images/spc-qrcode.png">
+                </div>
+                <p style="text-align: center;font-size: 24px;color: #ff6700">扫码关注“翼分期商城”</p>
+            </div>
+
+            <a href="http://mall.yfq.cn/" class="button-secondary pure-button" style="margin-top: 30px;margin-bottom: 30px">逛逛手机商城</a>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade angular-modal in" id="myModalCredit" ng-show="tipsShow">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a class="close js-close btn" ng-click="tipsShow = false"
+                   href="javascript:;"><span>x</span></a>
+                <h4 class="modal-title">友情提示</h4>
+            </div>
+            <div class="modal-body">
+                <div class="body-content">
+                    <p ng-if="order.salesOrder.channelcode == 'etc_a_yypdf_01'">扫码关注"翼分期商城"，领取yypdf转换流量！</p>
+                    <p ng-if="order.salesOrder.channelcode != 'etc_a_yypdf_01'">优惠券需要扫描二维码才能领取哦！</p>
+                    <div style="width: 200px;margin: 15px auto;">
+                        <img src="/images/qrcode.jpg" style="display: block;width: 100%">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="{{returnUrl}}" ng-click="tipsShow = false" class="btn btn-default"
+                   data-dismiss="modal">返回下单页</a>
+                <a href="http://mall.yfq.cn" ng-click="tipsShow = false" class="btn btn-primary">看看新款手机</a>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
